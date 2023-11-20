@@ -9,7 +9,11 @@
     <meta property="og:title" content="Superficial Burly Dog" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js">
+    </script>
 
     <style data-tag="reset-style-sheet">
     html {
@@ -238,14 +242,19 @@
                                     <h3 class="home-text20">Antrian Tugas</h3>
                                     <div class="home-separator3"></div>
                                     <div class="home-container22">
-                                        <div class="home-feature-card08">
+                                        <div class="home-feature-card08" style="margin: auto">
                                             <div class="home-container23">
-                                                <h2 class="home-text21">Lorem ipsum</h2>
-                                                <span>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    In lorem lorem, malesuada in metus vitae, scelerisque
-                                                    accumsan ipsum.
-                                                </span>
+                                                <table id="queue_robot1">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 5%; text-align: center;">No</th>
+                                                            <th style="text-align: center;">Task</th>
+                                                            <th style="text-align: center;">Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -254,14 +263,19 @@
                                     <h3 class="home-text23">Antrian Tugas</h3>
                                     <div class="home-separator4"></div>
                                     <div class="home-container25">
-                                        <div class="home-feature-card09">
+                                        <div class="home-feature-card09" style="margin: auto">
                                             <div class="home-container26">
-                                                <h2 class="home-text24">Lorem ipsum</h2>
-                                                <span>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    In lorem lorem, malesuada in metus vitae, scelerisque
-                                                    accumsan ipsum.
-                                                </span>
+                                                <table id="queue_robot2">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 5%; text-align: center;">No</th>
+                                                            <th style="text-align: center;">Task</th>
+                                                            <th style="text-align: center;">Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -274,14 +288,24 @@
                                 <div class="home-separator5"></div>
                                 <div class="home-container29">
                                     <div class="home-container30">
-                                        <div class="home-feature-card10">
+                                        <div class="home-feature-card10" style="margin: auto">
                                             <div class="home-container31">
-                                                <h2 class="home-text27">Lorem ipsum</h2>
-                                                <span>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                    In lorem lorem, malesuada in metus vitae, scelerisque
-                                                    accumsan ipsum.
-                                                </span>
+                                                <table id="task">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 5%; text-align: center;">No</th>
+                                                            <th style="text-align: center;">Robot</th>
+                                                            <th style="text-align: center;">Status</th>
+                                                            <th style="text-align: center;">Task</th>
+                                                            <th style="text-align: center;">Task Reqwest</th>
+                                                            <th style="text-align: center;">Task Start</th>
+                                                            <th style="text-align: center;">Task Finish</th>
+                                                            <th style="text-align: center;">Robot Time Spent</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -293,6 +317,84 @@
             </div>
         </div>
     </div>
+    <script>
+    $(document).ready(function() {
+
+        var tasktabel = $('#task').DataTable({
+            language: {
+                search: "",
+                searchPlaceholder: "Search...",
+                lengthMenu: ' _MENU_',
+            },
+            columns: [{
+                    data: null,
+                    render: function(data, type, row, meta) {
+                        return meta.row + 1;
+                    },
+                    className: "text-center"
+                },
+                {
+                    data: 'agvId',
+                    className: "text-center"
+                },
+                {
+                    data: 'status',
+                    className: "text-center"
+                },
+                {
+                    data: 'defLabel',
+                    className: "text-center"
+                },
+                {
+                    data: 'createdOn',
+                    className: "text-center"
+                },
+                {
+                    data: 'firstExecutorTime',
+                    className: "text-center"
+                },
+                {
+                    data: 'endedOn',
+                    className: "text-center"
+                },
+                {
+                    data: 'executorTime',
+                    className: "text-center"
+                }
+            ]
+        });
+
+        var eventSource_task = new EventSource('task');
+        eventSource_task.onmessage = function(event) {
+            var data = JSON.parse(event.data);
+            update_task(data);
+        };
+
+        function update_task(data) {
+            tasktabel.clear().rows.add(data).draw();
+        }
+        $('#queue_robot1').DataTable({
+            language: {
+                search: "",
+                searchPlaceholder: "Search...",
+                lengthMenu: ' _MENU_',
+                info: false
+            }
+        });
+
+        $('#queue_robot2').DataTable({
+            language: {
+                search: "",
+                searchPlaceholder: "Search...",
+                lengthMenu: ' _MENU_',
+                info: false
+            }
+        });
+
+
+
+    });
+    </script>
 </body>
 
 </html>
