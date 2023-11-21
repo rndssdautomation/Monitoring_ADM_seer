@@ -594,8 +594,29 @@
                                             </div>
                                             <div class="col">
                                                 <div class="card">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 150px;"
-                                                        style="height: 150px;">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon red mb-2">
+                                                                    <i class="iconly-boldArrow---Right"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Battery
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0" id="robot2_battery">
+                                                                    98
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="card">
+                                                    <div class="card-body">
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
@@ -616,8 +637,7 @@
                                             </div>
                                             <div class="col">
                                                 <div class="card">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 150px;"
-                                                        style="height: 150px;">
+                                                    <div class="card-body">
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
@@ -630,72 +650,6 @@
                                                                     Map
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0" id="robot2_map">
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 150px;"
-                                                        style="height: 150px;">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon red mb-2">
-                                                                    <i class="iconly-boldArrow---Right"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Battery
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot2_battery">
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon orange mb-2">
-                                                                    <i class="iconly-boldLocation"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Group
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_group">
-                                                                    LPK
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon green mb-2">
-                                                                    <i class="iconly-boldSend"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Map
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_map">
-                                                                    ADM
                                                                 </h6>
                                                             </div>
                                                         </div>
