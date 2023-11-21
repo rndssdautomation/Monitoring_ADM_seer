@@ -70,9 +70,97 @@
         </header>
         <link rel="stylesheet" href="<?= base_url();?>/assets/vendors/iconly/bold.css">
         <div class="page-heading" style="margin: 25px">
-            <h3>Astra Daihatsu</h3>
+            <h3>Monitoring SEER ADM</h3>
             <div class="page-title">
                 <div class="row justify-content-between">
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>TASK LIST</h4>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-6 col-sm-12">
+                                        <div class="name ms-4 py-2">
+                                            <h3 class="font-extrabold mb-0" id="count_task_list"></h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
+                                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#infotasklist">
+                                            Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>DELIVERY FAILED</h4>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-6 col-sm-12">
+                                        <div class="name ms-4 py-2">
+                                            <h3 class="font-extrabold mb-0" id="count_task_failed"></h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
+                                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#infodeliveryfailed">
+                                            Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>DELIVERY SUCCESS</h4>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-6 col-sm-12">
+                                        <div class="name ms-4 py-2">
+                                            <h3 class="font-extrabold mb-0" id="count_task_success"></h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
+                                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#infodeliverysuccess">
+                                            Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>HISTORY TASK</h4>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-6 col-sm-12">
+                                        <div class="name ms-4 py-2">
+                                            <h3 class="font-extrabold mb-0" id="count_task_history"></h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
+                                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#infohistorytask">
+                                            Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,7 +173,7 @@
                                 <section class="row">
                                     <div class="col-12 col-md-12 col-lg-12">
                                         <div class="row">
-                                            <div class="col-6 col-lg-2 col-md-6">
+                                            <div class="col-6 col-lg-3 col-md-6">
                                                 <div class="card">
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
@@ -98,17 +186,16 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    Status
+                                                                    Robot
                                                                 </h6>
-                                                                <select class="form-select font-extrabold"
-                                                                    id="robot_select">
-                                                                </select>
+                                                                <h6 class="font-extrabold mb-0 " id="robot1_name">
+                                                                </h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-lg-2 col-md-6">
+                                            <div class="col-6 col-lg-3 col-md-6">
                                                 <div class="card">
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
@@ -121,16 +208,17 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    Status
+                                                                    Destination Task
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="status_robot">
+                                                                <h6 class="font-extrabold mb-0 "
+                                                                    id="robot1_destination">
                                                                 </h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-lg-2 col-md-6">
+                                            <div class="col-6 col-lg-3 col-md-6">
                                                 <div class="card">
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
@@ -143,16 +231,16 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    saat ini
+                                                                    Next Task
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="location_curent">
+                                                                <h6 class="font-extrabold mb-0" id="robot1_next">
                                                                 </h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-lg-2 col-md-6">
+                                            <div class="col-6 col-lg-3 col-md-6">
                                                 <div class="card">
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
@@ -165,52 +253,9 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    tujuan
+                                                                    Remaining Queue
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="destination_task">
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-lg-2 col-md-6">
-                                                <div class="card">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 150px;"
-                                                        style="height: 150px;">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon red mb-2">
-                                                                    <i class="iconly-boldArrow---Right"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    tugas selanjut nya
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0" id="next_task"></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-lg-2 col-md-6">
-                                                <div class="card">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 150px;"
-                                                        style="height: 150px;">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon purple mb-2 ">
-                                                                    <i class="iconly-boldDocument"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    sisa tugas
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="count_task_queue">
+                                                                <h6 class="font-extrabold mb-0" id="robot1_remaining">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -236,9 +281,8 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Status
                                                                 </h6>
-                                                                <select class="form-select font-extrabold"
-                                                                    id="robot_select">
-                                                                </select>
+                                                                <h6 class="font-extrabold mb-0 " id="robot1_status">
+                                                                </h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -257,9 +301,9 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    Status
+                                                                    Current Location
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="status_robot">
+                                                                <h6 class="font-extrabold mb-0 " id="robot1_current">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -279,9 +323,9 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    saat ini
+                                                                    Group
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="location_curent">
+                                                                <h6 class="font-extrabold mb-0" id="robot1_group">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -301,9 +345,9 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    tujuan
+                                                                    Map
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="destination_task">
+                                                                <h6 class="font-extrabold mb-0" id="robot1_map">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -323,9 +367,10 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    tugas selanjut nya
+                                                                    Battery
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="next_task"></h6>
+                                                                <h6 class="font-extrabold mb-0" id="robot1_battery">
+                                                                </h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -344,9 +389,9 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    sisa tugas
+                                                                    Charging
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="count_task_queue">
+                                                                <h6 class="font-extrabold mb-0 " id="robot1_charging">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -360,180 +405,16 @@
                                             <div class="col-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h4>queue antrian</h4>
+                                                        <h4>TASK QUEUING LIST</h4>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="container my-4"
                                                             style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                                             <p></p>
-                                                            <table class="table my-2" id="table_queue">
+                                                            <table class="table my-2" id="table_queue_robot1">
                                                             </table>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4>STATUS ROBOT</h4>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <div class="container my-4"
-                                                            style=" overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px;  padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                                            <p>
-                                                            </p>
-                                                            <table class="table my-2" id="robot_list">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th style="width: 5%; text-align: center;">No
-                                                                        </th>
-                                                                        <th style="text-align: center;"></th>
-                                                                        <th style="text-align: center;"></th>
-                                                                        <th style="text-align: center;"></th>
-                                                                        <th style="text-align: center;"></th>
-                                                                        <th style="text-align: center;"></th>
-                                                                        <th style="text-align: center;"></th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Modal Info Total Task-->
-                                    <div class="modal fade" id="infotasklist" tabindex="-1" aria-labelledby="InfoLabel"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">task List</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="container">
-                                                        <table class="table my-2" id="task_data">
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Akhir Modal Info Total Task-->
-                                    <!-- Modal Info Delivery Failed-->
-                                    <div class="modal fade" id="infodeliveryfailed" tabindex="-1"
-                                        aria-labelledby="InfoLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">gagal </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="container" style="overflow-x: auto;">
-                                                        <table class="table my-2" id="table_failed">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="width: 5%; text-align: center;">No</th>
-                                                                    <th style="text-align: center;">tugas</th>
-                                                                    <th style="text-align: center;">robot</th>
-                                                                    <th style="text-align: center;">Status</th>
-                                                                    <th style="text-align: center;">mulai</th>
-                                                                    <th style="text-align: center;">akhir</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Akhir Modal Delivery Failed-->
-                                    <!-- Modal Info Delivery Success-->
-                                    <div class="modal fade" id="infodeliverysuccess" tabindex="-1"
-                                        aria-labelledby="InfoLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">berhasil </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="container" style="overflow-x: auto;">
-                                                        <table class="table my-2" id="table_success">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="width: 5%; text-align: center;">No</th>
-                                                                    <th style="text-align: center;">tugas</th>
-                                                                    <th style="text-align: center;">robot</th>
-                                                                    <th style="text-align: center;">Status</th>
-                                                                    <th style="text-align: center;">mulai</th>
-                                                                    <th style="text-align: center;">akhir</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Akhir Modal Delivery Success-->
-                                    <!-- Modal Info History Task-->
-                                    <div class="modal fade" id="infohistorytask" tabindex="-1"
-                                        aria-labelledby="InfoLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl ">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">task </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="container" style="overflow-x: auto;">
-                                                        <table class="table my-2" id="table_history">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="width: 5%; text-align: center;">No</th>
-                                                                    <th style="text-align: center;">tugas</th>
-                                                                    <th style="text-align: center;">robot</th>
-                                                                    <th style="text-align: center;">Status</th>
-                                                                    <th style="text-align: center;">mulai</th>
-                                                                    <th style="text-align: center;">akhir</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">close</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -550,7 +431,119 @@
                                 <section class="row">
                                     <div class="col-12 col-md-12 col-lg-12">
                                         <div class="row">
-                                            <div class="col-6 col-lg-2 col-md-6">
+                                            <div class="col-6 col-lg-3 col-md-6">
+                                                <div class="card">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 150px;"
+                                                        style="height: 150px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon blue mb-2">
+                                                                    <i class="iconly-boldUser"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Robot
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_name">
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-lg-3 col-md-6">
+                                                <div class="card">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 150px;"
+                                                        style="height: 150px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon pink mb-2">
+                                                                    <i class="iconly-boldCategory"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Destination Task
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0 "
+                                                                    id="robot1_destination">
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-lg-3 col-md-6">
+                                                <div class="card">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 150px;"
+                                                        style="height: 150px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon orange mb-2">
+                                                                    <i class="iconly-boldLocation"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Next Task
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0" id="robot2_next">
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-lg-3 col-md-6">
+                                                <div class="card">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 150px;"
+                                                        style="height: 150px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon green mb-2">
+                                                                    <i class="iconly-boldSend"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Remaining Queue
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0" id="robot2_remaining">
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-9 ">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4>TASK QUEUING LIST</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="container my-4"
+                                                            style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                            <p></p>
+                                                            <table class="table my-2" id="table_queue_robot2">
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3">
+                                        <div class="col">
+                                            <div class="col">
                                                 <div class="card">
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
@@ -565,15 +558,14 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Status
                                                                 </h6>
-                                                                <select class="form-select font-extrabold"
-                                                                    id="robot_select">
-                                                                </select>
+                                                                <h6 class="font-extrabold mb-0 " id="robot1_status">
+                                                                </h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-lg-2 col-md-6">
+                                            <div class="col">
                                                 <div class="card">
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
@@ -586,16 +578,16 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    Status
+                                                                    Current Location
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="status_robot">
+                                                                <h6 class="font-extrabold mb-0 " id="robot1_current">
                                                                 </h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-lg-2 col-md-6">
+                                            <div class="col">
                                                 <div class="card">
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
@@ -608,16 +600,16 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    saat ini
+                                                                    Group
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="location_curent">
+                                                                <h6 class="font-extrabold mb-0" id="robot1_group">
                                                                 </h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-lg-2 col-md-6">
+                                            <div class="col">
                                                 <div class="card">
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
@@ -630,16 +622,16 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    tujuan
+                                                                    Map
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="destination_task">
+                                                                <h6 class="font-extrabold mb-0" id="robot1_map">
                                                                 </h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-lg-2 col-md-6">
+                                            <div class="col">
                                                 <div class="card">
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
@@ -652,15 +644,16 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    tugas selanjut nya
+                                                                    Battery
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="next_task"></h6>
+                                                                <h6 class="font-extrabold mb-0" id="robot1_battery">
+                                                                </h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-lg-2 col-md-6">
+                                            <div class="col">
                                                 <div class="card">
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
@@ -673,276 +666,13 @@
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
                                                                 <h6 class="text-muted font-semibold">
-                                                                    sisa tugas
+                                                                    Charging
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="count_task_queue">
+                                                                <h6 class="font-extrabold mb-0 " id="robot1_charging">
                                                                 </h6>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-9 ">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4>queue antrian</h4>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <div class="container my-4"
-                                                            style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                                            <p></p>
-                                                            <table class="table my-2" id="table_queue">
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4>STATUS ROBOT</h4>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <div class="container my-4"
-                                                            style=" overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px;  padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                                            <p>
-                                                            </p>
-                                                            <table class="table my-2" id="robot_list">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th style="width: 5%; text-align: center;">No
-                                                                        </th>
-                                                                        <th style="text-align: center;"></th>
-                                                                        <th style="text-align: center;"></th>
-                                                                        <th style="text-align: center;"></th>
-                                                                        <th style="text-align: center;"></th>
-                                                                        <th style="text-align: center;"></th>
-                                                                        <th style="text-align: center;"></th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-3">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4>Tasklist</h4>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-lg-8 col-md-6 col-sm-12">
-                                                        <div class="name ms-4 py-2">
-                                                            <h3 class="font-extrabold mb-0" id="count_task_list"></h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                            data-bs-toggle="modal" data-bs-target="#infotasklist">
-                                                            info
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4>task</h4>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-lg-8 col-md-6 col-sm-12">
-                                                        <div class="name ms-4 py-2">
-                                                            <h3 class="font-extrabold mb-0" id="count_task_failed"></h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                            data-bs-toggle="modal" data-bs-target="#infodeliveryfailed">
-                                                            task
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4>task</h4>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-lg-8 col-md-6 col-sm-12">
-                                                        <div class="name ms-4 py-2">
-                                                            <h3 class="font-extrabold mb-0" id="count_task_success">
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#infodeliverysuccess">
-                                                            task
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4>histori</h4>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-lg-8 col-md-6 col-sm-12">
-                                                        <div class="name ms-4 py-2">
-                                                            <h3 class="font-extrabold mb-0" id="count_task_history">
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                            data-bs-toggle="modal" data-bs-target="#infohistorytask">
-                                                            task
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Modal Info Total Task-->
-                                    <div class="modal fade" id="infotasklist" tabindex="-1" aria-labelledby="InfoLabel"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">task List</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="container">
-                                                        <table class="table my-2" id="task_data">
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Akhir Modal Info Total Task-->
-                                    <!-- Modal Info Delivery Failed-->
-                                    <div class="modal fade" id="infodeliveryfailed" tabindex="-1"
-                                        aria-labelledby="InfoLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">gagal </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="container" style="overflow-x: auto;">
-                                                        <table class="table my-2" id="table_failed">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="width: 5%; text-align: center;">No</th>
-                                                                    <th style="text-align: center;">tugas</th>
-                                                                    <th style="text-align: center;">robot</th>
-                                                                    <th style="text-align: center;">Status</th>
-                                                                    <th style="text-align: center;">mulai</th>
-                                                                    <th style="text-align: center;">akhir</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Akhir Modal Delivery Failed-->
-                                    <!-- Modal Info Delivery Success-->
-                                    <div class="modal fade" id="infodeliverysuccess" tabindex="-1"
-                                        aria-labelledby="InfoLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">berhasil </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="container" style="overflow-x: auto;">
-                                                        <table class="table my-2" id="table_success">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="width: 5%; text-align: center;">No</th>
-                                                                    <th style="text-align: center;">tugas</th>
-                                                                    <th style="text-align: center;">robot</th>
-                                                                    <th style="text-align: center;">Status</th>
-                                                                    <th style="text-align: center;">mulai</th>
-                                                                    <th style="text-align: center;">akhir</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Akhir Modal Delivery Success-->
-                                    <!-- Modal Info History Task-->
-                                    <div class="modal fade" id="infohistorytask" tabindex="-1"
-                                        aria-labelledby="InfoLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl ">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">task </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="container" style="overflow-x: auto;">
-                                                        <table class="table my-2" id="table_history">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="width: 5%; text-align: center;">No</th>
-                                                                    <th style="text-align: center;">tugas</th>
-                                                                    <th style="text-align: center;">robot</th>
-                                                                    <th style="text-align: center;">Status</th>
-                                                                    <th style="text-align: center;">mulai</th>
-                                                                    <th style="text-align: center;">akhir</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">close</button>
                                                 </div>
                                             </div>
                                         </div>
