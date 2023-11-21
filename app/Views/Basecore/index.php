@@ -166,6 +166,7 @@
         </div>
         <div class="col">
             <div class="row">
+                <!-- AWAL ROBOT 1 -->
                 <div style="width:50%">
                     <div class="container">
                         <div class="row">
@@ -424,6 +425,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- AWAL ROBOT 2 -->
                 <div style="width:50%">
                     <div class="container">
                         <div class="row">
@@ -469,7 +471,7 @@
                                                                     Destination Task
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0 "
-                                                                    id="robot1_destination">
+                                                                    id="robot2_destination">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -558,7 +560,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Status
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot1_status">
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_status">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -580,7 +582,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Current Location
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot1_current">
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_current">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -602,7 +604,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Group
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_group">
+                                                                <h6 class="font-extrabold mb-0" id="robot2_group">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -624,7 +626,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Map
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_map">
+                                                                <h6 class="font-extrabold mb-0" id="robot2_map">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -646,7 +648,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Battery
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_battery">
+                                                                <h6 class="font-extrabold mb-0" id="robot2_battery">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -668,7 +670,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Charging
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot1_charging">
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_charging">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -685,12 +687,295 @@
             </div>
         </div>
     </div>
+    <!-- Modal Info List Task-->
+    <div class="modal fade" id="infotasklist" tabindex="-1" aria-labelledby="InfoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Task List</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <table class="table my-2" id="table_list">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%; text-align: center;">No</th>
+                                    <th style="text-align: center;">Task</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Modal Info List Task-->
+
+    <!-- Modal Info Delivery Failed-->
+    <div class="modal fade" id="infodeliveryfailed" tabindex="-1" aria-labelledby="InfoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delivery Failed</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container" style="overflow-x: auto;">
+                        <table class="table my-2" id="table_failed">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%; text-align: center;">No</th>
+                                    <th style="text-align: center;">Task</th>
+                                    <th style="text-align: center;">Robot</th>
+                                    <th style="text-align: center;">Status</th>
+                                    <th style="text-align: center;">Created On</th>
+                                    <th style="text-align: center;">Ended On</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Modal Delivery Failed-->
+
+    <!-- Modal Info Delivery Success-->
+    <div class="modal fade" id="infodeliverysuccess" tabindex="-1" aria-labelledby="InfoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delivery Success</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container" style="overflow-x: auto;">
+                        <table class="table my-2" id="table_success">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%; text-align: center;">No</th>
+                                    <th style="text-align: center;">Task</th>
+                                    <th style="text-align: center;">Robot</th>
+                                    <th style="text-align: center;">Status</th>
+                                    <th style="text-align: center;">Created On</th>
+                                    <th style="text-align: center;">Ended On</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Modal Delivery Success-->
+
+    <!-- Modal Info History Task-->
+    <div class="modal fade" id="infohistorytask" tabindex="-1" aria-labelledby="InfoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">History Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container" style="overflow-x: auto;">
+                        <table class="table my-2" id="table_history">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%; text-align: center;">No</th>
+                                    <th style="text-align: center;">Task</th>
+                                    <th style="text-align: center;">Robot</th>
+                                    <th style="text-align: center;">Status</th>
+                                    <th style="text-align: center;">Created On</th>
+                                    <th style="text-align: center;">Ended On</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Modal History Task-->
+
+    <!-- JAVASCRIPT -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>/assets/css/jquery.dataTables.min.css">
     <script type="text/javascript" src="<?= base_url();?>/assets/js/jquery.dataTables.min.js"></script>
-    </div>
     <script src="<?= base_url();?>/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="<?= base_url();?>/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url();?>/assets/js/main.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Function Task List
+        function getListData() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_list_task'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('#table_list tbody').empty();
+                    $.each(data.data, function(index, item) {
+                        var row = "<tr>" +
+                            "<td class='text-center'>" + (index + 1) + "</td>" +
+                            "<td class='text-center'>" + item.task + "</td>" +
+                            "</tr>";
+
+                        $('#table_list tbody').append(row);
+                    });
+                    $('#table_list').DataTable();
+                    setTimeout(getListData, 5000);
+                    var list_count = data.data.length;
+                    $('#count_task_list').html(list_count);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        }
+        getListData();
+
+        // Function Task Failed
+        function getFailedData() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_data_delivery_failed'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('#table_failed tbody').empty();
+                    $.each(data.data, function(index, item) {
+                        var row = "<tr>" +
+                            "<td class='text-center'>" + (index + 1) + "</td>" +
+                            "<td class='text-center'>" + item.task_failed + "</td>" +
+                            "<td class='text-center'>" + item.robot_failed + "</td>" +
+                            "<td class='text-center'>" + item.status_failed + "</td>" +
+                            "<td class='text-center'>" + item.creat_failed + "</td>" +
+                            "<td class='text-center'>" + item.end_failed + "</td>" +
+                            "</tr>";
+
+                        $('#table_failed tbody').append(row);
+                    });
+                    $('#table_failed').DataTable();
+                    setTimeout(getFailedData, 5000);
+                    var failed_count = data.data.length;
+                    $('#count_task_failed').html(failed_count);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        }
+        getFailedData();
+
+        // Function Task Success
+        function getSuccessData() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_data_delivery_success'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('#table_success tbody').empty();
+                    $.each(data.data, function(index, item) {
+                        var row = "<tr>" +
+                            "<td class='text-center'>" + (index + 1) + "</td>" +
+                            "<td class='text-center'>" + item.task_success + "</td>" +
+                            "<td class='text-center'>" + item.robot_success + "</td>" +
+                            "<td class='text-center'>" + item.status_success + "</td>" +
+                            "<td class='text-center'>" + item.creat_success + "</td>" +
+                            "<td class='text-center'>" + item.end_success + "</td>" +
+                            "</tr>";
+
+                        $('#table_success tbody').append(row);
+                    });
+                    $('#table_success').DataTable();
+                    setTimeout(getSuccessData, 5000);
+                    var success_count = data.data.length;
+                    $('#count_task_success').html(success_count);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        }
+        getSuccessData();
+    });
+    </script>
+    <!-- <script>
+    $(document).ready(function() {
+
+        //---------task success---------
+
+        var task_success = $('#table_success').DataTable({
+            columns: [{
+                    data: null,
+                    render: 'meta.row+1',
+                    className: "text-center"
+                },
+                {
+                    data: 'task_success',
+                    className: "text-center"
+                },
+                {
+                    data: 'robot_success',
+                    className: "text-center"
+                },
+                {
+                    data: 'status_success',
+                    className: "text-center"
+                },
+                {
+                    data: 'creat_success',
+                    className: "text-center"
+                },
+                {
+                    data: 'end_success',
+                    className: "text-center"
+                }
+            ],
+            "keys": true,
+        });
+        //Function task success
+        function taskdatasuccess() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_data_delivery_success'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    task_success.clear().rows.add(data.data).draw();
+                    setTimeout(taskdatasuccess, 5000);
+                    var success_count = data.data.length;
+                    $('#count_task_success').html(success_count);
+                }
+            });
+        }
+        taskdatasuccess();
+
+    });
+    </script> -->
 </body>
 
 </html>
