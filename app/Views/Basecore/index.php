@@ -475,12 +475,7 @@
                                                                     Destination
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0 "
-<<<<<<< HEAD
-                                                                    id="robot1_destination">
-                                                                    AP34
-=======
                                                                     id="robot2_destination">
->>>>>>> f905c8a3986a3b8a9be9e041586b04b0b248c90e
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -569,12 +564,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Status
                                                                 </h6>
-<<<<<<< HEAD
-                                                                <h6 class="font-extrabold mb-0 " id="robot1_status">
-                                                                    running
-=======
                                                                 <h6 class="font-extrabold mb-0 " id="robot2_status">
->>>>>>> f905c8a3986a3b8a9be9e041586b04b0b248c90e
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -595,12 +585,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Location
                                                                 </h6>
-<<<<<<< HEAD
-                                                                <h6 class="font-extrabold mb-0 " id="robot1_current">
-                                                                    AP12
-=======
                                                                 <h6 class="font-extrabold mb-0 " id="robot2_current">
->>>>>>> f905c8a3986a3b8a9be9e041586b04b0b248c90e
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -609,9 +594,6 @@
                                             </div>
                                             <div class="col">
                                                 <div class="card">
-<<<<<<< HEAD
-                                                    <div class="card-body">
-=======
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
                                                         <div class="row">
@@ -658,7 +640,6 @@
                                                 <div class="card">
                                                     <div class="card-body px-4 py-4-5" style="min-height: 150px;"
                                                         style="height: 150px;">
->>>>>>> f905c8a3986a3b8a9be9e041586b04b0b248c90e
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
@@ -670,12 +651,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Battery
                                                                 </h6>
-<<<<<<< HEAD
-                                                                <h6 class="font-extrabold mb-0" id="robot1_battery">
-                                                                    98
-=======
                                                                 <h6 class="font-extrabold mb-0" id="robot2_battery">
->>>>>>> f905c8a3986a3b8a9be9e041586b04b0b248c90e
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -740,12 +716,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Charging
                                                                 </h6>
-<<<<<<< HEAD
-                                                                <h6 class="font-extrabold mb-0 " id="robot1_charging">
-                                                                    false
-=======
                                                                 <h6 class="font-extrabold mb-0 " id="robot2_charging">
->>>>>>> f905c8a3986a3b8a9be9e041586b04b0b248c90e
                                                                 </h6>
                                                             </div>
                                                         </div>
