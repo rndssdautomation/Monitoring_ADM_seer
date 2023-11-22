@@ -224,7 +224,7 @@
                                                                     Robot
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0 " id="robot1_name">
-                                                                    AF-01
+                                                                    <!-- AF-01 -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -248,7 +248,7 @@
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0 "
                                                                     id="robot1_destination">
-                                                                    AP34
+                                                                    <!-- AP34 -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -271,7 +271,7 @@
                                                                     Next Task
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0" id="robot1_next">
-                                                                    ProductCTCB2
+                                                                    <!-- ProductCTCB2 -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -293,7 +293,7 @@
                                                                 <h6 class="text-muted font-semibold"> Queue
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0" id="robot1_remaining">
-                                                                    23
+                                                                    <!-- 23 -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -319,7 +319,7 @@
                                                                     Status
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0 " id="robot1_status">
-                                                                    running
+                                                                    <!-- running -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -341,7 +341,7 @@
                                                                     Location
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0 " id="robot1_current">
-                                                                    AP12
+                                                                    <!-- AP12 -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -363,7 +363,7 @@
                                                                     Battery
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0" id="robot1_battery">
-                                                                    98
+                                                                    <!-- 98 -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -385,7 +385,7 @@
                                                                     Charging
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0 " id="robot1_charging">
-                                                                    false
+                                                                    <!-- false -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -406,6 +406,19 @@
                                                             style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                                             <p></p>
                                                             <table class="table my-2" id="table_queue_robot1">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="width: 5%; text-align: center;">No
+                                                                        </th>
+                                                                        <th style="text-align: center;">Task</th>
+                                                                        <th style="text-align: center;">Status</th>
+                                                                        <th style="text-align: center;">Created On</th>
+                                                                        <th style="text-align: center;">Ended On</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -441,8 +454,8 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Robot
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot1_name">
-                                                                    AF-01
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_name">
+                                                                    <!-- AF-01 -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -487,8 +500,8 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Next Task
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_next">
-                                                                    ProductCTCB2
+                                                                <h6 class="font-extrabold mb-0" id="robot2_next">
+                                                                    <!-- ProductCTCB2 -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -509,8 +522,8 @@
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
                                                                 <h6 class="text-muted font-semibold"> Queue
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_remaining">
-                                                                    23
+                                                                <h6 class="font-extrabold mb-0" id="robot2_remaining">
+                                                                    <!-- 23 -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -531,6 +544,19 @@
                                                             style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                                             <p></p>
                                                             <table class="table my-2" id="table_queue_robot2">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="width: 5%; text-align: center;">No
+                                                                        </th>
+                                                                        <th style="text-align: center;">Task</th>
+                                                                        <th style="text-align: center;">Status</th>
+                                                                        <th style="text-align: center;">Created On</th>
+                                                                        <th style="text-align: center;">Ended On</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
@@ -597,7 +623,7 @@
                                                                     Battery
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0" id="robot2_battery">
-                                                                    98
+                                                                    <!-- 98 -->
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -870,60 +896,137 @@
             });
         }
         getSuccessData();
-    });
-    </script>
-    <!-- <script>
-    $(document).ready(function() {
 
-        //---------task success---------
-
-        var task_success = $('#table_success').DataTable({
-            columns: [{
-                    data: null,
-                    render: 'meta.row+1',
-                    className: "text-center"
-                },
-                {
-                    data: 'task_success',
-                    className: "text-center"
-                },
-                {
-                    data: 'robot_success',
-                    className: "text-center"
-                },
-                {
-                    data: 'status_success',
-                    className: "text-center"
-                },
-                {
-                    data: 'creat_success',
-                    className: "text-center"
-                },
-                {
-                    data: 'end_success',
-                    className: "text-center"
-                }
-            ],
-            "keys": true,
-        });
-        //Function task success
-        function taskdatasuccess() {
+        // Function Task History
+        function getHistoryData() {
             $.ajax({
-                url: "<?php echo base_url('get_api_data_delivery_success'); ?>",
+                url: "<?php echo base_url('get_api_data_history_task'); ?>",
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
-                    task_success.clear().rows.add(data.data).draw();
-                    setTimeout(taskdatasuccess, 5000);
-                    var success_count = data.data.length;
-                    $('#count_task_success').html(success_count);
+                    $('#table_history tbody').empty();
+                    $.each(data.data, function(index, item) {
+                        var row = "<tr>" +
+                            "<td class='text-center'>" + (index + 1) + "</td>" +
+                            "<td class='text-center'>" + item.task_history + "</td>" +
+                            "<td class='text-center'>" + item.robot_history + "</td>" +
+                            "<td class='text-center'>" + item.status_history + "</td>" +
+                            "<td class='text-center'>" + item.creat_history + "</td>" +
+                            "<td class='text-center'>" + item.end_history + "</td>" +
+                            "</tr>";
+
+                        $('#table_history tbody').append(row);
+                    });
+                    $('#table_history').DataTable();
+                    setTimeout(getHistoryData, 5000);
+                    var history_count = data.data.length;
+                    $('#count_task_history').html(history_count);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
                 }
             });
         }
-        taskdatasuccess();
+        getHistoryData();
 
+        // DATA STATUS ROBOT
+        function getStatusRobot() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_data_status_robot'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    var robots = data.data;
+                    if (robots.length > 0) {
+                        for (var i = 0; i < robots.length; i++) {
+                            var robot = robots[i];
+                            $('#robot' + (i + 1) + '_name').html(robot.info_robot);
+                            $('#robot' + (i + 1) + '_destination').html(robot
+                                .location_target);
+                            $('#robot' + (i + 1) + '_next').html(robot.curent_task_before);
+                            $('#robot' + (i + 1) + '_remaining').html(robot.remaining);
+                            $('#robot' + (i + 1) + '_status').html(robot.data_curent_task);
+                            $('#robot' + (i + 1) + '_current').html(robot.location_curent);
+                            $('#robot' + (i + 1) + '_battery').html(robot
+                                .status_batterylevel);
+                            $('#robot' + (i + 1) + '_charging').html(robot.status_charging ?
+                                'Charging' : 'Not Charging');
+                            $('#robot' + (i + 1) + '_map').html(robot.status_status_map);
+                            $('#robot' + (i + 1) + '_group').html(robot.status_group_agv);
+                        }
+
+                        setTimeout(getStatusRobot, 5000);
+                    } else {
+                        console.log("No robots found");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        }
+        getStatusRobot();
+
+        // Function Queue Robot 1
+        function getQueueRobot1Data() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_data_queue_robot1'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('#table_queue_robot1 tbody').empty();
+                    $.each(data.data, function(index, item) {
+                        var row = "<tr>" +
+                            "<td class='text-center'>" + (index + 1) + "</td>" +
+                            "<td class='text-center'>" + item.task + "</td>" +
+                            "<td class='text-center'>" + item.status + "</td>" +
+                            "<td class='text-center'>" + item.creat + "</td>" +
+                            "<td class='text-center'>" + item.end + "</td>" +
+                            "</tr>";
+
+                        $('#table_queue_robot1 tbody').append(row);
+                    });
+                    $('#table_queue_robot1').DataTable();
+                    setTimeout(getQueueRobot1Data, 5000);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        }
+        getQueueRobot1Data();
+
+
+        // Function Queue Robot 2
+        function getQueueRobot2Data() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_data_queue_robot2'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('#table_queue_robot2 tbody').empty();
+                    $.each(data.data, function(index, item) {
+                        var row = "<tr>" +
+                            "<td class='text-center'>" + (index + 1) + "</td>" +
+                            "<td class='text-center'>" + item.task + "</td>" +
+                            "<td class='text-center'>" + item.status + "</td>" +
+                            "<td class='text-center'>" + item.creat + "</td>" +
+                            "<td class='text-center'>" + item.end + "</td>" +
+                            "</tr>";
+
+                        $('#table_queue_robot2 tbody').append(row);
+                    });
+                    $('#table_queue_robot2').DataTable();
+                    setTimeout(getQueueRobot2Data, 5000);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        }
+        getQueueRobot2Data();
     });
-    </script> -->
+    </script>
 </body>
 
 </html>
