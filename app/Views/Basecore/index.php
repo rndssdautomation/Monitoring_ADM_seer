@@ -399,7 +399,7 @@
                                             <div class="col-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h4>TASK QUEUING LIST</h4>
+                                                        <h4>TASK QUEUING LIST ROBOT 1</h4>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="container my-4"
@@ -537,7 +537,7 @@
                                             <div class="col-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h4>TASK QUEUING LIST</h4>
+                                                        <h4>TASK QUEUING LIST ROBOT 2</h4>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="container my-4"
@@ -974,17 +974,23 @@
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
+                    var desiredTasks = ["ProductBV1", "ProductBV2", "ProductRUV", "ProductCTCB2",
+                        "ProductBLV", "ProductT5", "ProductCTCB1", "ProductBUV"
+                    ];
                     $('#table_queue_robot1 tbody').empty();
                     $.each(data.data, function(index, item) {
-                        var row = "<tr>" +
-                            "<td class='text-center'>" + (index + 1) + "</td>" +
-                            "<td class='text-center'>" + item.task + "</td>" +
-                            "<td class='text-center'>" + item.status + "</td>" +
-                            "<td class='text-center'>" + item.creat + "</td>" +
-                            "<td class='text-center'>" + item.end + "</td>" +
-                            "</tr>";
+                        if (desiredTasks.includes(item.task)) {
+                            var row = "<tr>" +
+                                "<td class='text-center'>" + (index + 1) + "</td>" +
+                                "<td class='text-center'>" + item.task + "</td>" +
+                                "<td class='text-center'>" + item.status + "</td>" +
+                                "<td class='text-center'>" + item.creat + "</td>" +
+                                "<td class='text-center'>" + item.end + "</td>" +
+                                "</tr>";
 
-                        $('#table_queue_robot1 tbody').append(row);
+                            $('#table_queue_robot1 tbody').append(row);
+                        }
+
                     });
                     $('#table_queue_robot1').DataTable();
                     setTimeout(getQueueRobot1Data, 5000);
