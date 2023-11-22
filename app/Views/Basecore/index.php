@@ -399,7 +399,7 @@
                                             <div class="col-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h4>TASK QUEUING LIST</h4>
+                                                        <h4>TASK QUEUING LIST ROBOT 1</h4>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="container my-4"
@@ -537,7 +537,7 @@
                                             <div class="col-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h4>TASK QUEUING LIST</h4>
+                                                        <h4>TASK QUEUING LIST ROBOT 2</h4>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="container my-4"
