@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADM</title>
     <link rel="stylesheet" href="<?= base_url();?>/assets/vendors/iconly/bold.css">
+    <link rel="stylesheet" href="<?= base_url();?>/assets/icon.css">
     <link rel="stylesheet" href="<?= base_url();?>/assets/css/font.css">
     <link rel="stylesheet" href="<?= base_url();?>/assets/css/bootstrap.css">
     <link rel="stylesheet" href="<?= base_url();?>/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="<?= base_url();?>/assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="<?= base_url();?>/assets/css/app.css">
     <link rel="shortcut icon" href="<?= base_url();?>/assets/images/favicon.svg" type="image/x-icon">
+    <script>
+    function setZoom(zoomLevel) {
+        document.body.style.zoom = zoomLevel;
+    }
+    window.onload = function() {
+        setZoom('75%');
+    };
+    </script>
 </head>
 
 <body>
@@ -19,8 +28,8 @@
         <header>
             <nav class="navbar navbar-expand navbar-light ">
                 <div class="container-fluid">
-                    <a haref="" class="burger-btn d-block">
-                        <i class="iconly-boldFilter fs-3 text-black-600"></i>
+                    <a haref="" class="burger-btn d-block" style="width: 435px">
+                        <h4>Monitoring SEER ADM</h4>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -28,10 +37,11 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav ms-auto   mb-lg-0">
                             <li class="nav-item dropdown me-3">
                                 <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown"
                                     aria-expanded="false">
+
                                     <i class='iconly-boldNotification fs-4 text-gray-600'></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
@@ -69,26 +79,34 @@
             </nav>
         </header>
         <link rel="stylesheet" href="<?= base_url();?>/assets/vendors/iconly/bold.css">
-        <div class="page-heading" style="margin: 25px">
-            <h3>Monitoring SEER ADM</h3>
+        <div class="page-heading">
+
             <div class="page-title">
                 <div class="row justify-content-between">
                 </div>
             </div>
+        </div>
+        <div class="col">
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-6 col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <h4>TASK LIST</h4>
-                                <hr>
                                 <div class="row">
-                                    <div class="col-lg-8 col-md-6 col-sm-12">
-                                        <div class="name ms-4 py-2">
+                                    <div class="col">
+                                        <div class="col">
+                                            <h4
+                                                style="border-right: 2px solid #7c8db5; height: 45px; margin: 0; padding: 0;">
+                                                DATA TASKLIST</h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="name ms-5 py-2">
                                             <h3 class="font-extrabold mb-0" id="count_task_list"></h3>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
+                                    <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                             data-bs-target="#infotasklist">
                                             Details
@@ -101,15 +119,21 @@
                     <div class="col-6 col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <h4>DELIVERY FAILED</h4>
-                                <hr>
                                 <div class="row">
-                                    <div class="col-lg-8 col-md-6 col-sm-12">
-                                        <div class="name ms-4 py-2">
+                                    <div class="col">
+                                        <div class="col">
+                                            <h4
+                                                style="border-right: 2px solid #7c8db5; height: 45px; margin: 0; padding: 0;">
+                                                DELIVERY FAILED</h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="name ms-5 py-2">
                                             <h3 class="font-extrabold mb-0" id="count_task_failed"></h3>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
+                                    <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                             data-bs-target="#infodeliveryfailed">
                                             Details
@@ -122,15 +146,21 @@
                     <div class="col-6 col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <h4>DELIVERY SUCCESS</h4>
-                                <hr>
                                 <div class="row">
-                                    <div class="col-lg-8 col-md-6 col-sm-12">
-                                        <div class="name ms-4 py-2">
+                                    <div class="col">
+                                        <div class="col">
+                                            <h4
+                                                style="border-right: 2px solid #7c8db5; height: 45px; margin: 0; padding: 0;">
+                                                DELIVERY SUCCESS</h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="name ms-5 py-2">
                                             <h3 class="font-extrabold mb-0" id="count_task_success"></h3>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
+                                    <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                             data-bs-target="#infodeliverysuccess">
                                             Details
@@ -143,15 +173,21 @@
                     <div class="col-6 col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <h4>HISTORY TASK</h4>
-                                <hr>
                                 <div class="row">
-                                    <div class="col-lg-8 col-md-6 col-sm-12">
-                                        <div class="name ms-4 py-2">
+                                    <div class="col">
+                                        <div class="col">
+                                            <h4
+                                                style="border-right: 2px solid #7c8db5; height: 45px; margin: 0; padding: 0;">
+                                                HISTORY TASK</h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="name ms-5 py-2">
                                             <h3 class="font-extrabold mb-0" id="count_task_history"></h3>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-end">
+                                    <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                             data-bs-target="#infohistorytask">
                                             Details
@@ -163,8 +199,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
             <div class="row">
                 <!-- AWAL ROBOT 1 -->
                 <div style="width:50%">
@@ -181,8 +215,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon blue mb-2">
-                                                                    <i class="iconly-boldUser"></i>
+                                                                <div class="stats-icon blue  ">
+                                                                    <i class="bi bi-minecart"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
@@ -204,7 +238,7 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon pink mb-2">
+                                                                <div class="stats-icon pink  ">
                                                                     <i class="iconly-boldSend"></i>
                                                                 </div>
                                                             </div>
@@ -228,8 +262,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon orange mb-2">
-                                                                    <i class="iconly-boldLocation"></i>
+                                                                <div class="stats-icon orange  ">
+                                                                    <i class="bi bi-arrow-bar-right"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
@@ -251,8 +285,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon green mb-2">
-                                                                    <i class="iconly-boldCategory"></i>
+                                                                <div class="stats-icon green  ">
+                                                                    <i class="bi bi-card-checklist"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
@@ -276,8 +310,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon blue mb-2">
-                                                                    <i class="iconly-boldUser"></i>
+                                                                <div class="stats-icon grey  ">
+                                                                    <i class="bi bi-broadcast-pin"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
@@ -298,8 +332,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon pink mb-2">
-                                                                    <i class="iconly-boldCategory"></i>
+                                                                <div class="stats-icon yellow  ">
+                                                                    <i class="iconly-boldLocation"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
@@ -320,8 +354,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon red mb-2">
-                                                                    <i class="iconly-boldArrow---Right"></i>
+                                                                <div class="stats-icon darkblue  ">
+                                                                    <i class="bi bi-battery-full"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
@@ -342,52 +376,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon orange mb-2">
-                                                                    <i class="iconly-boldLocation"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Group
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_group">
-                                                                    <!-- LPK -->
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon green mb-2">
-                                                                    <i class="iconly-boldSend"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Map
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_map">
-                                                                    <!-- ADM -->
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon purple mb-2 ">
-                                                                    <i class="iconly-boldDocument"></i>
+                                                                <div class="stats-icon red   ">
+                                                                    <i class="bi bi-battery-charging"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
@@ -456,8 +446,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon blue mb-2">
-                                                                    <i class="iconly-boldUser"></i>
+                                                                <div class="stats-icon blue  ">
+                                                                    <i class="bi bi-minecart"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
@@ -479,7 +469,7 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon pink mb-2">
+                                                                <div class="stats-icon pink  ">
                                                                     <i class="iconly-boldSend"></i>
                                                                 </div>
                                                             </div>
@@ -502,8 +492,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon orange mb-2">
-                                                                    <i class="iconly-boldLocation"></i>
+                                                                <div class="stats-icon orange  ">
+                                                                    <i class="bi bi-arrow-bar-right"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
@@ -525,8 +515,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon green mb-2">
-                                                                    <i class="iconly-boldCategory"></i>
+                                                                <div class="stats-icon green  ">
+                                                                    <i class="bi bi-card-checklist"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
@@ -582,8 +572,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon blue mb-2">
-                                                                    <i class="iconly-boldUser"></i>
+                                                                <div class="stats-icon grey  ">
+                                                                    <i class="bi bi-broadcast-pin"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
@@ -603,8 +593,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon pink mb-2">
-                                                                    <i class="iconly-boldCategory"></i>
+                                                                <div class="stats-icon yellow  ">
+                                                                    <i class="iconly-boldLocation"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
@@ -624,8 +614,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon red mb-2">
-                                                                    <i class="iconly-boldArrow---Right"></i>
+                                                                <div class="stats-icon darkblue  ">
+                                                                    <i class="bi bi-battery-full"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
@@ -646,50 +636,8 @@
                                                         <div class="row">
                                                             <div
                                                                 class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon orange mb-2">
-                                                                    <i class="iconly-boldLocation"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Group
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot2_group">
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon green mb-2">
-                                                                    <i class="iconly-boldSend"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Map
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot2_map">
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon purple mb-2 ">
-                                                                    <i class="iconly-boldDocument"></i>
+                                                                <div class="stats-icon red   ">
+                                                                    <i class="bi bi-battery-charging"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
