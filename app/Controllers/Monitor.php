@@ -315,9 +315,9 @@ class Monitor extends BaseController
             $data_status_map = $robot["basic_info"]["current_map"];
             $data_status_group_agv = $robot["basic_info"]["current_group"];
 
-            $curent_task = "No Task Yet";
-            $curent_task_before = "No Upcoming Tasks";
-            $remaining = "No Remaining Queue";
+            $curent_task = "No task yet";
+            $curent_task_before = "There is no next task yet";
+            $remaining = "Remaining queue does not exist";
             $data_curent_task = "Robot Standby";
 
             $current_order = $robot["current_order"];
@@ -378,9 +378,9 @@ class Monitor extends BaseController
                         $curent_task = $response_data_last_finished[0]['task'];
                     }
                 } else {
-                    $curent_task = "No Task Yet";
-                    $curent_task_before = "No Upcoming Tasks";
-                    $remaining = "No Remaining Queue";
+                    $curent_task = "No task yet";
+                    $curent_task_before = "There is no next task yet";
+                    $remaining = "Remaining queue does not exist";
                     $data_curent_task = "Robot Standby";
                 }
 
@@ -393,9 +393,9 @@ class Monitor extends BaseController
                         $curent_task_before = $response_data_before['task'];
                     }
                 } else {
-                    $curent_task = "No Task Yet";
-                    $curent_task_before = "No Upcoming Tasks";
-                    $remaining = "No Remaining Queue";
+                    $curent_task = "No task yet";
+                    $curent_task_before = "There is no next task yet";
+                    $remaining = "Remaining queue does not exist";
                     $data_curent_task = "Robot Standby";
                 }
 
@@ -403,13 +403,13 @@ class Monitor extends BaseController
                     $length = count($response_data_ongoing);
                     $remaining = $length - 1;
                 } else {
-                    $curent_task = "No Task Yet";
-                    $curent_task_before = "No Upcoming Tasks";
-                    $remaining = "No Remaining Queue";
+                    $curent_task = "No task yet";
+                    $curent_task_before = "There is no next task yet";
+                    $remaining = "Remaining queue does not exist";
                     $data_curent_task = "Robot Standby";
                 }
             } else {
-                $data_location_target = "No Destinantion Yet";
+                $data_location_target = "no destinantion yet";
             }
 
             $robot_data[] = [
