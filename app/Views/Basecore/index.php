@@ -28,51 +28,60 @@
         <header>
             <nav class="navbar navbar-expand navbar-light ">
                 <div class="container-fluid">
-                    <a haref="" class="burger-btn d-block" style="width: 435px">
-                        <h4>Monitoring SEER ADM</h4>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto   mb-lg-0">
-                            <li class="nav-item dropdown me-3">
-                                <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                    <div>
+                        <a haref="" class="burger-btn d-block">
+                            <h4>Monitoring SEER ADM</h4>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div>
+                        <div class="d-flex justify-content-center">
+                            <img src="<?= base_url();?>/assets/images/logo/ssd.png" alt="ssd" width="175" height="40">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto   mb-lg-0">
+                                <li class="nav-item dropdown me-3">
+                                    <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
 
-                                    <i class='iconly-boldNotification fs-4 text-gray-600'></i>
+                                        <i class='iconly-boldNotification fs-4 text-gray-600'></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                        <li>
+                                            <h6 class="dropdown-header">Notifications</h6>
+                                        </li>
+                                        <li><a class="dropdown-item">No notification available</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="dropdown">
+                                <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="user-menu d-flex">
+                                        <div class="user-name text-end me-3">
+                                            <h6 class="mb-0 text-gray-600">User</h6>
+                                            <p class="mb-0 text-sm text-gray-600">ADM</p>
+                                        </div>
+                                        <div class="user-img d-flex align-items-center">
+                                            <div class="avatar avatar-md bg-primary me-8">
+                                                <span
+                                                    class="avatar-content"><?php  $data = "Astra Daihatsu Motor"; $whatIWant = substr($data, strpos($data, " ") + 1); $akhir = substr($whatIWant,0,1); $awal = substr($data,0,1); echo $awal;echo $akhir; ?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                                     <li>
-                                        <h6 class="dropdown-header">Notifications</h6>
+                                        <h6 class="dropdown-header">Hello, User!</h6>
                                     </li>
-                                    <li><a class="dropdown-item">No notification available</a></li>
                                 </ul>
-                            </li>
-                        </ul>
-                        <div class="dropdown">
-                            <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="user-menu d-flex">
-                                    <div class="user-name text-end me-3">
-                                        <h6 class="mb-0 text-gray-600">User</h6>
-                                        <p class="mb-0 text-sm text-gray-600">ADM</p>
-                                    </div>
-                                    <div class="user-img d-flex align-items-center">
-                                        <div class="avatar avatar-md bg-primary me-8">
-                                            <span
-                                                class="avatar-content"><?php  $data = "Astra Daihatsu Motor"; $whatIWant = substr($data, strpos($data, " ") + 1); $akhir = substr($whatIWant,0,1); $awal = substr($data,0,1); echo $awal;echo $akhir; ?>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                                <li>
-                                    <h6 class="dropdown-header">Hello, User!</h6>
-                                </li>
-                            </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
