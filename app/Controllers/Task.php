@@ -9,11 +9,11 @@ class Task extends BaseController
         header('Content-Type: text/event-stream');
         header('Cache-Control: no-cache');
         header('Connection: keep-alive');
-
-        $ip_address = "192.168.5.204";
+        $config = config('Identity');
+        $IP = $config->IP;
         $kill = 5;
         $ch = curl_init();
-        $api_url = "http://" . $ip_address . ":8080/api/queryWindTask";
+        $api_url = "http://" . $IP . ":8080/api/queryWindTask";
         curl_setopt($ch, CURLOPT_URL, $api_url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "Content-Type: application/json",
