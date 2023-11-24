@@ -30,7 +30,7 @@
                 <div class="container-fluid">
                     <div>
                         <a haref="" class="burger-btn d-block">
-                            <h4>Monitoring SEER ADM</h4>
+                            <h4>MONITORING SEER ADM</h4>
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
