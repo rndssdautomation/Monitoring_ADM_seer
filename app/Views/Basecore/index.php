@@ -117,7 +117,7 @@
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#infotasklist">
+                                            data-bs-target="#infotasklist" onclick="getListData()">
                                             Details
                                         </button>
                                     </div>
@@ -144,7 +144,7 @@
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#infodeliveryfailed">
+                                            data-bs-target="#infodeliveryfailed" onclick="getFailedData()">
                                             Details
                                         </button>
                                     </div>
@@ -171,7 +171,7 @@
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#infodeliverysuccess">
+                                            data-bs-target="#infodeliverysuccess" onclick="getSuccessData();">
                                             Details
                                         </button>
                                     </div>
@@ -831,7 +831,6 @@
                         $('#table_list tbody').append(row);
                     });
                     $('#table_list').DataTable();
-                    setTimeout(getListData, 5000);
                     var list_count = data.data.length;
                     $('#count_task_list').html(list_count);
                 },
@@ -841,6 +840,23 @@
             });
         }
         getListData();
+
+        function lenght_getListData() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_list_task'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    setTimeout(lenght_getListData, 5000);
+                    var list_count = data.data.length;
+                    $('#count_task_list').html(list_count);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        }
+        lenght_getListData();
 
         // Function Task Failed
         function getFailedData() {
@@ -863,7 +879,6 @@
                         $('#table_failed tbody').append(row);
                     });
                     $('#table_failed').DataTable();
-                    setTimeout(getFailedData, 5000);
                     var failed_count = data.data.length;
                     $('#count_task_failed').html(failed_count);
                 },
@@ -873,6 +888,24 @@
             });
         }
         getFailedData();
+
+        function lenght_getFailedData() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_data_delivery_failed'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('#table_failed').DataTable();
+                    setTimeout(lenght_getFailedData, 5000);
+                    var failed_count = data.data.length;
+                    $('#count_task_failed').html(failed_count);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        }
+        lenght_getFailedData();
 
         // Function Task Success
         function getSuccessData() {
@@ -895,7 +928,6 @@
                         $('#table_success tbody').append(row);
                     });
                     $('#table_success').DataTable();
-                    setTimeout(getSuccessData, 5000);
                     var success_count = data.data.length;
                     $('#count_task_success').html(success_count);
                 },
@@ -905,6 +937,23 @@
             });
         }
         getSuccessData();
+
+        function lenght_getSuccessData() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_data_delivery_success'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    setTimeout(getSuccessData, 5000);
+                    var success_count = data.data.length;
+                    $('#lenght_getSuccessData').html(success_count);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        }
+        lenght_getSuccessData();
 
         // Function Task History
         function getHistoryData() {
