@@ -612,4 +612,88 @@ class Monitor extends BaseController
             }
         curl_close($ch);
     }
+
+    // QUEUE ROBOT ALL
+    public function get_api_data_queue_robot_all()
+    {
+        $config = config('Identity');
+        $IP = $config->IP;
+        $kill = 1;
+        $ch = curl_init();
+        $api_url = "http://" . $IP . ":8080/api/queryWindTask";
+        curl_setopt($ch, CURLOPT_URL, $api_url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            "Content-Type: application/json",
+        ]);
+        curl_setopt($ch, CURLOPT_TIMEOUT, $kill);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $kill);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt(
+            $ch,
+            CURLOPT_POSTFIELDS,
+            json_encode([
+                "currentPage" => 1,
+                "pageSize" => 100,
+                "queryParam" => [
+                    "taskId" => "",
+                    "defLabel" => "",
+                    "taskRecordId" => "",
+                    "status" => null,
+                    "agvId" => "",
+                    "startDate" => "",
+                    "endDate" => "",
+                    "isOrderDesc" => false,
+                ],
+            ])
+        );
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo "Error: " . curl_error($ch);
+        } else {
+            $dataapiqueue = json_decode($response, true); 
+            $queues = $dataapiqueue["data"]["pageList"];
+            $response_data_ongoing = [];
+            $response_data_finished = [];
+            foreach ($queues as $queue) {
+                switch ($queue["status"]) {
+                    case 1000:
+                        $status = "running";
+                        $response_data_ongoing[] = [
+                            "task" => $queue["defLabel"],
+                            "status" => $status,
+                            "robot" => $queue["agvId"],
+                            "end" => $queue["endedOn"],
+                            "creat" => $queue["createdOn"],
+                        ];
+                        break;
+                    case 1003:
+                    case 1004:
+                        $status = "finished";
+                        $response_data_finished[] = [
+                            "task" => $queue["defLabel"],
+                            "status" => $status,
+                            "robot" => $queue["agvId"],
+                            "creat" => $queue["createdOn"],
+                            "end" => $queue["endedOn"],
+                        ];
+                        break;
+                    default:
+                        $status = "unknown";
+                        break;
+                }
+            }
+            if (!empty($response_data_finished)) {
+                $response_data_last_finished = array_slice(
+                    $response_data_finished,
+                    0,
+                    3
+                );
+            }
+            echo json_encode([
+                "data" => $response_data_ongoing + $response_data_last_finished,
+            ]);
+        }
+        curl_close($ch);
+    }
 }

@@ -30,7 +30,7 @@
                 <div class="container-fluid">
                     <div>
                         <a haref="" class="burger-btn d-block">
-                            <h4>Monitoring SEER ADM</h4>
+                            <h4>MONITORING SEER ADM</h4>
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -582,11 +582,12 @@
                                                 <div class="container my-4"
                                                     style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                                     <p></p>
-                                                    <table class="table my-2" id="table_queue_robot1">
+                                                    <table class="table my-2" id="table_queue_robot_all">
                                                         <thead>
                                                             <tr>
                                                                 <th style="width: 5%; text-align: center;">No
                                                                 </th>
+                                                                <th style="text-align: center;">AGV</th>
                                                                 <th style="text-align: center;">Task</th>
                                                                 <th style="text-align: center;">Status</th>
                                                                 <th style="text-align: center;">Created On</th>
@@ -935,18 +936,11 @@
                         for (var i = 0; i < robots.length; i++) {
                             var robot = robots[i];
                             $('#robot' + (i + 1) + '_name').html(robot.info_robot);
-                            $('#robot' + (i + 1) + '_destination').html(robot
-                                .location_target);
-                            $('#robot' + (i + 1) + '_next').html(robot.curent_task_before);
-                            $('#robot' + (i + 1) + '_remaining').html(robot.remaining);
-                            $('#robot' + (i + 1) + '_status').html(robot.data_curent_task);
                             $('#robot' + (i + 1) + '_current').html(robot.location_curent);
                             $('#robot' + (i + 1) + '_battery').html(robot
                                 .status_batterylevel);
                             $('#robot' + (i + 1) + '_charging').html(robot.status_charging ?
                                 'Charging' : 'Not Charging');
-                            $('#robot' + (i + 1) + '_map').html(robot.status_status_map);
-                            $('#robot' + (i + 1) + '_group').html(robot.status_group_agv);
                         }
 
                         setTimeout(getStatusRobot, 5000);
@@ -968,29 +962,11 @@
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
-                    var desiredTasks = ["ProductBV1", "ProductBV2", "ProductRUV", "ProductCTCB2",
-                        "ProductBLV", "ProductT5", "ProductCTCB1", "ProductBUV"
-                    ];
-                    $('#table_queue_robot1 tbody').empty();
-                    $.each(data.data, function(index, item) {
-                        if (desiredTasks.includes(item.task)) {
-                            var row = "<tr>" +
-                                "<td class='text-center'>" + (index + 1) + "</td>" +
-                                "<td class='text-center'>" + item.task + "</td>" +
-                                "<td class='text-center'>" + item.status + "</td>" +
-                                "<td class='text-center'>" + item.creat + "</td>" +
-                                "<td class='text-center'>" + item.end + "</td>" +
-                                "</tr>";
-
-                            $('#table_queue_robot1 tbody').append(row);
-                        }
-
-                    });
-                    $('#table_queue_robot1').DataTable();
                     setTimeout(getQueueRobot1Data, 5000);
                     $('#robot2_destination').html(data.destination);
                     $('#robot2_next').html(data.next_task);
                     $('#robot2_remaining').html(data.queue);
+                    $('#robot2_status').html(data.statusnya);
                 },
                 error: function(xhr, status, error) {
                     console.error("Error fetching data:", error);
@@ -1007,22 +983,10 @@
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
-                    $('#table_queue_robot2 tbody').empty();
-                    $.each(data.data, function(index, item) {
-                        var row = "<tr>" +
-                            "<td class='text-center'>" + (index + 1) + "</td>" +
-                            "<td class='text-center'>" + item.task + "</td>" +
-                            "<td class='text-center'>" + item.status + "</td>" +
-                            "<td class='text-center'>" + item.creat + "</td>" +
-                            "<td class='text-center'>" + item.end + "</td>" +
-                            "</tr>";
-
-                        $('#table_queue_robot2 tbody').append(row);
-                    });
-                    $('#table_queue_robot2').DataTable();
                     $('#robot1_destination').html(data.destination);
                     $('#robot1_next').html(data.next_task);
                     $('#robot1_remaining').html(data.queue);
+                    $('#robot1_status').html(data.statusnya);
                     setTimeout(getQueueRobot2Data, 5000);
                 },
                 error: function(xhr, status, error) {
@@ -1172,6 +1136,40 @@
             }
         });
     }
+
+    // Function Queue All Robot 
+    function getQueueAllRobotData() {
+        $.ajax({
+            url: "<?php echo base_url('get_api_data_queue_robot_all'); ?>",
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+
+                $('#table_queue_robot_all tbody').empty();
+                $.each(data.data, function(index, item) {
+
+                    var row = "<tr>" +
+                        "<td class='text-center'>" + (index + 1) + "</td>" +
+                        "<td class='text-center'>" + item.robot + "</td>" +
+                        "<td class='text-center'>" + item.task + "</td>" +
+                        "<td class='text-center'>" + item.status + "</td>" +
+                        "<td class='text-center'>" + item.creat + "</td>" +
+                        "<td class='text-center'>" + item.end + "</td>" +
+                        "</tr>";
+
+                    $('#table_queue_robot_all tbody').append(row);
+
+
+                });
+                $('#table_queue_robot_all').DataTable();
+                setTimeout(getQueueRobot1Data, 5000);
+            },
+            error: function(xhr, status, error) {
+                console.error("Error fetching data:", error);
+            }
+        });
+    }
+    getQueueAllRobotData();
     </script>
 </body>
 
