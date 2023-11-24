@@ -973,6 +973,7 @@
                     $('#robot2_destination').html(data.destination);
                     $('#robot2_next').html(data.next_task);
                     $('#robot2_remaining').html(data.queue);
+                    $('#robot2_status').html(data.statusnya);
                 },
                 error: function(xhr, status, error) {
                     console.error("Error fetching data:", error);
@@ -1005,6 +1006,8 @@
                     $('#robot1_destination').html(data.destination);
                     $('#robot1_next').html(data.next_task);
                     $('#robot1_remaining').html(data.queue);
+                    $('#robot1_status').html(data.statusnya);
+
                     setTimeout(getQueueRobot2Data, 5000);
                 },
                 error: function(xhr, status, error) {
