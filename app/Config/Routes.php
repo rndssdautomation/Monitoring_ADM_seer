@@ -16,3 +16,4 @@ $routes->match(['get','post'],'/get_api_data_history_task',   'Monitor::get_api_
 $routes->match(['get','post'],'/get_api_data_status_robot',   'Monitor::get_api_data_status_robot');
 $routes->match(['get','post'],'/get_api_data_queue_robot1',   'Monitor::get_api_data_queue_robot1');
 $routes->match(['get','post'],'/get_api_data_queue_robot2',   'Monitor::get_api_data_queue_robot2');
+$routes->match(['get','post'],'/get_api_data_queue_robot_all',   'Monitor::get_api_data_queue_robot_all');

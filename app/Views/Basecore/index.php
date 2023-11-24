@@ -917,18 +917,11 @@
                         for (var i = 0; i < robots.length; i++) {
                             var robot = robots[i];
                             $('#robot' + (i + 1) + '_name').html(robot.info_robot);
-                            $('#robot' + (i + 1) + '_destination').html(robot
-                                .location_target);
-                            $('#robot' + (i + 1) + '_next').html(robot.curent_task_before);
-                            $('#robot' + (i + 1) + '_remaining').html(robot.remaining);
-                            $('#robot' + (i + 1) + '_status').html(robot.data_curent_task);
                             $('#robot' + (i + 1) + '_current').html(robot.location_curent);
                             $('#robot' + (i + 1) + '_battery').html(robot
                                 .status_batterylevel);
                             $('#robot' + (i + 1) + '_charging').html(robot.status_charging ?
                                 'Charging' : 'Not Charging');
-                            $('#robot' + (i + 1) + '_map').html(robot.status_status_map);
-                            $('#robot' + (i + 1) + '_group').html(robot.status_group_agv);
                         }
 
                         setTimeout(getStatusRobot, 5000);
@@ -950,23 +943,16 @@
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
-                    var desiredTasks = ["ProductBV1", "ProductBV2", "ProductRUV", "ProductCTCB2",
-                        "ProductBLV", "ProductT5", "ProductCTCB1", "ProductBUV"
-                    ];
                     $('#table_queue_robot1 tbody').empty();
                     $.each(data.data, function(index, item) {
-                        if (desiredTasks.includes(item.task)) {
-                            var row = "<tr>" +
-                                "<td class='text-center'>" + (index + 1) + "</td>" +
-                                "<td class='text-center'>" + item.task + "</td>" +
-                                "<td class='text-center'>" + item.status + "</td>" +
-                                "<td class='text-center'>" + item.creat + "</td>" +
-                                "<td class='text-center'>" + item.end + "</td>" +
-                                "</tr>";
-
-                            $('#table_queue_robot1 tbody').append(row);
-                        }
-
+                        var row = "<tr>" +
+                            "<td class='text-center'>" + (index + 1) + "</td>" +
+                            "<td class='text-center'>" + item.task + "</td>" +
+                            "<td class='text-center'>" + item.status + "</td>" +
+                            "<td class='text-center'>" + item.creat + "</td>" +
+                            "<td class='text-center'>" + item.end + "</td>" +
+                            "</tr>";
+                        $('#table_queue_robot1 tbody').append(row);
                     });
                     $('#table_queue_robot1').DataTable();
                     setTimeout(getQueueRobot1Data, 5000);
