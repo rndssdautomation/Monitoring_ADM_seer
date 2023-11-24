@@ -219,7 +219,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-left: 0.5%; margin-right: 0.5%;">
                 <div style="width: 50%">
                     <div class="col-12 col-md-12 col-lg-12">
                         <div class="row">
@@ -419,7 +419,7 @@
                 <div class="row">
                     <div class="page-content">
                         <section class="row">
-                            <div class="col-2">
+                            <div style="width: 12.5%">
                                 <div class="col">
                                     <div class="col">
                                         <div class="card">
@@ -511,14 +511,74 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-8 ">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4>ROBOT 1 TASK QUEUE</h4>
+                            <div style="width: 75%">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">TASK QUEUE</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link active" id="pisah" data-bs-toggle="tab"
+                                                    href="#splitrobot" role="tab" aria-controls="hosplitrobote"
+                                                    aria-selected="true">splitrobot</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="satu" data-bs-toggle="tab" href="#meregerobot"
+                                                    role="tab" aria-controls="meregerobot"
+                                                    aria-selected="false">meregerobot</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="splitrobot" role="tabpanel"
+                                                aria-labelledby="pisah">
+                                                <div class="row">
+                                                    <div class="col" width="50%">
+                                                        <div class="my-4"
+                                                            style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                            <p></p>
+                                                            <table class="table my-2" id="table_queue_robot1">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="width: 5%; text-align: center;">No
+                                                                        </th>
+                                                                        <th style="text-align: center;">Task</th>
+                                                                        <th style="text-align: center;">Status</th>
+                                                                        <th style="text-align: center;">Created On</th>
+                                                                        <th style="text-align: center;">Ended On</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col" width="50%">
+                                                        <div class="my-4"
+                                                            style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                            <p></p>
+                                                            <table class="table my-2" id="table_queue_robot2">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="width: 5%; text-align: center;">No
+                                                                        </th>
+                                                                        <th style="text-align: center;">Task</th>
+                                                                        <th style="text-align: center;">Status</th>
+                                                                        <th style="text-align: center;">Created On</th>
+                                                                        <th style="text-align: center;">Ended On</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="card-body">
+                                            <div class="tab-pane fade" id="meregerobot" role="tabpanel"
+                                                aria-labelledby="satu">
                                                 <div class="container my-4"
                                                     style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                                     <p></p>
@@ -543,7 +603,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-2">
+                            <div style="width: 12.5%">
                                 <div class="col">
                                     <div class="col">
                                         <div class="card">
