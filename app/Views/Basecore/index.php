@@ -232,7 +232,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Robot
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot1_name">
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_name">
                                                                     <!-- AF-01 -->
                                                                 </h6>
                                                             </div>
@@ -256,7 +256,7 @@
                                                                     Destination
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0 "
-                                                                    id="robot1_destination">
+                                                                    id="robot2_destination">
                                                                     <!-- AP34 -->
                                                                 </h6>
                                                             </div>
@@ -279,7 +279,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Next Task
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_next">
+                                                                <h6 class="font-extrabold mb-0" id="robot2_next">
                                                                     <!-- ProductCTCB2 -->
                                                                 </h6>
                                                             </div>
@@ -301,7 +301,7 @@
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
                                                                 <h6 class="text-muted font-semibold"> Queue
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_remaining">
+                                                                <h6 class="font-extrabold mb-0" id="robot2_remaining">
                                                                     <!-- 23 -->
                                                                 </h6>
                                                             </div>
@@ -327,7 +327,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Status
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot1_status">
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_status">
                                                                     <!-- running -->
                                                                 </h6>
                                                             </div>
@@ -349,7 +349,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Location
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot1_current">
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_current">
                                                                     <!-- AP12 -->
                                                                 </h6>
                                                             </div>
@@ -371,7 +371,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Battery
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot1_battery">
+                                                                <h6 class="font-extrabold mb-0" id="robot2_battery">
                                                                     <!-- 98 -->
                                                                 </h6>
                                                             </div>
@@ -393,7 +393,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Charging
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot1_charging">
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_charging">
                                                                     <!-- false -->
                                                                 </h6>
                                                             </div>
@@ -463,7 +463,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Robot
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot2_name">
+                                                                <h6 class="font-extrabold mb-0 " id="robot1_name">
                                                                     <!-- AF-01 -->
                                                                 </h6>
                                                             </div>
@@ -487,7 +487,7 @@
                                                                     Destination
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0 "
-                                                                    id="robot2_destination">
+                                                                    id="robot1_destination">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -509,7 +509,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Next Task
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot2_next">
+                                                                <h6 class="font-extrabold mb-0" id="robot1_next">
                                                                     <!-- ProductCTCB2 -->
                                                                 </h6>
                                                             </div>
@@ -531,7 +531,7 @@
                                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
                                                                 <h6 class="text-muted font-semibold"> Queue
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot2_remaining">
+                                                                <h6 class="font-extrabold mb-0" id="robot1_remaining">
                                                                     <!-- 23 -->
                                                                 </h6>
                                                             </div>
@@ -589,7 +589,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Status
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot2_status">
+                                                                <h6 class="font-extrabold mb-0 " id="robot1_status">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -610,7 +610,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Location
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot2_current">
+                                                                <h6 class="font-extrabold mb-0 " id="robot1_current">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -631,7 +631,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Battery
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot2_battery">
+                                                                <h6 class="font-extrabold mb-0" id="robot1_battery">
                                                                     <!-- 98 -->
                                                                 </h6>
                                                             </div>
@@ -653,7 +653,7 @@
                                                                 <h6 class="text-muted font-semibold">
                                                                     Charging
                                                                 </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot2_charging">
+                                                                <h6 class="font-extrabold mb-0 " id="robot1_charging">
                                                                 </h6>
                                                             </div>
                                                         </div>
@@ -917,11 +917,11 @@
                     $.each(data.data, function(index, item) {
                         var row = "<tr>" +
                             "<td class='text-center'>" + (index + 1) + "</td>" +
-                            "<td class='text-center'>" + item.task_history + "</td>" +
-                            "<td class='text-center'>" + item.robot_history + "</td>" +
-                            "<td class='text-center'>" + item.status_history + "</td>" +
-                            "<td class='text-center'>" + item.creat_history + "</td>" +
-                            "<td class='text-center'>" + item.end_history + "</td>" +
+                            "<td class='text-center'>" + item.task + "</td>" +
+                            "<td class='text-center'>" + item.robot + "</td>" +
+                            "<td class='text-center'>" + item.status + "</td>" +
+                            "<td class='text-center'>" + item.creat + "</td>" +
+                            "<td class='text-center'>" + item.end + "</td>" +
                             "</tr>";
 
                         $('#table_history tbody').append(row);
@@ -1003,6 +1003,9 @@
                     });
                     $('#table_queue_robot1').DataTable();
                     setTimeout(getQueueRobot1Data, 5000);
+                    $('#robot2_destination').html(data.destination);
+                    $('#robot2_next').html(data.next_task);
+                    $('#robot2_remaining').html(data.queue);
                 },
                 error: function(xhr, status, error) {
                     console.error("Error fetching data:", error);
@@ -1032,6 +1035,9 @@
                         $('#table_queue_robot2 tbody').append(row);
                     });
                     $('#table_queue_robot2').DataTable();
+                    $('#robot1_destination').html(data.destination);
+                    $('#robot1_next').html(data.next_task);
+                    $('#robot1_remaining').html(data.queue);
                     setTimeout(getQueueRobot2Data, 5000);
                 },
                 error: function(xhr, status, error) {
