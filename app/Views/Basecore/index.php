@@ -18,7 +18,7 @@
         document.body.style.zoom = zoomLevel;
     }
     window.onload = function() {
-        setZoom('75%');
+        setZoom('70%');
     };
     </script>
 </head>
@@ -109,34 +109,7 @@
         <div class="col" style="margin-left: 1%; margin-right: 1%;">
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="row">
-                    <div class="col-6 col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="col">
-                                            <h4
-                                                style="border-right: 2px solid #7c8db5; height: 45px; margin: 0; padding: 0;">
-                                                DATA TASKLIST</h4>
-                                        </div>
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="name ms-5 py-2">
-                                            <h3 class="font-extrabold mb-0" id="count_task_list"></h3>
-                                        </div>
-                                    </div>
-                                    <div class="col d-flex justify-content-end">
-                                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#infotasklist" onclick="getListData();">
-                                            Details
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-3 col-md-6">
+                    <div class="col-4">
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
@@ -163,7 +136,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-lg-3 col-md-6">
+                    <div class="col-4">
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
@@ -190,7 +163,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-lg-3 col-md-6">
+                    <div class="col-4">
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
@@ -663,8 +636,11 @@
                                     aria-labelledby="pisah">
                                     <div class="row">
                                         <div class="col" width="50%">
-                                            <div class="my-4"
-                                                style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                            <div class="card-header">
+                                                <h4>Robot 1</h4>
+                                            </div>
+                                            <div
+                                                style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                                 <p></p>
                                                 <table class="table my-2" id="table_queue_robot1">
                                                     <thead>
@@ -684,8 +660,11 @@
                                             </div>
                                         </div>
                                         <div class="col" width="50%">
-                                            <div class="my-4"
-                                                style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                            <div class="card-header">
+                                                <h4>Robot 2</h4>
+                                            </div>
+                                            <div
+                                                style="overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                                 <p></p>
                                                 <table class="table my-2" id="table_queue_robot2">
                                                     <thead>
@@ -707,8 +686,11 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="meregerobot" role="tabpanel" aria-labelledby="satu">
-                                    <div class="container my-4"
-                                        style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                    <div class="card-header">
+                                        <h4>All robot</h4>
+                                    </div>
+                                    <div
+                                        style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                         <p></p>
                                         <table class="table my-2" id="table_queue_robot_all">
                                             <thead>
