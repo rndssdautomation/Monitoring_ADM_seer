@@ -826,44 +826,80 @@
     <script>
     $(document).ready(function() {
 
-        getListData();
-
-        function lenght_getListData() {
-            $.ajax({
-                url: "<?php echo base_url('get_api_list_task'); ?>",
-                type: "GET",
-                dataType: "json",
-                success: function(data) {
-                    setTimeout(lenght_getListData, 5000);
-                    var list_count = data.data.length;
-                    $('#count_task_list').html(list_count);
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching data:", error);
-                }
-            });
+        // Function to handle SSE events
+        function handleSseEvent(event) {
+            var eventData = JSON.parse(event.data);
+            updateTable(eventData.data_list);
         }
-        lenght_getListData();
 
+        // Function Task List
+        function updateTable(data_list) {
+            var tableBody = document.getElementById('table_list').getElementsByTagName('tbody')[0];
+            var countTaskList = document.getElementById('count_task_list');
+            tableBody.innerHTML = '';
 
-        getFailedData();
+            for (var i = 0; i < data_list.length; i++) {
+                var newRow = tableBody.insertRow(tableBody.rows.length);
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
 
-        function lenght_getFailedData() {
-            $.ajax({
-                url: "<?php echo base_url('get_api_data_delivery_failed'); ?>",
-                type: "GET",
-                dataType: "json",
-                success: function(data) {
-                    var failed_count = data.data.length;
-                    $('#count_task_failed').html(failed_count);
-                    setTimeout(lenght_getFailedData, 5000);
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching data:", error);
-                }
+                cell1.innerHTML = i + 1;
+                cell2.innerHTML = data_list[i].task;
+            }
+            if ($.fn.DataTable.isDataTable('#table_list')) {
+                $('#table_list').DataTable().destroy();
+            }
+
+            $('#table_list').DataTable({
+                "pageLength": 10
             });
+
+            countTaskList.innerHTML = data_list.length;
         }
-        lenght_getFailedData();
+
+        // Set up SSE connection
+        var eventSource = new EventSource('/get_api_list_task');
+        eventSource.onmessage = handleSseEvent;
+
+
+        // getListData();
+
+        // function lenght_getListData() {
+        //     $.ajax({
+        //         url: "<?php echo base_url('get_api_list_task'); ?>",
+        //         type: "GET",
+        //         dataType: "json",
+        //         success: function(data) {
+        //             setTimeout(lenght_getListData, 5000);
+        //             var list_count = data.data.length;
+        //             $('#count_task_list').html(list_count);
+        //         },
+        //         error: function(xhr, status, error) {
+        //             console.error("Error fetching data:", error);
+        //         }
+        //     });
+        // }
+        // lenght_getListData();
+
+
+        // getFailedData();
+
+        // function lenght_getFailedData() {
+        //     $.ajax({
+        //         url: "<?php echo base_url('get_api_data_delivery_failed'); ?>",
+        //         type: "GET",
+        //         dataType: "json",
+        //         success: function(data) {
+        //             var failed_count = data.data.length;
+        //             $('#count_task_failed').html(failed_count);
+        //             setTimeout(lenght_getFailedData, 5000);
+        //         },
+        //         error: function(xhr, status, error) {
+        //             console.error("Error fetching data:", error);
+        //         }
+        //     });
+        // }
+        // lenght_getFailedData();
 
 
         getSuccessData();
@@ -1004,39 +1040,39 @@
         getQueueRobot2Data();
     });
 
-    // Function Task List
-    function getListData() {
-        $.ajax({
-            url: "<?php echo base_url('get_api_list_task'); ?>",
-            type: "GET",
-            dataType: "json",
-            success: function(data) {
-                $('#table_list tbody').empty();
-                $.each(data.data, function(index, item) {
-                    var row = "<tr>" +
-                        "<td class='text-center'>" + (index + 1) + "</td>" +
-                        "<td class='text-center'>" + item.task + "</td>" +
-                        "</tr>";
+    // // Function Task List
+    // function getListData() {
+    //     $.ajax({
+    //         url: "<?php echo base_url('get_api_list_task'); ?>",
+    //         type: "GET",
+    //         dataType: "json",
+    //         success: function(data) {
+    //             $('#table_list tbody').empty();
+    //             $.each(data.data, function(index, item) {
+    //                 var row = "<tr>" +
+    //                     "<td class='text-center'>" + (index + 1) + "</td>" +
+    //                     "<td class='text-center'>" + item.task + "</td>" +
+    //                     "</tr>";
 
-                    $('#table_list tbody').append(row);
-                });
+    //                 $('#table_list tbody').append(row);
+    //             });
 
-                if ($.fn.DataTable.isDataTable('#table_list')) {
-                    $('#table_list').DataTable().destroy();
-                }
+    //             if ($.fn.DataTable.isDataTable('#table_list')) {
+    //                 $('#table_list').DataTable().destroy();
+    //             }
 
-                $('#table_list').DataTable({
-                    "pageLength": 10
-                });
+    //             $('#table_list').DataTable({
+    //                 "pageLength": 10
+    //             });
 
-                var list_count = data.data.length;
-                $('#count_task_list').html(list_count);
-            },
-            error: function(xhr, status, error) {
-                console.error("Error fetching data:", error);
-            }
-        });
-    }
+    //             var list_count = data.data.length;
+    //             $('#count_task_list').html(list_count);
+    //         },
+    //         error: function(xhr, status, error) {
+    //             console.error("Error fetching data:", error);
+    //         }
+    //     });
+    // }
 
     // Function Task Failed
     function getFailedData() {
