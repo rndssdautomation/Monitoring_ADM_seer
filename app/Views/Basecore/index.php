@@ -40,7 +40,7 @@
                     </div>
                     <div>
                         <div class="d-flex justify-content-center">
-                            <img src="<?= base_url();?>/assets/images/logo/ssd.png" alt="ssd" width="175" height="40">
+                            <img src="<?= base_url();?>/assets/images/logo/ssd.png" alt="ssd" width="300" height="65">
                         </div>
                     </div>
                     <div>
