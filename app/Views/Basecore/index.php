@@ -436,7 +436,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>ROBOT 1</h4>
+                                    <h4>ROBOT 2</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="col-12">
@@ -651,11 +651,11 @@
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link active" id="pisah" data-bs-toggle="tab" href="#splitrobot"
-                                        role="tab" aria-controls="hosplitrobote" aria-selected="true">splitrobot</a>
+                                        role="tab" aria-controls="hosplitrobote" aria-selected="true">Split Task</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="satu" data-bs-toggle="tab" href="#meregerobot" role="tab"
-                                        aria-controls="meregerobot" aria-selected="false">meregerobot</a>
+                                        aria-controls="meregerobot" aria-selected="false">All Task</a>
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
@@ -878,7 +878,6 @@
         <script src="<?= base_url();?>/assets/js/bootstrap.bundle.min.js"></script>
         <script>
         $(document).ready(function() {
-
             getListData();
 
             function lenght_getListData() {
@@ -988,6 +987,37 @@
                 });
             }
             getStatusRobot();
+
+            // Function Queue All Robot 
+            function getQueueRobotAllData() {
+                $.ajax({
+                    url: "<?php echo base_url('get_api_data_queue_robot_all'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('#table_queue_robot_all tbody').empty();
+                        $.each(data.data, function(index, item) {
+                            var row = "<tr>" +
+                                "<td class='text-center'>" + (index + 1) + "</td>" +
+                                "<td class='text-center'>" + item.robot + "</td>" +
+                                "<td class='text-center'>" + item.task + "</td>" +
+                                "<td class='text-center'>" + item.status + "</td>" +
+                                "<td class='text-center'>" + item.creat + "</td>" +
+                                "<td class='text-center'>" + item.end + "</td>" +
+                                "</tr>";
+
+                            $('#table_queue_robot_all tbody').append(row);
+                        });
+                        $('#table_queue_robot_all').DataTable();
+
+                        setTimeout(getQueueRobotAllData, 5000);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+            getQueueRobotAllData();
 
             // Function Queue Robot 1
             function getQueueRobot1Data() {
