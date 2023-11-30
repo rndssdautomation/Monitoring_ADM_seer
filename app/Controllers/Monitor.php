@@ -450,13 +450,13 @@ class Monitor extends BaseController
                 }
             }     
             if ($destination === "") {
-                $destination = "No Destination Yet";
+                $destination = "-";
             }
             if ($next_task === "") {
-                $next_task = "No Upcoming Tasks";
+                $next_task = "-";
             }
             if ($queue === 0) {
-                $queue = "No Remaining Queue";
+                $queue = "-";
             }
 
             echo json_encode([
@@ -593,13 +593,13 @@ class Monitor extends BaseController
                     }
                 }     
                 if ($destination === "") {
-                    $destination = "No Destination Yet";
+                    $destination = "-";
                 }
                 if ($next_task === "") {
-                    $next_task = "No Upcoming Tasks";
+                    $next_task = "-";
                 }
                 if ($queue === 0) {
-                    $queue = "No Remaining Queue";
+                    $queue = "-";
                 }
 
                 echo json_encode([
