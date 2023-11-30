@@ -955,7 +955,7 @@
                                 $('#robot' + (i + 1) + '_battery').html(robot
                                     .status_batterylevel);
                                 $('#robot' + (i + 1) + '_charging').html(robot.status_charging ?
-                                    'Charging' : 'Not Charging');
+                                    'True' : 'False');
                             }
 
                             setTimeout(getStatusRobot, 5000);
