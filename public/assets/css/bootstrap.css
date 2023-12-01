@@ -7910,6 +7910,11 @@ fieldset:disabled .btn {
 
 .text-muted {
     /* color: #7c8db5 !important; */
+    color: #f8f9fa !important;
+     /* background-color: #AEDEFC; */
+     background-color: var(--bs-primary);
+      text-align: center;
+      border-radius: 8px;
 }
 
 .text-black-50 {
