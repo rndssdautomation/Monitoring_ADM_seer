@@ -7909,7 +7909,7 @@ fieldset:disabled .btn {
 }
 
 .text-muted {
-    color: #7c8db5 !important;
+    /* color: #7c8db5 !important; */
 }
 
 .text-black-50 {
