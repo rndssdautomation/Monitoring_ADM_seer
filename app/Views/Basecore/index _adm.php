@@ -18,7 +18,7 @@
         document.body.style.zoom = zoomLevel;
     }
     window.onload = function() {
-        setZoom('65%');
+        setZoom('70%');
     };
     </script>
 </head>
@@ -178,215 +178,6 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4>ROBOT 1</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="col-12">
-                                        <div class="row">
-                                            <div class="col-6 col-lg-3 col-md-6">
-                                                <div class="card"
-                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;"
-                                                        style="height: 150px;">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon blue  ">
-                                                                    <i class="bi bi-minecart"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Robot
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot2_name">
-                                                                    <!-- AF-01 -->
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-lg-3 col-md-6">
-                                                <div class="card"
-                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;"
-                                                        style="height: 150px;">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon pink  ">
-                                                                    <i class="iconly-boldSend"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Destination
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0 "
-                                                                    id="robot2_destination">
-                                                                    <!-- AP34 -->
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-lg-3 col-md-6">
-                                                <div class="card"
-                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;"
-                                                        style="height: 150px;">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon orange  ">
-                                                                    <i class="bi bi-arrow-bar-right"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Next Task
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot2_next">
-                                                                    <!-- ProductCTCB2 -->
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-lg-3 col-md-6">
-                                                <div class="card"
-                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;"
-                                                        style="height: 150px;">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon green  ">
-                                                                    <i class="bi bi-card-checklist"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
-                                                                <h6 class="text-muted font-semibold"> Queue
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot2_remaining">
-                                                                    <!-- 23 -->
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="card"
-                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon grey  ">
-                                                                    <i class="bi bi-broadcast-pin"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Status
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot2_status">
-                                                                    <!-- running -->
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card"
-                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon yellow  ">
-                                                                    <i class="iconly-boldLocation"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Location
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot2_current">
-                                                                    <!-- AP12 -->
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card"
-                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon darkblue  ">
-                                                                    <i class="bi bi-battery-full"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Battery
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0" id="robot2_battery">
-                                                                    <!-- 98 -->
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card"
-                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;">
-                                                        <div class="row">
-                                                            <div
-                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
-                                                                <div class="stats-icon red   ">
-                                                                    <i class="bi bi-battery-charging"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
-                                                                <h6 class="text-muted font-semibold">
-                                                                    Charging
-                                                                </h6>
-                                                                <h6 class="font-extrabold mb-0 " id="robot2_charging">
-                                                                    <!-- false -->
-                                                                </h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4>ROBOT 2</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="col-12">
@@ -576,6 +367,215 @@
                                                                     Charging
                                                                 </h6>
                                                                 <h6 class="font-extrabold mb-0 " id="robot1_charging">
+                                                                    <!-- false -->
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>ROBOT 2</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-6 col-lg-3 col-md-6">
+                                                <div class="card"
+                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;"
+                                                        style="height: 150px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon blue  ">
+                                                                    <i class="bi bi-minecart"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Robot
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_name">
+                                                                    <!-- AF-01 -->
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-lg-3 col-md-6">
+                                                <div class="card"
+                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;"
+                                                        style="height: 150px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon pink  ">
+                                                                    <i class="iconly-boldSend"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Destination
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0 "
+                                                                    id="robot2_destination">
+                                                                    <!-- AP34 -->
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-lg-3 col-md-6">
+                                                <div class="card"
+                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;"
+                                                        style="height: 150px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon orange  ">
+                                                                    <i class="bi bi-arrow-bar-right"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Next Task
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0" id="robot2_next">
+                                                                    <!-- ProductCTCB2 -->
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-lg-3 col-md-6">
+                                                <div class="card"
+                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;"
+                                                        style="height: 150px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon green  ">
+                                                                    <i class="bi bi-card-checklist"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8 px-1">
+                                                                <h6 class="text-muted font-semibold"> Queue
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0" id="robot2_remaining">
+                                                                    <!-- 23 -->
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card"
+                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon grey  ">
+                                                                    <i class="bi bi-broadcast-pin"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Status
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_status">
+                                                                    <!-- running -->
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="card"
+                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon yellow  ">
+                                                                    <i class="iconly-boldLocation"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Location
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_current">
+                                                                    <!-- AP12 -->
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="card"
+                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon darkblue  ">
+                                                                    <i class="bi bi-battery-full"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Battery
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0" id="robot2_battery">
+                                                                    <!-- 98 -->
+                                                                </h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="card"
+                                                    style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; margin-top: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                    <div class="card-body px-4 py-4-5" style="min-height: 135px;">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-4 d-flex justify-content-start">
+                                                                <div class="stats-icon red   ">
+                                                                    <i class="bi bi-battery-charging"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-8">
+                                                                <h6 class="text-muted font-semibold">
+                                                                    Charging
+                                                                </h6>
+                                                                <h6 class="font-extrabold mb-0 " id="robot2_charging">
                                                                     <!-- false -->
                                                                 </h6>
                                                             </div>
@@ -998,10 +998,10 @@
                         });
                         $('#table_queue_robot1').DataTable();
                         setTimeout(getQueueRobot1Data, 5000);
-                        $('#robot2_destination').html(data.destination);
-                        $('#robot2_next').html(data.next_task);
-                        $('#robot2_remaining').html(data.queue);
-                        $('#robot2_status').html(data.statusnya);
+                        $('#robot1_destination').html(data.destination);
+                        $('#robot1_next').html(data.next_task);
+                        $('#robot1_remaining').html(data.queue);
+                        $('#robot1_status').html(data.statusnya);
                     },
                     error: function(xhr, status, error) {
                         console.error("Error fetching data:", error);
@@ -1031,10 +1031,10 @@
                             $('#table_queue_robot2 tbody').append(row);
                         });
                         $('#table_queue_robot2').DataTable();
-                        $('#robot1_destination').html(data.destination);
-                        $('#robot1_next').html(data.next_task);
-                        $('#robot1_remaining').html(data.queue);
-                        $('#robot1_status').html(data.statusnya);
+                        $('#robot2_destination').html(data.destination);
+                        $('#robot2_next').html(data.next_task);
+                        $('#robot2_remaining').html(data.queue);
+                        $('#robot2_status').html(data.statusnya);
 
                         setTimeout(getQueueRobot2Data, 5000);
                     },
