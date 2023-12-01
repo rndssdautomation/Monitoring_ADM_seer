@@ -30,7 +30,8 @@
                 <div class="container-fluid">
                     <div>
                         <a haref="" class="burger-btn d-block">
-                            <h4>MONITORING SEER ADM</h4>
+                            <!-- <h4>MONITORING SEER ADM</h4> -->
+                            <h4><strong><span style="font-size: 1.5em;">MONITORING SEER ADM</span></strong></h4>
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -40,7 +41,7 @@
                     </div>
                     <div>
                         <div class="d-flex justify-content-center">
-                            <img src="<?= base_url();?>/assets/images/logo/ssd.png" alt="ssd" width="300" height="65">
+                            <img src="<?= base_url();?>/assets/images/logo/ssd.png" alt="ssd" width="400" height="65">
                         </div>
                     </div>
                     <div>
