@@ -1592,6 +1592,8 @@ a {
 
 .font-extrabold {
     font-weight: 800;
+    text-align: center;
+
 }
 
 .text-width-md {
