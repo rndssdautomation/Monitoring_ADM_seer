@@ -101,7 +101,7 @@ class Monitor extends BaseController
         curl_close($ch);
         sleep(1);
 
-        if ($counter++ >= 10) {
+        if ($counter++ >= 1) {
             die(); 
         }
     }
@@ -198,7 +198,7 @@ class Monitor extends BaseController
 
         curl_close($ch);
         sleep(1);
-        if ($counter++ >= 10) {
+        if ($counter++ >= 1) {
             die(); 
         }
     }

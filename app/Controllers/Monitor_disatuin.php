@@ -9,53 +9,13 @@ class Monitor extends BaseController
         return view('Basecore/index');
     }
 
-    // LIST TASK
-    public function get_api_list_task()
-    {
-        $config = config('Identity');
-        $IP = $config->IP;
-        $data = [
-            "start" => "",
-            "end" => "",
-        ];
-        $api_url ="http://" . $IP . ":8080/api/stat/agvTaskSuccessList";
-        $headers = ["Content-Type: application/json"];
-        $kill = 1;
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $api_url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            "Content-Type: application/json",
-        ]);
-        curl_setopt($ch, CURLOPT_TIMEOUT, $kill);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $kill);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        $response = curl_exec($ch);
-        if ($response === false) {
-            echo "Error: " . curl_error($ch);
-        } else {
-            $raw_data = json_decode($response, true);
-            $data = $raw_data["data"][0]["tasks"];
-            $tasks = array_keys($data);
-            $count = count($tasks);
-            $response_data = [];
-            foreach ($tasks as $task) {
-                $response_data[] = [
-                    "task" => $task,
-                ];
-            }
-            echo json_encode(["data" => $response_data]);
-        }
-        curl_close($ch);
-    }
-
+  
     // DELIVERY FAILED
     public function get_api_data_delivery_failed()
     {
         $config = config('Identity');
         $IP = $config->IP;
-        $kill = 1;
+        $kill = 5;
         $ch = curl_init();
         $api_url = "http://" . $IP . ":8080/api/queryWindTask";
         curl_setopt($ch, CURLOPT_URL, $api_url);
@@ -134,7 +94,7 @@ class Monitor extends BaseController
         $config = config('Identity');
         $IP = $config->IP;
         $api_url = "http://" . $IP . ":8080/api/queryWindTask";
-        $kill = 1;
+        $kill = 5;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $api_url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -210,7 +170,7 @@ class Monitor extends BaseController
     {
         $config = config('Identity');
         $IP = $config->IP;
-        $kill = 1;
+        $kill = 5;
         $ch = curl_init();
         $api_url = "http://" . $IP . ":8080/api/queryWindTask";
         curl_setopt($ch, CURLOPT_URL, $api_url);
@@ -287,7 +247,7 @@ class Monitor extends BaseController
         $IP = $config->IP;
         $api_url = "http://" . $IP . ":8088/robotsStatus";
         $headers = ["Content-Type: application/json"];
-        $kill = 1;
+        $kill = 5;
         $ch = curl_init();
     
         curl_setopt($ch, CURLOPT_URL, $api_url);
@@ -331,7 +291,7 @@ class Monitor extends BaseController
     {
         $config = config('Identity');
         $IP = $config->IP;
-        $kill = 1;
+        $kill = 5;
         $ch = curl_init();
         $api_url = "http://" . $IP . ":8080/api/queryWindTask";
 
@@ -477,7 +437,7 @@ class Monitor extends BaseController
     {
         $config = config('Identity');
         $IP = $config->IP;
-        $kill = 1;
+        $kill = 5;
         $ch = curl_init();
         $api_url = "http://" . $IP . ":8080/api/queryWindTask";
 
@@ -618,7 +578,7 @@ class Monitor extends BaseController
     {
         $config = config('Identity');
         $IP = $config->IP;
-        $kill = 1;
+        $kill = 5;
         $ch = curl_init();
         $api_url = "http://" . $IP . ":8080/api/queryWindTask";
 
@@ -707,6 +667,200 @@ class Monitor extends BaseController
               
                 echo json_encode([
                     "data" => $combined_data,
+                ]);
+            }
+        curl_close($ch);
+    }
+
+    // QUEUE ROBOT 
+    public function get_api_data_queue_robot()
+    {
+        $config = config('Identity');
+        $IP = $config->IP;
+        $kill = 5;
+        $ch = curl_init();
+        $api_url = "http://" . $IP . ":8080/api/queryWindTask";
+
+        curl_setopt($ch, CURLOPT_URL, $api_url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            "Content-Type: application/json",
+        ]);
+        curl_setopt($ch, CURLOPT_TIMEOUT, $kill);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $kill);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt(
+            $ch,
+            CURLOPT_POSTFIELDS,
+            json_encode([
+                "currentPage" => 1,
+                "pageSize" => 500,
+                "queryParam" => [
+                    "taskId" => "",
+                    "defLabel" => "",
+                    "taskRecordId" => "",
+                    "status" => null,
+                    "agvId" => "",
+                    "startDate" => "",
+                    "endDate" => "",
+                    "isOrderDesc" => false,
+                ],
+            ])
+        );
+
+        $response = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            echo "Error: " . curl_error($ch);
+        } else {
+            $dataapiqueue = json_decode($response, true);
+            $queues = $dataapiqueue["data"]["pageList"];
+
+            $response_data_ongoing = [];
+            $response_data_finished = [];
+            $response_data_waiting = [];
+            $response_data_ongoing_robot1 = [];
+            $response_data_finished_robot1 = [];
+            $response_data_waiting_robot1= [];
+            $allowed_tasks_robot1 = [
+                "ProductBV1",
+                "ProductBV2",
+                "ProductRUV",
+                "ProductCTCB2",
+                "ProductBLV",
+                "ProductT5",
+                "ProductCTCB1",
+                "ProductBUV"
+            ];
+
+                foreach ($queues as $queue) {
+                        switch ($queue["status"]) {
+                            case 1000:
+                                $status = "running";
+                                $robot = $queue["agvId"];
+                                if (empty($robot)) {
+                                    $status = "waiting";
+                                    $response_data_waiting[] = [
+                                        "task" => $queue["defLabel"],
+                                        "status" => $status,
+                                        "robot" => $queue["agvId"],
+                                        "creat" => $queue["createdOn"],
+                                        "end" => $queue["endedOn"],
+                                    ];
+                                } else {
+                                    $response_data_ongoing[] = [
+                                        "task" => $queue["defLabel"],
+                                        "status" => $status,
+                                        "robot" => $robot,
+                                        "end" => $queue["endedOn"],
+                                        "creat" => $queue["createdOn"],
+                                ];
+                            }
+                                break;
+                            case 1003:
+                            case 1004:
+                                $status = "finished";
+                                $response_data_finished[] = [
+                                    "task" => $queue["defLabel"],
+                                    "status" => $status,
+                                    "robot" => $queue["agvId"],
+                                    "creat" => $queue["createdOn"],
+                                    "end" => $queue["endedOn"],
+                                ];
+                                break;
+                            default:
+                                $status = "unknown";
+                                break;
+                        }
+                    
+                }
+                foreach ($queues as $queue_robot1) {
+                    if (in_array($queue_robot1["defLabel"], $allowed_tasks_robot1)) {
+                        switch ($queue_robot1["status"]) {
+                            case 1000:
+                                $status_robot1 = "running";
+                                $robot1 = $queue_robot1["agvId"];
+                                if (empty($robot1)) {
+                                    $status_robot1 = "waiting";
+                                    $response_data_waiting_robot1[] = [
+                                        "task" => $queue_robot1["defLabel"],
+                                        "status" => $status_robot1,
+                                        "robot" => $queue_robot1["agvId"],
+                                        "creat" => $queue_robot1["createdOn"],
+                                        "end" => $queue_robot1["endedOn"],
+                                    ];
+                                } else {
+                                    $response_data_ongoing_robot1[] = [
+                                        "task" => $queue_robot1["defLabel"],
+                                        "status" => $status_robot1,
+                                        "robot" => $robot1,
+                                        "end" => $queue_robot1["endedOn"],
+                                        "creat" => $queue_robot1["createdOn"],
+                                ];
+                            }
+                                break;
+                            case 1003:
+                            case 1004:
+                                $status_robot1 = "finished";
+                                $response_data_finished_robot1[] = [
+                                    "task" => $queue_robot1["defLabel"],
+                                    "status" => $status_robot1,
+                                    "robot" => $queue_robot1["agvId"],
+                                    "creat" => $queue_robot1["createdOn"],
+                                    "end" => $queue_robot1["endedOn"],
+                                ];
+                                break;
+                            default:
+                                $status_robot1 = "unknown";
+                                break;
+                        }
+                    }
+                }
+                //all
+                $response_data_last_finished = array_slice($response_data_finished, 0, 3);
+                $combined_data = array_merge($response_data_ongoing, $response_data_waiting, $response_data_last_finished);
+                //robot1
+                $response_data_last_finished_robot1 = array_slice($response_data_finished_robot1, 0, 3);
+                $combined_data_robot1 = array_merge($response_data_ongoing_robot1, $response_data_waiting_robot1, $response_data_last_finished_robot1);
+                $destination_robot1 = "";
+                $next_task_robot1 = "";
+                $queue_robot1 = count($response_data_waiting_robot1);        
+                $statusnya_robot1 = "StandBy"; 
+                foreach ($response_data_ongoing_robot1 as $data_robot1) {
+                    if ($data_robot1["status"] === "running") {
+                        $destination_robot1 = $data_robot1["task"];
+                        $statusnya_robot1 = "Running";
+                        break;
+                    }
+                }
+    
+                if ($queue_robot1 > 0) {
+                usort($response_data_waiting_robot1, function ($a_robot1, $b_robot1) {
+                    return strtotime($a_robot1["creat"]) - strtotime($b_robot1["creat"]);
+                    });
+                    if (!empty($response_data_waiting_robot1)) {
+                        $next_task_robot1 = $response_data_waiting_robot1[0]["task"];
+                    }
+                }     
+                if ($destination_robot1 === "") {
+                    $destination_robot1 = "No Destination Yet";
+                }
+                if ($next_task_robot1 === "") {
+                    $next_task_robot1 = "No Upcoming Tasks";
+                }
+                if ($queue_robot1 === 0) {
+                    $queue_robot1 = "No Remaining Queue";
+                }
+
+
+
+                echo json_encode([
+                    "data" => $combined_data,
+                    "data_robot1" => $combined_data_robot1,
+                    "destination_robot1" => $destination_robot1,
+                    "next_task_robot1" => $next_task_robot1,
+                    "queue_robot1" => $queue_robot1,
+                    "statusnya_robot1" => $statusnya_robot1,
                 ]);
             }
         curl_close($ch);
