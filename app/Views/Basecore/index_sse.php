@@ -18,7 +18,7 @@
         document.body.style.zoom = zoomLevel;
     }
     window.onload = function() {
-        setZoom('70%');
+        setZoom('65%');
     };
     </script>
 </head>
@@ -30,7 +30,8 @@
                 <div class="container-fluid">
                     <div>
                         <a haref="" class="burger-btn d-block">
-                            <h4>MONITORING SEER ADM</h4>
+                            <!-- <h4>MONITORING SEER ADM</h4> -->
+                            <h4><strong><span style="font-size: 1.5em;">MONITORING SEER ADM</span></strong></h4>
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -40,7 +41,7 @@
                     </div>
                     <div>
                         <div class="d-flex justify-content-center">
-                            <img src="<?= base_url();?>/assets/images/logo/ssd.png" alt="ssd" width="300" height="65">
+                            <img src="<?= base_url();?>/assets/images/logo/ssd.png" alt="ssd" width="400" height="65">
                         </div>
                     </div>
                     <div>
@@ -104,7 +105,7 @@
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#infodeliveryfailed" onclick="getFailedData()">
+                                            data-bs-target="#infodeliveryfailed">
                                             Details
                                         </button>
                                     </div>
@@ -131,7 +132,7 @@
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#infodeliverysuccess" onclick="getSuccessData();">
+                                            data-bs-target="#infodeliverysuccess">
                                             Details
                                         </button>
                                     </div>
@@ -836,64 +837,109 @@
         <script src="<?= base_url();?>/assets/js/bootstrap.bundle.min.js"></script>
         <script>
         $(document).ready(function() {
-            getListData();
+            var raw_data = new EventSource('<?php echo base_url('get_api_data_delivery_failed'); ?>');
+            raw_data.onmessage = function(event) {
+                var data = JSON.parse(event.data);
+                var failed_total = data.failed.length;
+                var filed = document.getElementById('count_task_failed');
+                filed.textContent = failed_total;
+                var success_total = data.success.length;
+                var success = document.getElementById('count_task_success');
+                success.textContent = success_total;
+                var history_total = data.history.length;
+                var history = document.getElementById('count_task_history');
+                history.textContent = history_total;
+            };
+        });
+        </script>
+        <!-- <script>
+        $(document).ready(function() {
 
-            function lenght_getListData() {
-                $.ajax({
-                    url: "<?php echo base_url('get_api_list_task'); ?>",
-                    type: "GET",
-                    dataType: "json",
-                    success: function(data) {
-                        setTimeout(lenght_getListData, 5000);
-                        var list_count = data.data.length;
-                        $('#count_task_list').html(list_count);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("Error fetching data:", error);
-                    }
+            var raw_data = new EventSource('<?php echo base_url('get_api_data_delivery_failed'); ?>');
+            raw_data.onmessage = function(event) {
+                var data = JSON.parse(event.data_failed);
+                console.log(data);
+            };
+
+            //SUCCESS
+
+            var successEventSource = new EventSource(
+                "<?php echo base_url('get_api_data_delivery_success'); ?>");
+            successEventSource.onmessage = function(event) {
+                var data = JSON.parse(event.data);
+
+                var success_count = data.data.length;
+                $('#count_task_success').html(success_count);
+
+
+                updateTable('table_success', data.data);
+            };
+
+            function updateTable(tableName, tableData) {
+                $('#' + tableName + ' tbody').empty();
+                $.each(tableData, function(index, item) {
+                    var row = "<tr>" +
+                        "<td class='text-center'>" + (index + 1) + "</td>" +
+                        "<td class='text-center'>" + item.task_success + "</td>" +
+                        "<td class='text-center'>" + item.robot_success + "</td>" +
+                        "<td class='text-center'>" + item.status_success + "</td>" +
+                        "<td class='text-center'>" + item.creat_success + "</td>" +
+                        "<td class='text-center'>" + item.end_success + "</td>" +
+                        "</tr>";
+
+                    $('#' + tableName + ' tbody').append(row);
+                });
+
+                if ($.fn.DataTable.isDataTable('#' + tableName)) {
+                    $('#' + tableName).DataTable().destroy();
+                }
+
+                $('#' + tableName).DataTable({
+                    "pageLength": 10
                 });
             }
-            lenght_getListData();
+
+            //FAILED
+
+            // var failedEventSource = new EventSource(
+            //     "<?php echo base_url('get_api_data_delivery_failed'); ?>");
+            // failedEventSource.onmessage = function(event) {
+            //     var data = JSON.parse(event.data);
 
 
-            getFailedData();
+            //     var failed_count = data.data.length;
+            //     $('#count_task_failed').html(failed_count);
 
-            function lenght_getFailedData() {
-                $.ajax({
-                    url: "<?php echo base_url('get_api_data_delivery_failed'); ?>",
-                    type: "GET",
-                    dataType: "json",
-                    success: function(data) {
-                        var failed_count = data.data.length;
-                        $('#count_task_failed').html(failed_count);
-                        setTimeout(lenght_getFailedData, 5000);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("Error fetching data:", error);
-                    }
+
+            //     updateTable('table_failed', data.data);
+            // };
+
+
+            function updateTable(tableName, tableData) {
+                $('#' + tableName + ' tbody').empty();
+                $.each(tableData, function(index, item) {
+                    var row = "<tr>" +
+                        "<td class='text-center'>" + (index + 1) + "</td>" +
+                        "<td class='text-center'>" + item.task_failed + "</td>" +
+                        "<td class='text-center'>" + item.robot_failed + "</td>" +
+                        "<td class='text-center'>" + item.status_failed + "</td>" +
+                        "<td class='text-center'>" + item.creat_failed + "</td>" +
+                        "<td class='text-center'>" + item.end_failed + "</td>" +
+                        "</tr>";
+
+                    $('#' + tableName + ' tbody').append(row);
+                });
+
+                if ($.fn.DataTable.isDataTable('#' + tableName)) {
+                    $('#' + tableName).DataTable().destroy();
+                }
+
+                $('#' + tableName).DataTable({
+                    "pageLength": 10
                 });
             }
-            lenght_getFailedData();
 
 
-            getSuccessData();
-
-            function lenght_getSuccessData() {
-                $.ajax({
-                    url: "<?php echo base_url('get_api_data_delivery_success'); ?>",
-                    type: "GET",
-                    dataType: "json",
-                    success: function(data) {
-                        setTimeout(getSuccessData, 5000);
-                        var success_count = data.data.length;
-                        $('#count_task_success').html(success_count);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("Error fetching data:", error);
-                    }
-                });
-            }
-            lenght_getSuccessData();
 
 
             getHistoryData();
@@ -904,7 +950,7 @@
                     type: "GET",
                     dataType: "json",
                     success: function(data) {
-                        setTimeout(lenght_getHistoryData, 5000);
+                        setTimeout(lenght_getHistoryData, 1000);
                         var history_count = data.data.length;
                         $('#count_task_history').html(history_count);
                     },
@@ -934,7 +980,7 @@
                                     'True' : 'False');
                             }
 
-                            setTimeout(getStatusRobot, 5000);
+                            setTimeout(getStatusRobot, 1000);
                         } else {
                             console.log("No robots found");
                         }
@@ -968,7 +1014,7 @@
                         });
                         $('#table_queue_robot_all').DataTable();
 
-                        setTimeout(getQueueRobotAllData, 5000);
+                        setTimeout(getQueueRobotAllData, 1000);
                     },
                     error: function(xhr, status, error) {
                         console.error("Error fetching data:", error);
@@ -996,7 +1042,7 @@
                             $('#table_queue_robot1 tbody').append(row);
                         });
                         $('#table_queue_robot1').DataTable();
-                        setTimeout(getQueueRobot1Data, 5000);
+                        setTimeout(getQueueRobot1Data, 1000);
                         $('#robot2_destination').html(data.destination);
                         $('#robot2_next').html(data.next_task);
                         $('#robot2_remaining').html(data.queue);
@@ -1035,7 +1081,7 @@
                         $('#robot1_remaining').html(data.queue);
                         $('#robot1_status').html(data.statusnya);
 
-                        setTimeout(getQueueRobot2Data, 5000);
+                        setTimeout(getQueueRobot2Data, 1000);
                     },
                     error: function(xhr, status, error) {
                         console.error("Error fetching data:", error);
@@ -1045,110 +1091,6 @@
             getQueueRobot2Data();
         });
 
-        // Function Task List
-        function getListData() {
-            $.ajax({
-                url: "<?php echo base_url('get_api_list_task'); ?>",
-                type: "GET",
-                dataType: "json",
-                success: function(data) {
-                    $('#table_list tbody').empty();
-                    $.each(data.data, function(index, item) {
-                        var row = "<tr>" +
-                            "<td class='text-center'>" + (index + 1) + "</td>" +
-                            "<td class='text-center'>" + item.task + "</td>" +
-                            "</tr>";
-
-                        $('#table_list tbody').append(row);
-                    });
-
-                    if ($.fn.DataTable.isDataTable('#table_list')) {
-                        $('#table_list').DataTable().destroy();
-                    }
-
-                    $('#table_list').DataTable({
-                        "pageLength": 10
-                    });
-
-                    var list_count = data.data.length;
-                    $('#count_task_list').html(list_count);
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching data:", error);
-                }
-            });
-        }
-
-        // Function Task Failed
-        function getFailedData() {
-            $.ajax({
-                url: "<?php echo base_url('get_api_data_delivery_failed'); ?>",
-                type: "GET",
-                dataType: "json",
-                success: function(data) {
-                    $('#table_failed tbody').empty();
-                    $.each(data.data, function(index, item) {
-                        var row = "<tr>" +
-                            "<td class='text-center'>" + (index + 1) + "</td>" +
-                            "<td class='text-center'>" + item.task_failed + "</td>" +
-                            "<td class='text-center'>" + item.robot_failed + "</td>" +
-                            "<td class='text-center'>" + item.status_failed + "</td>" +
-                            "<td class='text-center'>" + item.creat_failed + "</td>" +
-                            "<td class='text-center'>" + item.end_failed + "</td>" +
-                            "</tr>";
-
-                        $('#table_failed tbody').append(row);
-                    });
-                    if ($.fn.DataTable.isDataTable('#table_failed')) {
-                        $('#table_failed').DataTable().destroy();
-                    }
-
-                    $('#table_failed').DataTable({
-                        "pageLength": 10
-                    });
-                    var failed_count = data.data.length;
-                    $('#count_task_failed').html(failed_count);
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching data:", error);
-                }
-            });
-        }
-
-        // Function Task Success
-        function getSuccessData() {
-            $.ajax({
-                url: "<?php echo base_url('get_api_data_delivery_success'); ?>",
-                type: "GET",
-                dataType: "json",
-                success: function(data) {
-                    $('#table_success tbody').empty();
-                    $.each(data.data, function(index, item) {
-                        var row = "<tr>" +
-                            "<td class='text-center'>" + (index + 1) + "</td>" +
-                            "<td class='text-center'>" + item.task_success + "</td>" +
-                            "<td class='text-center'>" + item.robot_success + "</td>" +
-                            "<td class='text-center'>" + item.status_success + "</td>" +
-                            "<td class='text-center'>" + item.creat_success + "</td>" +
-                            "<td class='text-center'>" + item.end_success + "</td>" +
-                            "</tr>";
-
-                        $('#table_success tbody').append(row);
-                    });
-                    if ($.fn.DataTable.isDataTable('#table_success')) {
-                        $('#table_success').DataTable().destroy();
-                    }
-                    $('#table_success').DataTable({
-                        "pageLength": 10
-                    });
-                    var success_count = data.data.length;
-                    $('#count_task_success').html(success_count);
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching data:", error);
-                }
-            });
-        }
 
         // Function Task History
         function getHistoryData() {
@@ -1184,7 +1126,7 @@
                 }
             });
         }
-        </script>
+        </script> -->
 </body>
 
 </html>
