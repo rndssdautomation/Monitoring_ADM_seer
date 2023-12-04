@@ -837,6 +837,29 @@
         <script src="<?= base_url();?>/assets/js/bootstrap.bundle.min.js"></script>
         <script>
         $(document).ready(function() {
+            var raw_data = new EventSource('<?php echo base_url('get_api_data_delivery_failed'); ?>');
+            raw_data.onmessage = function(event) {
+                var data = JSON.parse(event.data);
+                var failed_total = data.failed.length;
+                var filed = document.getElementById('count_task_failed');
+                filed.textContent = failed_total;
+                var success_total = data.success.length;
+                var success = document.getElementById('count_task_success');
+                success.textContent = success_total;
+                var history_total = data.history.length;
+                var history = document.getElementById('count_task_history');
+                history.textContent = history_total;
+            };
+        });
+        </script>
+        <!-- <script>
+        $(document).ready(function() {
+
+            var raw_data = new EventSource('<?php echo base_url('get_api_data_delivery_failed'); ?>');
+            raw_data.onmessage = function(event) {
+                var data = JSON.parse(event.data_failed);
+                console.log(data);
+            };
 
             //SUCCESS
 
@@ -845,14 +868,12 @@
             successEventSource.onmessage = function(event) {
                 var data = JSON.parse(event.data);
 
-
                 var success_count = data.data.length;
                 $('#count_task_success').html(success_count);
 
 
                 updateTable('table_success', data.data);
             };
-
 
             function updateTable(tableName, tableData) {
                 $('#' + tableName + ' tbody').empty();
@@ -880,18 +901,18 @@
 
             //FAILED
 
-            var failedEventSource = new EventSource(
-                "<?php echo base_url('get_api_data_delivery_failed'); ?>");
-            failedEventSource.onmessage = function(event) {
-                var data = JSON.parse(event.data);
+            // var failedEventSource = new EventSource(
+            //     "<?php echo base_url('get_api_data_delivery_failed'); ?>");
+            // failedEventSource.onmessage = function(event) {
+            //     var data = JSON.parse(event.data);
 
 
-                var failed_count = data.data.length;
-                $('#count_task_failed').html(failed_count);
+            //     var failed_count = data.data.length;
+            //     $('#count_task_failed').html(failed_count);
 
 
-                updateTable('table_failed', data.data);
-            };
+            //     updateTable('table_failed', data.data);
+            // };
 
 
             function updateTable(tableName, tableData) {
@@ -1106,7 +1127,7 @@
                 }
             });
         }
-        </script>
+        </script> -->
 </body>
 
 </html>
