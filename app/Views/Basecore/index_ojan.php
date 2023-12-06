@@ -105,10 +105,7 @@
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                            <<<<<<< HEAD data-bs-target="#infodeliveryfailed" onclick="datafiled();">
-                                            =======
-                                            data-bs-target="#infodeliveryfailed" id="buttonfailed">
-                                            >>>>>>> 371d9957e45c0ab5c7efeff09e7abf002abfc530
+                                            data-bs-target="#infodeliveryfailed">
                                             Details
                                         </button>
                                     </div>
@@ -838,237 +835,299 @@
         <script type="text/javascript" src="<?= base_url();?>/assets/js/jquery.dataTables.min.js"></script>
         <script src="<?= base_url();?>/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
         <script src="<?= base_url();?>/assets/js/bootstrap.bundle.min.js"></script>
-
         <script>
         $(document).ready(function() {
-            var raw_data = new EventSource('<?php echo base_url('get_api_data_delivery'); ?>');
+            var raw_data = new EventSource('<?php echo base_url('get_api_data_delivery_failed'); ?>');
             raw_data.onmessage = function(event) {
                 var data = JSON.parse(event.data);
-
                 var failed_total = data.failed.length;
                 var filed = document.getElementById('count_task_failed');
                 filed.textContent = failed_total;
-                var failed = data.failed;
-                datafiled('table_failed', failed);
-
                 var success_total = data.success.length;
                 var success = document.getElementById('count_task_success');
                 success.textContent = success_total;
-                var success = data.success;
-                datasuccess('table_success', success);
-
-
                 var history_total = data.history.length;
                 var history = document.getElementById('count_task_history');
                 history.textContent = history_total;
-                var history = data.history;
-                datahistory('table_history', history);
+            };
+        });
+        </script>
+        <!-- <script>
+        $(document).ready(function() {
 
-
-                var destinationA = data.datarobotA[0].destination_a;
-                var setdestinationA = document.getElementById('robot2_destination');
-                setdestinationA.textContent = destinationA;
-
-                var next_taskA = data.datarobotA[0].next_task_a;
-                var setnext_taskA = document.getElementById('robot2_next');
-                setnext_taskA.textContent = next_taskA;
-
-                var queue_A = data.datarobotA[0].queue_a;
-                var setqueue_A = document.getElementById('robot2_remaining');
-                setqueue_A.textContent = queue_A;
-
-                var robot_A = data.datarobotA[0].data_a[0].robot;
-                var setrobot_A = document.getElementById('robot2_name');
-                setrobot_A.textContent = robot_A;
-
-                var statusnya_A = data.datarobotA[0].statusnya_a;
-                var setstatusnya_A = document.getElementById('robot2_status');
-                setstatusnya_A.textContent = statusnya_A;
-
-                var queue_A = data.datarobotA[0].data_a;
-                updateTablerobota('table_queue_robot1', queue_A);
-
-                var queue_B = data.datarobotB[0].data_b;
-                updateTablerobotb('table_queue_robot2', queue_B);
-
-                var mergedData = queue_A.concat(queue_B);
-                console.log(mergedData);
-                updateTablerobotall('table_queue_robot_all', mergedData);
-
-                var destinationB = data.datarobotB[0].destination_b;
-                var setdestinationB = document.getElementById('robot1_destination');
-                setdestinationB.textContent = destinationB;
-
-                var next_taskB = data.datarobotB[0].next_task_b;
-                var setnext_taskB = document.getElementById('robot1_next');
-                setnext_taskB.textContent = next_taskB;
-
-                var queue_B = data.datarobotB[0].queue_b;
-                var setqueue_B = document.getElementById('robot1_remaining');
-                setqueue_B.textContent = queue_B;
-
-                var statusnya_B = data.datarobotB[0].statusnya_b;
-                var setstatusnya_B = document.getElementById('robot1_status');
-                setstatusnya_B.textContent = statusnya_B;
-
-                var robot_B = data.datarobotB[0].data_b[0].robot;
-                var setrobot_B = document.getElementById('robot1_name');
-                setrobot_B.textContent = robot_B;
-
+            var raw_data = new EventSource('<?php echo base_url('get_api_data_delivery_failed'); ?>');
+            raw_data.onmessage = function(event) {
+                var data = JSON.parse(event.data_failed);
+                console.log(data);
             };
 
+            //SUCCESS
+
+            var successEventSource = new EventSource(
+                "<?php echo base_url('get_api_data_delivery_success'); ?>");
+            successEventSource.onmessage = function(event) {
+                var data = JSON.parse(event.data);
+
+                var success_count = data.data.length;
+                $('#count_task_success').html(success_count);
+
+
+                updateTable('table_success', data.data);
+            };
+
+            function updateTable(tableName, tableData) {
+                $('#' + tableName + ' tbody').empty();
+                $.each(tableData, function(index, item) {
+                    var row = "<tr>" +
+                        "<td class='text-center'>" + (index + 1) + "</td>" +
+                        "<td class='text-center'>" + item.task_success + "</td>" +
+                        "<td class='text-center'>" + item.robot_success + "</td>" +
+                        "<td class='text-center'>" + item.status_success + "</td>" +
+                        "<td class='text-center'>" + item.creat_success + "</td>" +
+                        "<td class='text-center'>" + item.end_success + "</td>" +
+                        "</tr>";
+
+                    $('#' + tableName + ' tbody').append(row);
+                });
+
+                if ($.fn.DataTable.isDataTable('#' + tableName)) {
+                    $('#' + tableName).DataTable().destroy();
+                }
+
+                $('#' + tableName).DataTable({
+                    "pageLength": 10
+                });
+            }
+
+            //FAILED
+
+            // var failedEventSource = new EventSource(
+            //     "<?php echo base_url('get_api_data_delivery_failed'); ?>");
+            // failedEventSource.onmessage = function(event) {
+            //     var data = JSON.parse(event.data);
+
+
+            //     var failed_count = data.data.length;
+            //     $('#count_task_failed').html(failed_count);
+
+
+            //     updateTable('table_failed', data.data);
+            // };
+
+
+            function updateTable(tableName, tableData) {
+                $('#' + tableName + ' tbody').empty();
+                $.each(tableData, function(index, item) {
+                    var row = "<tr>" +
+                        "<td class='text-center'>" + (index + 1) + "</td>" +
+                        "<td class='text-center'>" + item.task_failed + "</td>" +
+                        "<td class='text-center'>" + item.robot_failed + "</td>" +
+                        "<td class='text-center'>" + item.status_failed + "</td>" +
+                        "<td class='text-center'>" + item.creat_failed + "</td>" +
+                        "<td class='text-center'>" + item.end_failed + "</td>" +
+                        "</tr>";
+
+                    $('#' + tableName + ' tbody').append(row);
+                });
+
+                if ($.fn.DataTable.isDataTable('#' + tableName)) {
+                    $('#' + tableName).DataTable().destroy();
+                }
+
+                $('#' + tableName).DataTable({
+                    "pageLength": 10
+                });
+            }
+
+
+
+
+            getHistoryData();
+
+            function lenght_getHistoryData() {
+                $.ajax({
+                    url: "<?php echo base_url('get_api_data_history_task'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        setTimeout(lenght_getHistoryData, 1000);
+                        var history_count = data.data.length;
+                        $('#count_task_history').html(history_count);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+            lenght_getHistoryData();
+
+            // DATA STATUS ROBOT
+            function getStatusRobot() {
+                $.ajax({
+                    url: "<?php echo base_url('get_api_data_status_robot'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        var robots = data.data;
+                        if (robots.length > 0) {
+                            for (var i = 0; i < robots.length; i++) {
+                                var robot = robots[i];
+                                $('#robot' + (i + 1) + '_name').html(robot.info_robot);
+                                $('#robot' + (i + 1) + '_current').html(robot.location_curent);
+                                $('#robot' + (i + 1) + '_battery').html(robot
+                                    .status_batterylevel);
+                                $('#robot' + (i + 1) + '_charging').html(robot.status_charging ?
+                                    'True' : 'False');
+                            }
+
+                            setTimeout(getStatusRobot, 1000);
+                        } else {
+                            console.log("No robots found");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+            getStatusRobot();
+
+            // Function Queue All Robot 
+            function getQueueRobotAllData() {
+                $.ajax({
+                    url: "<?php echo base_url('get_api_data_queue_robot_all'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('#table_queue_robot_all tbody').empty();
+                        $.each(data.data, function(index, item) {
+                            var row = "<tr>" +
+                                "<td class='text-center'>" + (index + 1) + "</td>" +
+                                "<td class='text-center'>" + item.robot + "</td>" +
+                                "<td class='text-center'>" + item.task + "</td>" +
+                                "<td class='text-center'>" + item.status + "</td>" +
+                                "<td class='text-center'>" + item.creat + "</td>" +
+                                "<td class='text-center'>" + item.end + "</td>" +
+                                "</tr>";
+
+                            $('#table_queue_robot_all tbody').append(row);
+                        });
+                        $('#table_queue_robot_all').DataTable();
+
+                        setTimeout(getQueueRobotAllData, 1000);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+            getQueueRobotAllData();
+
+            // Function Queue Robot 1
+            function getQueueRobot1Data() {
+                $.ajax({
+                    url: "<?php echo base_url('get_api_data_queue_robot1'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('#table_queue_robot1 tbody').empty();
+                        $.each(data.data, function(index, item) {
+                            var row = "<tr>" +
+                                "<td class='text-center'>" + (index + 1) + "</td>" +
+                                "<td class='text-center'>" + item.task + "</td>" +
+                                "<td class='text-center'>" + item.status + "</td>" +
+                                "<td class='text-center'>" + item.creat + "</td>" +
+                                "<td class='text-center'>" + item.end + "</td>" +
+                                "</tr>";
+                            $('#table_queue_robot1 tbody').append(row);
+                        });
+                        $('#table_queue_robot1').DataTable();
+                        setTimeout(getQueueRobot1Data, 1000);
+                        $('#robot2_destination').html(data.destination);
+                        $('#robot2_next').html(data.next_task);
+                        $('#robot2_remaining').html(data.queue);
+                        $('#robot2_status').html(data.statusnya);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+            getQueueRobot1Data();
+
+
+            // Function Queue Robot 2
+            function getQueueRobot2Data() {
+                $.ajax({
+                    url: "<?php echo base_url('get_api_data_queue_robot2'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('#table_queue_robot2 tbody').empty();
+                        $.each(data.data, function(index, item) {
+                            var row = "<tr>" +
+                                "<td class='text-center'>" + (index + 1) + "</td>" +
+                                "<td class='text-center'>" + item.task + "</td>" +
+                                "<td class='text-center'>" + item.status + "</td>" +
+                                "<td class='text-center'>" + item.creat + "</td>" +
+                                "<td class='text-center'>" + item.end + "</td>" +
+                                "</tr>";
+
+                            $('#table_queue_robot2 tbody').append(row);
+                        });
+                        $('#table_queue_robot2').DataTable();
+                        $('#robot1_destination').html(data.destination);
+                        $('#robot1_next').html(data.next_task);
+                        $('#robot1_remaining').html(data.queue);
+                        $('#robot1_status').html(data.statusnya);
+
+                        setTimeout(getQueueRobot2Data, 1000);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+            getQueueRobot2Data();
         });
 
-        function updateTablerobotall(tableName, tableData) {
-            // Clear the existing tbody content
-            $('#' + tableName + ' tbody').empty();
-
-            // Iterate over the tableData and append rows to the tbody
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task + "</td>" +
-                    "<td class='text-center'>" + item.status + "</td>" +
-                    "<td class='text-center'>" + item.creat + "</td>" +
-                    "<td class='text-center'>" + item.end + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            // Destroy the existing DataTable (if any)
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            // Initialize the DataTable with a pageLength of 10
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        }
 
 
-        function updateTablerobota(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task + "</td>" +
-                    "<td class='text-center'>" + item.status + "</td>" +
-                    "<td class='text-center'>" + item.creat + "</td>" +
-                    "<td class='text-center'>" + item.end + "</td>" +
-                    "</tr>";
+        // Function Task History
+        function getHistoryData() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_data_history_task'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('#table_history tbody').empty();
+                    $.each(data.data, function(index, item) {
+                        var row = "<tr>" +
+                            "<td class='text-center'>" + (index + 1) + "</td>" +
+                            "<td class='text-center'>" + item.task + "</td>" +
+                            "<td class='text-center'>" + item.robot + "</td>" +
+                            "<td class='text-center'>" + item.status + "</td>" +
+                            "<td class='text-center'>" + item.creat + "</td>" +
+                            "<td class='text-center'>" + item.end + "</td>" +
+                            "</tr>";
 
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
+                        $('#table_history tbody').append(row);
+                    });
+                    if ($.fn.DataTable.isDataTable('#table_history')) {
+                        $('#table_history').DataTable().destroy();
+                    }
+                    $('#table_history').DataTable({
+                        "pageLength": 10
+                    });
+                    var history_count = data.data.length;
+                    $('#count_task_history').html(history_count);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
             });
         }
-
-        function updateTablerobotb(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task + "</td>" +
-                    "<td class='text-center'>" + item.status + "</td>" +
-                    "<td class='text-center'>" + item.creat + "</td>" +
-                    "<td class='text-center'>" + item.end + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        }
-
-        function datafiled(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task_failed + "</td>" +
-                    "<td class='text-center'>" + item.robot_failed + "</td>" +
-                    "<td class='text-center'>" + item.status_failed + "</td>" +
-                    "<td class='text-center'>" + item.creat_failed + "</td>" +
-                    "<td class='text-center'>" + item.end_failed + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        };
-
-        function datasuccess(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task_success + "</td>" +
-                    "<td class='text-center'>" + item.robot_success + "</td>" +
-                    "<td class='text-center'>" + item.status_success + "</td>" +
-                    "<td class='text-center'>" + item.creat_success + "</td>" +
-                    "<td class='text-center'>" + item.end_success + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        };
-
-        function datahistory(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task + "</td>" +
-                    "<td class='text-center'>" + item.robot + "</td>" +
-                    "<td class='text-center'>" + item.status + "</td>" +
-                    "<td class='text-center'>" + item.creat + "</td>" +
-                    "<td class='text-center'>" + item.end + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        };
-        </script>
-
-
-
+        </script> -->
 </body>
 
 </html>
