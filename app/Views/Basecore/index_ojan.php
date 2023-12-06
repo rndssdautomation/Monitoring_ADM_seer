@@ -105,7 +105,7 @@
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#infodeliveryfailed" id="buttonfailed">
+                                            data-bs-target="#infodeliveryfailed">
                                             Details
                                         </button>
                                     </div>
@@ -835,138 +835,299 @@
         <script type="text/javascript" src="<?= base_url();?>/assets/js/jquery.dataTables.min.js"></script>
         <script src="<?= base_url();?>/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
         <script src="<?= base_url();?>/assets/js/bootstrap.bundle.min.js"></script>
-
         <script>
         $(document).ready(function() {
-            var raw_data = new EventSource('<?php echo base_url('get_api_data_delivery'); ?>');
+            var raw_data = new EventSource('<?php echo base_url('get_api_data_delivery_failed'); ?>');
             raw_data.onmessage = function(event) {
                 var data = JSON.parse(event.data);
-                //FAILED
                 var failed_total = data.failed.length;
                 var filed = document.getElementById('count_task_failed');
                 filed.textContent = failed_total;
-
-                // Tabel Failed
-                var tableFailedBody = document.getElementById('table_failed').getElementsByTagName(
-                    'tbody')[
-                    0];
-                tableFailedBody.innerHTML = '';
-                for (var i = 0; i < failed_total; i++) {
-                    var row = tableFailedBody.insertRow(i);
-                    var failedNo = row.insertCell(0);
-                    var failedTask = row.insertCell(1);
-                    var failedRobot = row.insertCell(2);
-                    var failedStatus = row.insertCell(3);
-                    var failedCreatedOn = row.insertCell(4);
-                    var failedEndedOn = row.insertCell(5);
-
-                    failedNo.innerHTML = i + 1;
-                    failedTask.innerHTML = data.failed[i].task_failed;
-                    failedRobot.innerHTML = data.failed[i].robot_failed;
-                    failedStatus.innerHTML = data.failed[i].status_failed;
-                    failedCreatedOn.innerHTML = data.failed[i].creat_failed;
-                    failedEndedOn.innerHTML = data.failed[i].end_failed;
-                }
-                if ($.fn.DataTable.isDataTable('#table_failed')) {
-                    $('#table_failed').DataTable().destroy();
-                }
-
-                $('#table_failed').DataTable({
-                    "pageLength": 100
-                });
-
-
-                //SUCCESS
                 var success_total = data.success.length;
                 var success = document.getElementById('count_task_success');
                 success.textContent = success_total;
-
-                // Tabel Success
-                var tablesuccessBody = document.getElementById('table_success').getElementsByTagName(
-                    'tbody')[
-                    0];
-                tablesuccessBody.innerHTML = '';
-                for (var i = 0; i < success_total; i++) {
-                    var row = tablesuccessBody.insertRow(i);
-                    var successNo = row.insertCell(0);
-                    var successTask = row.insertCell(1);
-                    var successRobot = row.insertCell(2);
-                    var successStatus = row.insertCell(3);
-                    var successCreatedOn = row.insertCell(4);
-                    var successEndedOn = row.insertCell(5);
-
-                    successNo.innerHTML = i + 1;
-                    successTask.innerHTML = data.success[i].task_success;
-                    successRobot.innerHTML = data.success[i].robot_success;
-                    successStatus.innerHTML = data.success[i].status_success;
-                    successCreatedOn.innerHTML = data.success[i].creat_success;
-                    successEndedOn.innerHTML = data.success[i].end_success;
-                }
-                if ($.fn.DataTable.isDataTable('#table_success')) {
-                    $('#table_success').DataTable().destroy();
-                }
-
-                $('#table_success').DataTable({
-                    "pageLength": 100
-                });
-
-                //HISTORY
                 var history_total = data.history.length;
                 var history = document.getElementById('count_task_history');
                 history.textContent = history_total;
-                // Tabel History
-                var tablehistoryBody = document.getElementById('table_history').getElementsByTagName(
-                    'tbody')[
-                    0];
-                tablehistoryBody.innerHTML = '';
-                for (var i = 0; i < history_total; i++) {
-                    var row = tablehistoryBody.insertRow(i);
-                    var historyNo = row.insertCell(0);
-                    var historyTask = row.insertCell(1);
-                    var historyRobot = row.insertCell(2);
-                    var historyStatus = row.insertCell(3);
-                    var historyCreatedOn = row.insertCell(4);
-                    var historyEndedOn = row.insertCell(5);
-
-                    historyNo.innerHTML = i + 1;
-                    historyTask.innerHTML = data.history[i].task;
-                    historyRobot.innerHTML = data.history[i].robot;
-                    historyStatus.innerHTML = data.history[i].status;
-                    historyCreatedOn.innerHTML = data.history[i].creat;
-                    historyEndedOn.innerHTML = data.history[i].end;
-                }
-                if ($.fn.DataTable.isDataTable('#table_history')) {
-                    $('#table_history').DataTable().destroy();
-                }
-
-                $('#table_history').DataTable({
-                    "pageLength": 100
-                });
-            };
-
-            //STATUS
-            var robotData = new EventSource('<?php echo base_url('get_api_data_status_robot'); ?>');
-
-            robotData.onmessage = function(event) {
-                var data = JSON.parse(event.data);
-                if (data.length > 0) {
-                    //robot 1
-                    document.getElementById('robot1_name').textContent = data[0].info_robot;
-                    document.getElementById('robot1_current').textContent = data[0].location_curent;
-                    document.getElementById('robot1_battery').textContent = data[0].status_batterylevel;
-                    document.getElementById('robot1_charging').textContent = data[0].status_charging;
-                    //robot 2
-                    document.getElementById('robot2_name').textContent = data[1].info_robot;
-                    document.getElementById('robot2_current').textContent = data[1].location_curent;
-                    document.getElementById('robot2_battery').textContent = data[1].status_batterylevel;
-                    document.getElementById('robot2_charging').textContent = data[1].status_charging;
-                }
             };
         });
         </script>
+        <!-- <script>
+        $(document).ready(function() {
+
+            var raw_data = new EventSource('<?php echo base_url('get_api_data_delivery_failed'); ?>');
+            raw_data.onmessage = function(event) {
+                var data = JSON.parse(event.data_failed);
+                console.log(data);
+            };
+
+            //SUCCESS
+
+            var successEventSource = new EventSource(
+                "<?php echo base_url('get_api_data_delivery_success'); ?>");
+            successEventSource.onmessage = function(event) {
+                var data = JSON.parse(event.data);
+
+                var success_count = data.data.length;
+                $('#count_task_success').html(success_count);
+
+
+                updateTable('table_success', data.data);
+            };
+
+            function updateTable(tableName, tableData) {
+                $('#' + tableName + ' tbody').empty();
+                $.each(tableData, function(index, item) {
+                    var row = "<tr>" +
+                        "<td class='text-center'>" + (index + 1) + "</td>" +
+                        "<td class='text-center'>" + item.task_success + "</td>" +
+                        "<td class='text-center'>" + item.robot_success + "</td>" +
+                        "<td class='text-center'>" + item.status_success + "</td>" +
+                        "<td class='text-center'>" + item.creat_success + "</td>" +
+                        "<td class='text-center'>" + item.end_success + "</td>" +
+                        "</tr>";
+
+                    $('#' + tableName + ' tbody').append(row);
+                });
+
+                if ($.fn.DataTable.isDataTable('#' + tableName)) {
+                    $('#' + tableName).DataTable().destroy();
+                }
+
+                $('#' + tableName).DataTable({
+                    "pageLength": 10
+                });
+            }
+
+            //FAILED
+
+            // var failedEventSource = new EventSource(
+            //     "<?php echo base_url('get_api_data_delivery_failed'); ?>");
+            // failedEventSource.onmessage = function(event) {
+            //     var data = JSON.parse(event.data);
+
+
+            //     var failed_count = data.data.length;
+            //     $('#count_task_failed').html(failed_count);
+
+
+            //     updateTable('table_failed', data.data);
+            // };
+
+
+            function updateTable(tableName, tableData) {
+                $('#' + tableName + ' tbody').empty();
+                $.each(tableData, function(index, item) {
+                    var row = "<tr>" +
+                        "<td class='text-center'>" + (index + 1) + "</td>" +
+                        "<td class='text-center'>" + item.task_failed + "</td>" +
+                        "<td class='text-center'>" + item.robot_failed + "</td>" +
+                        "<td class='text-center'>" + item.status_failed + "</td>" +
+                        "<td class='text-center'>" + item.creat_failed + "</td>" +
+                        "<td class='text-center'>" + item.end_failed + "</td>" +
+                        "</tr>";
+
+                    $('#' + tableName + ' tbody').append(row);
+                });
+
+                if ($.fn.DataTable.isDataTable('#' + tableName)) {
+                    $('#' + tableName).DataTable().destroy();
+                }
+
+                $('#' + tableName).DataTable({
+                    "pageLength": 10
+                });
+            }
 
 
 
+
+            getHistoryData();
+
+            function lenght_getHistoryData() {
+                $.ajax({
+                    url: "<?php echo base_url('get_api_data_history_task'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        setTimeout(lenght_getHistoryData, 1000);
+                        var history_count = data.data.length;
+                        $('#count_task_history').html(history_count);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+            lenght_getHistoryData();
+
+            // DATA STATUS ROBOT
+            function getStatusRobot() {
+                $.ajax({
+                    url: "<?php echo base_url('get_api_data_status_robot'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        var robots = data.data;
+                        if (robots.length > 0) {
+                            for (var i = 0; i < robots.length; i++) {
+                                var robot = robots[i];
+                                $('#robot' + (i + 1) + '_name').html(robot.info_robot);
+                                $('#robot' + (i + 1) + '_current').html(robot.location_curent);
+                                $('#robot' + (i + 1) + '_battery').html(robot
+                                    .status_batterylevel);
+                                $('#robot' + (i + 1) + '_charging').html(robot.status_charging ?
+                                    'True' : 'False');
+                            }
+
+                            setTimeout(getStatusRobot, 1000);
+                        } else {
+                            console.log("No robots found");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+            getStatusRobot();
+
+            // Function Queue All Robot 
+            function getQueueRobotAllData() {
+                $.ajax({
+                    url: "<?php echo base_url('get_api_data_queue_robot_all'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('#table_queue_robot_all tbody').empty();
+                        $.each(data.data, function(index, item) {
+                            var row = "<tr>" +
+                                "<td class='text-center'>" + (index + 1) + "</td>" +
+                                "<td class='text-center'>" + item.robot + "</td>" +
+                                "<td class='text-center'>" + item.task + "</td>" +
+                                "<td class='text-center'>" + item.status + "</td>" +
+                                "<td class='text-center'>" + item.creat + "</td>" +
+                                "<td class='text-center'>" + item.end + "</td>" +
+                                "</tr>";
+
+                            $('#table_queue_robot_all tbody').append(row);
+                        });
+                        $('#table_queue_robot_all').DataTable();
+
+                        setTimeout(getQueueRobotAllData, 1000);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+            getQueueRobotAllData();
+
+            // Function Queue Robot 1
+            function getQueueRobot1Data() {
+                $.ajax({
+                    url: "<?php echo base_url('get_api_data_queue_robot1'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('#table_queue_robot1 tbody').empty();
+                        $.each(data.data, function(index, item) {
+                            var row = "<tr>" +
+                                "<td class='text-center'>" + (index + 1) + "</td>" +
+                                "<td class='text-center'>" + item.task + "</td>" +
+                                "<td class='text-center'>" + item.status + "</td>" +
+                                "<td class='text-center'>" + item.creat + "</td>" +
+                                "<td class='text-center'>" + item.end + "</td>" +
+                                "</tr>";
+                            $('#table_queue_robot1 tbody').append(row);
+                        });
+                        $('#table_queue_robot1').DataTable();
+                        setTimeout(getQueueRobot1Data, 1000);
+                        $('#robot2_destination').html(data.destination);
+                        $('#robot2_next').html(data.next_task);
+                        $('#robot2_remaining').html(data.queue);
+                        $('#robot2_status').html(data.statusnya);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+            getQueueRobot1Data();
+
+
+            // Function Queue Robot 2
+            function getQueueRobot2Data() {
+                $.ajax({
+                    url: "<?php echo base_url('get_api_data_queue_robot2'); ?>",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('#table_queue_robot2 tbody').empty();
+                        $.each(data.data, function(index, item) {
+                            var row = "<tr>" +
+                                "<td class='text-center'>" + (index + 1) + "</td>" +
+                                "<td class='text-center'>" + item.task + "</td>" +
+                                "<td class='text-center'>" + item.status + "</td>" +
+                                "<td class='text-center'>" + item.creat + "</td>" +
+                                "<td class='text-center'>" + item.end + "</td>" +
+                                "</tr>";
+
+                            $('#table_queue_robot2 tbody').append(row);
+                        });
+                        $('#table_queue_robot2').DataTable();
+                        $('#robot1_destination').html(data.destination);
+                        $('#robot1_next').html(data.next_task);
+                        $('#robot1_remaining').html(data.queue);
+                        $('#robot1_status').html(data.statusnya);
+
+                        setTimeout(getQueueRobot2Data, 1000);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+            getQueueRobot2Data();
+        });
+
+
+
+        // Function Task History
+        function getHistoryData() {
+            $.ajax({
+                url: "<?php echo base_url('get_api_data_history_task'); ?>",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('#table_history tbody').empty();
+                    $.each(data.data, function(index, item) {
+                        var row = "<tr>" +
+                            "<td class='text-center'>" + (index + 1) + "</td>" +
+                            "<td class='text-center'>" + item.task + "</td>" +
+                            "<td class='text-center'>" + item.robot + "</td>" +
+                            "<td class='text-center'>" + item.status + "</td>" +
+                            "<td class='text-center'>" + item.creat + "</td>" +
+                            "<td class='text-center'>" + item.end + "</td>" +
+                            "</tr>";
+
+                        $('#table_history tbody').append(row);
+                    });
+                    if ($.fn.DataTable.isDataTable('#table_history')) {
+                        $('#table_history').DataTable().destroy();
+                    }
+                    $('#table_history').DataTable({
+                        "pageLength": 10
+                    });
+                    var history_count = data.data.length;
+                    $('#count_task_history').html(history_count);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        }
+        </script> -->
 </body>
 
 </html>
