@@ -607,9 +607,69 @@
                                     <a class="nav-link" id="satu" data-bs-toggle="tab" href="#meregerobot" role="tab"
                                         aria-controls="meregerobot" aria-selected="false">All Task</a>
                                 </li>
+
                             </ul>
+                            <div id="button_container" class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-outline-info btn-sm" id="search">Search</button>
+                                <button type="button" class="btn btn-outline-info btn-sm " id="page">Show
+                                    Page</button>
+                            </div>
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="splitrobot" role="tabpanel"
+                                    aria-labelledby="pisah">
+                                    <div class="row">
+                                        <!-- Robot 1 -->
+                                        <div class="col-md-6">
+                                            <div class="card-header">
+                                                <h4>Robot 1</h4>
+                                            </div>
+                                            <div
+                                                style="overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                <p></p>
+                                                <table class="table my-2" id="table_queue_robot1">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 1%; text-align: center;">No</th>
+                                                            <th style="text-align: center;">Task</th>
+                                                            <th style="text-align: center;">Status</th>
+                                                            <th style="text-align: center;">Created On</th>
+                                                            <th style="text-align: center;">Ended On</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Isi Tabel Robot 1 -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- Robot 2 -->
+                                        <div class="col-md-6">
+                                            <div class="card-header">
+                                                <h4>Robot 2</h4>
+                                            </div>
+                                            <div
+                                                style="overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                <p></p>
+                                                <table class="table my-2" id="table_queue_robot2">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 1%; text-align: center;">No</th>
+                                                            <th style="text-align: center;">Task</th>
+                                                            <th style="text-align: center;">Status</th>
+                                                            <th style="text-align: center;">Created On</th>
+                                                            <th style="text-align: center;">Ended On</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Isi Tabel Robot 2 -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="tab-pane fade show active" id="splitrobot" role="tabpanel"
                                     aria-labelledby="pisah">
                                     <div class="row">
                                         <div class="col" width="50%">
@@ -622,7 +682,7 @@
                                                 <table class="table my-2" id="table_queue_robot1">
                                                     <thead>
                                                         <tr>
-                                                            <th style="width: 5%; text-align: center;">No
+                                                            <th style="width: 1%; text-align: center;">No
                                                             </th>
                                                             <th style="text-align: center;">Task</th>
                                                             <th style="text-align: center;">Status</th>
@@ -646,7 +706,7 @@
                                                 <table class="table my-2" id="table_queue_robot2">
                                                     <thead>
                                                         <tr>
-                                                            <th style="width: 5%; text-align: center;">No
+                                                            <th style="width: 1%; text-align: center;">No
                                                             </th>
                                                             <th style="text-align: center;">Task</th>
                                                             <th style="text-align: center;">Status</th>
@@ -661,7 +721,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="tab-pane fade" id="meregerobot" role="tabpanel" aria-labelledby="satu">
                                     <div class="card-header">
                                         <h4>All robot</h4>
@@ -672,9 +732,9 @@
                                         <table class="table my-2" id="table_queue_robot_all">
                                             <thead>
                                                 <tr>
-                                                    <th style="width: 5%; text-align: center;">No
+                                                    <th style="width: 1%; text-align: center;">No
                                                     </th>
-                                                    <th style="text-align: center;">AGV</th>
+                                                    <th style="text-align: center;">Robot</th>
                                                     <th style="text-align: center;">Task</th>
                                                     <th style="text-align: center;">Status</th>
                                                     <th style="text-align: center;">Created On</th>
@@ -729,7 +789,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delivery Failed</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 35px;">Delivery Failed</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -738,8 +798,8 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 5%; text-align: center;">No</th>
-                                        <th style="text-align: center;">Task</th>
                                         <th style="text-align: center;">Robot</th>
+                                        <th style="text-align: center;">Task</th>
                                         <th style="text-align: center;">Status</th>
                                         <th style="text-align: center;">Created On</th>
                                         <th style="text-align: center;">Ended On</th>
@@ -764,7 +824,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delivery Success</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 35px;">Delivery Success</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -773,8 +833,8 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 5%; text-align: center;">No</th>
-                                        <th style="text-align: center;">Task</th>
                                         <th style="text-align: center;">Robot</th>
+                                        <th style="text-align: center;">Task</th>
                                         <th style="text-align: center;">Status</th>
                                         <th style="text-align: center;">Created On</th>
                                         <th style="text-align: center;">Ended On</th>
@@ -799,7 +859,7 @@
             <div class="modal-dialog modal-xl ">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">History Task</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 35px;">History Task</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -808,8 +868,8 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 5%; text-align: center;">No</th>
-                                        <th style="text-align: center;">Task</th>
                                         <th style="text-align: center;">Robot</th>
+                                        <th style="text-align: center;">Task</th>
                                         <th style="text-align: center;">Status</th>
                                         <th style="text-align: center;">Created On</th>
                                         <th style="text-align: center;">Ended On</th>
@@ -973,27 +1033,115 @@
 
             };
             $('#table_queue_robot_all').DataTable({
-                "pageLength": 10
+                "pageLength": 10,
+                "autoWidth": false,
+                "columnDefs": [{
+                    "targets": "_all",
+                    "className": "text-center",
+
+                }]
+            });
+            // Sembunyikan menu
+            $('#table_queue_robot_all_length').show();
+            $('#table_queue_robot_all_filter').hide();
+            $('#table_queue_robot_all_paginate').hide();
+            $('#table_queue_robot_all_info').show();
+
+            // Tampilkan menu ketika tombol ditekan
+            $('#search').on('click', function() {
+                $('#table_queue_robot_all_length').toggle();
+                $('#table_queue_robot_all_filter').toggle();
+            });
+            $('#page').on('click', function() {
+                $('#table_queue_robot_all_paginate').toggle();
+                $('#table_queue_robot_all_length').toggle();
+                $('#table_queue_robot_all_info').toggle();
+
             });
 
             $('#table_queue_robot1').DataTable({
-                "pageLength": 10
+                "pageLength": 10,
+                "autoWidth": false,
+                "columnDefs": [{
+                    "targets": "_all",
+                    "className": "text-center",
+
+                }]
+            });
+            // Sembunyikan menu
+            $('#table_queue_robot1_length').show();
+            $('#table_queue_robot1_filter').hide();
+            $('#table_queue_robot1_paginate').hide();
+            $('#table_queue_robot1_info').show();
+
+
+            // Tampilkan menu ketika tombol ditekan
+            $('#search').on('click', function() {
+                $('#table_queue_robot1_length').toggle();
+                $('#table_queue_robot1_filter').toggle();
+            });
+            $('#page').on('click', function() {
+                $('#table_queue_robot1_info').toggle();
+                $('#table_queue_robot1_length').toggle();
+                $('#table_queue_robot1_paginate').toggle();
             });
 
+
             $('#table_queue_robot2').DataTable({
-                "pageLength": 10
+                "pageLength": 10,
+                "autoWidth": false,
+                "columnDefs": [{
+                    "targets": "_all",
+                    "className": "text-center",
+
+                }]
+            });
+            // Sembunyikan menu
+            $('#table_queue_robot2_length').show();
+            $('#table_queue_robot2_filter').hide();
+            $('#table_queue_robot2_paginate').hide();
+            $('#table_queue_robot2_info').show();
+
+            // Tampilkan menu ketika tombol ditekan
+            $('#search').on('click', function() {
+                $('#table_queue_robot2_length').toggle();
+                $('#table_queue_robot2_filter').toggle();
+            });
+            $('#page').on('click', function() {
+                $('#table_queue_robot2_paginate').toggle();
+                $('#table_queue_robot2_length').toggle();
+                $('#table_queue_robot2_info').toggle();
+
             });
 
             $('#table_history').DataTable({
-                "pageLength": 100
+                "pageLength": 10,
+                "autoWidth": false,
+                "columnDefs": [{
+                    "targets": "_all",
+                    "className": "text-center",
+
+                }]
             });
 
             $('#table_success').DataTable({
-                "pageLength": 100
+                "pageLength": 10,
+                "autoWidth": false,
+                "columnDefs": [{
+                    "targets": "_all",
+                    "className": "text-center",
+
+                }]
             });
 
             $('#table_failed').DataTable({
-                "pageLength": 100
+                "pageLength": 10,
+                "autoWidth": false,
+                "columnDefs": [{
+                    "targets": "_all",
+                    "className": "text-center",
+
+                }]
             });
 
             //STATUS
