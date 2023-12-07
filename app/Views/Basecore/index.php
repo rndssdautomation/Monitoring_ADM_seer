@@ -615,10 +615,27 @@
                                     </ul>
                                 </div>
                                 <div id="button_container" style="width: 50%; display: flex; justify-content: end;">
-                                    <button type="button" class="btn btn-outline-primary btn-sm mx-1" id="search"
-                                        style="width: 100px;"><i class="bi bi-search"></i></button>
-                                    <button type="button" class="btn btn-outline-primary btn-sm mx-1" id="page">Show
-                                        Page</button>
+                                    <button type="button" class="btn btn-outline-primary my-1 mx-1" id="search"
+                                        style="width: 100px;">
+                                        <div class="py-1">
+                                            <div style="display: flex; justify-content: center;">
+                                                <i class="bi bi-search"></i>
+                                            </div>
+                                            <div>
+                                                Search
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary my-1 mx-1" id="page">
+                                        <div class="py-1">
+                                            <div style="display: flex; justify-content: center;">
+                                                <i class="bi bi-eye"></i>
+                                            </div>
+                                            <div>
+                                                Show Page
+                                            </div>
+                                        </div>
+                                    </button>
                                 </div>
                             </div>
                             <div class="tab-content" id="myTabContent">
