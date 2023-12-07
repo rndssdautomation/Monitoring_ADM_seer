@@ -598,21 +598,45 @@
                             <h5 class="card-title">TASK QUEUE</h5>
                         </div>
                         <div class="card-body">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" id="pisah" data-bs-toggle="tab" href="#splitrobot"
-                                        role="tab" aria-controls="hosplitrobote" aria-selected="true">Split Task</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="satu" data-bs-toggle="tab" href="#meregerobot" role="tab"
-                                        aria-controls="meregerobot" aria-selected="false">All Task</a>
-                                </li>
+                            <div class="row">
+                                <div style="width: 50%">
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active" id="pisah" data-bs-toggle="tab"
+                                                href="#splitrobot" role="tab" aria-controls="hosplitrobote"
+                                                aria-selected="true">Split Task</a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" id="satu" data-bs-toggle="tab" href="#meregerobot"
+                                                role="tab" aria-controls="meregerobot" aria-selected="false">All
+                                                Task</a>
+                                        </li>
 
-                            </ul>
-                            <div id="button_container" class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-outline-info btn-sm" id="search">Search</button>
-                                <button type="button" class="btn btn-outline-info btn-sm " id="page">Show
-                                    Page</button>
+                                    </ul>
+                                </div>
+                                <div id="button_container" style="width: 50%; display: flex; justify-content: end;">
+                                    <button type="button" class="btn btn-outline-primary my-1 mx-1" id="search"
+                                        style="width: 100px;">
+                                        <div class="py-1">
+                                            <div style="display: flex; justify-content: center;">
+                                                <i class="bi bi-search"></i>
+                                            </div>
+                                            <div>
+                                                Search
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary my-1 mx-1" id="page">
+                                        <div class="py-1">
+                                            <div style="display: flex; justify-content: center;">
+                                                <i class="bi bi-eye"></i>
+                                            </div>
+                                            <div>
+                                                Show Page
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="splitrobot" role="tabpanel"
