@@ -1054,6 +1054,7 @@
             });
             $('#page').on('click', function() {
                 $('#table_queue_robot_all_paginate').toggle();
+                $('#table_queue_robot_all_filter').toggle();
                 $('#table_queue_robot_all_length').toggle();
                 $('#table_queue_robot_all_info').toggle();
 
@@ -1083,6 +1084,7 @@
             $('#page').on('click', function() {
                 $('#table_queue_robot1_info').toggle();
                 $('#table_queue_robot1_length').toggle();
+                $('#table_queue_robot1_filter').toggle();
                 $('#table_queue_robot1_paginate').toggle();
             });
 
@@ -1109,6 +1111,7 @@
             });
             $('#page').on('click', function() {
                 $('#table_queue_robot2_paginate').toggle();
+                $('#table_queue_robot2_filter').hide();
                 $('#table_queue_robot2_length').toggle();
                 $('#table_queue_robot2_info').toggle();
 
