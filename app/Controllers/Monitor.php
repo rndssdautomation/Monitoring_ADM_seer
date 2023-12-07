@@ -114,7 +114,8 @@ class Monitor extends BaseController
                     case 1002:
                         $status = "suspended";
                         break;
-                    case 1003:                              
+                    case 1003:     
+                        $status = "finished";
                         break;
                     case 1004:
                         $status = "exception";                        

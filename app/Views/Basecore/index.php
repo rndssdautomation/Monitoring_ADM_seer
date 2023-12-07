@@ -841,85 +841,69 @@
             raw_data.onmessage = function(event) {
                 var data = JSON.parse(event.data);
                 //FAILED
-                var failed_total = data.failed.length;
+                var failed_total = data?.failed?.length || 0;
                 var filed = document.getElementById('count_task_failed');
                 filed.textContent = failed_total;
 
                 // Tabel Failed
-                var tableFailedBody = document.getElementById('table_failed').getElementsByTagName(
-                    'tbody')[
-                    0];
-                tableFailedBody.innerHTML = '';
-                for (var i = 0; i < failed_total; i++) {
-                    var row = tableFailedBody.insertRow(i);
-                    var failedNo = row.insertCell(0);
-                    var failedTask = row.insertCell(1);
-                    var failedRobot = row.insertCell(2);
-                    var failedStatus = row.insertCell(3);
-                    var failedCreatedOn = row.insertCell(4);
-                    var failedEndedOn = row.insertCell(5);
+                var tableFailedBody = $('#table_failed').DataTable();
+                tableFailedBody.clear().draw();
 
-                    failedNo.innerHTML = i + 1;
-                    failedTask.innerHTML = data.failed[i].task_failed;
-                    failedRobot.innerHTML = data.failed[i].robot_failed;
-                    failedStatus.innerHTML = data.failed[i].status_failed;
-                    failedCreatedOn.innerHTML = data.failed[i].creat_failed;
-                    failedEndedOn.innerHTML = data.failed[i].end_failed;
+                for (var i = 0; i < failed_total; i++) {
+                    var rowData_table_failed = [
+                        i + 1,
+                        data.failed[i].robot_failed,
+                        data.failed[i].task_failed,
+                        data.failed[i].status_failed,
+                        data.failed[i].creat_failed,
+                        data.failed[i].end_failed
+                    ];
+
+                    tableFailedBody.row.add(rowData_table_failed).draw();
                 }
 
+
                 //SUCCESS
-                var success_total = data.success.length;
+                var success_total = data?.success?.length || 0;
                 var success = document.getElementById('count_task_success');
                 success.textContent = success_total;
-
                 // Tabel Success
-                var tablesuccessBody = document.getElementById('table_success').getElementsByTagName(
-                    'tbody')[
-                    0];
-                tablesuccessBody.innerHTML = '';
-                for (var i = 0; i < success_total; i++) {
-                    var row = tablesuccessBody.insertRow(i);
-                    var successNo = row.insertCell(0);
-                    var successTask = row.insertCell(1);
-                    var successRobot = row.insertCell(2);
-                    var successStatus = row.insertCell(3);
-                    var successCreatedOn = row.insertCell(4);
-                    var successEndedOn = row.insertCell(5);
+                var tablesuccessBody = $('#table_success').DataTable();
+                tablesuccessBody.clear().draw();
 
-                    successNo.innerHTML = i + 1;
-                    successTask.innerHTML = data.success[i].task_success;
-                    successRobot.innerHTML = data.success[i].robot_success;
-                    successStatus.innerHTML = data.success[i].status_success;
-                    successCreatedOn.innerHTML = data.success[i].creat_success;
-                    successEndedOn.innerHTML = data.success[i].end_success;
+                for (var i = 0; i < success_total; i++) {
+                    var rowData_table_success = [
+                        i + 1,
+                        data.success[i].robot_success,
+                        data.success[i].task_success,
+                        data.success[i].status_success,
+                        data.success[i].creat_success,
+                        data.success[i].end_success
+                    ];
+
+                    tablesuccessBody.row.add(rowData_table_success).draw();
                 }
 
                 //HISTORY
-                var history_total = data.history.length;
+                var history_total = data?.history?.length || 0;
                 var history = document.getElementById('count_task_history');
                 history.textContent = history_total;
                 // Tabel History
-                var tablehistoryBody = document.getElementById('table_history').getElementsByTagName(
-                    'tbody')[
-                    0];
-                tablehistoryBody.innerHTML = '';
-                for (var i = 0; i < history_total; i++) {
-                    var row = tablehistoryBody.insertRow(i);
-                    var historyNo = row.insertCell(0);
-                    var historyTask = row.insertCell(1);
-                    var historyRobot = row.insertCell(2);
-                    var historyStatus = row.insertCell(3);
-                    var historyCreatedOn = row.insertCell(4);
-                    var historyEndedOn = row.insertCell(5);
+                var tablehistoryBody = $('#table_history').DataTable();
+                tablehistoryBody.clear().draw();
 
-                    historyNo.innerHTML = i + 1;
-                    historyTask.innerHTML = data.history[i].task;
-                    historyRobot.innerHTML = data.history[i].robot;
-                    historyStatus.innerHTML = data.history[i].status;
-                    historyCreatedOn.innerHTML = data.history[i].creat;
-                    historyEndedOn.innerHTML = data.history[i].end;
+                for (var i = 0; i < history_total; i++) {
+                    var rowData_table_history = [
+                        i + 1,
+                        data.history[i].robot,
+                        data.history[i].task,
+                        data.history[i].status,
+                        data.history[i].creat,
+                        data.history[i].end
+                    ];
+
+                    tablehistoryBody.row.add(rowData_table_history).draw();
                 }
-                console.log(data);
 
                 //STATUS QUEUE ROBOT 1
                 document.getElementById('robot1_destination').textContent = data[1].destination;
@@ -929,24 +913,21 @@
 
                 //TABEL QUEUE ROBOT 1
                 var queue1_total = data[0]?.queue_robot1?.length || 0;
-                var tablequeue1Body = document.getElementById('table_queue_robot1').getElementsByTagName(
-                    'tbody')[
-                    0];
-                tablequeue1Body.innerHTML = '';
-                for (var i = 0; i < queue1_total; i++) {
-                    var row = tablequeue1Body.insertRow(i);
-                    var queue1No = row.insertCell(0);
-                    var queue1Task = row.insertCell(1);
-                    var queue1Status = row.insertCell(2);
-                    var queue1CreatedOn = row.insertCell(3);
-                    var queue1EndedOn = row.insertCell(4);
+                var tablequeue1 = $('#table_queue_robot1').DataTable();
+                tablequeue1.clear().draw();
 
-                    queue1No.innerHTML = i + 1;
-                    queue1Task.innerHTML = data[0].queue_robot1[i].task;
-                    queue1Status.innerHTML = data[0].queue_robot1[i].status;
-                    queue1CreatedOn.innerHTML = data[0].queue_robot1[i].creat;
-                    queue1EndedOn.innerHTML = data[0].queue_robot1[i].end;
+                for (var i = 0; i < queue1_total; i++) {
+                    var rowData_queue1 = [
+                        i + 1,
+                        data[0].queue_robot1[i].task,
+                        data[0].queue_robot1[i].status,
+                        data[0].queue_robot1[i].creat,
+                        data[0].queue_robot1[i].end
+                    ];
+
+                    tablequeue1.row.add(rowData_queue1).draw();
                 }
+
 
                 //STATUS QUEUE ROBOT 2
                 document.getElementById('robot2_destination').textContent = data[3].destination;
@@ -956,48 +937,40 @@
 
                 //TABEL QUEUE ROBOT 2
                 var queue2_total = data[2]?.queue_robot2?.length || 0;
-                var tablequeue2Body = document.getElementById('table_queue_robot2').getElementsByTagName(
-                    'tbody')[
-                    0];
-                tablequeue2Body.innerHTML = '';
-                for (var i = 0; i < queue2_total; i++) {
-                    var row = tablequeue2Body.insertRow(i);
-                    var queue2No = row.insertCell(0);
-                    var queue2Task = row.insertCell(1);
-                    var queue2Status = row.insertCell(2);
-                    var queue2CreatedOn = row.insertCell(3);
-                    var queue2EndedOn = row.insertCell(4);
+                var tablequeue2 = $('#table_queue_robot2').DataTable();
+                tablequeue2.clear().draw();
 
-                    queue2No.innerHTML = i + 1;
-                    queue2Task.innerHTML = data[2].queue_robot2[i].task;
-                    queue2Status.innerHTML = data[2].queue_robot2[i].status;
-                    queue2CreatedOn.innerHTML = data[2].queue_robot2[i].creat;
-                    queue2EndedOn.innerHTML = data[2].queue_robot2[i].end;
+                for (var i = 0; i < queue2_total; i++) {
+                    var rowData_queue2 = [
+                        i + 1,
+                        data[2].queue_robot2[i].task,
+                        data[2].queue_robot2[i].status,
+                        data[2].queue_robot2[i].creat,
+                        data[2].queue_robot2[i].end
+                    ];
+
+                    tablequeue2.row.add(rowData_queue2).draw();
                 }
+
 
                 //TABEL QUEUE ROBOT ALL
                 var queueall_total = data[4]?.queue_robotall?.length || 0;
-                var tablequeueallBody = document.getElementById('table_queue_robot_all')
-                    .getElementsByTagName(
-                        'tbody')[
-                        0];
-                tablequeueallBody.innerHTML = '';
-                for (var i = 0; i < queueall_total; i++) {
-                    var row = tablequeueallBody.insertRow(i);
-                    var queueallNo = row.insertCell(0);
-                    var queueallRobot = row.insertCell(1);
-                    var queueallTask = row.insertCell(2);
-                    var queueallStatus = row.insertCell(3);
-                    var queueallCreatedOn = row.insertCell(4);
-                    var queueallEndedOn = row.insertCell(5);
+                var tablequeueall = $('#table_queue_robot_all').DataTable();
+                tablequeueall.clear().draw();
 
-                    queueallNo.innerHTML = i + 1;
-                    queueallRobot.innerHTML = data[4].queue_robotall[i].robot;
-                    queueallTask.innerHTML = data[4].queue_robotall[i].task;
-                    queueallStatus.innerHTML = data[4].queue_robotall[i].status;
-                    queueallCreatedOn.innerHTML = data[4].queue_robotall[i].creat;
-                    queueallEndedOn.innerHTML = data[4].queue_robotall[i].end;
+                for (var i = 0; i < queueall_total; i++) {
+                    var rowData_queueall = [
+                        i + 1,
+                        data[4].queue_robotall[i].robot,
+                        data[4].queue_robotall[i].task,
+                        data[4].queue_robotall[i].status,
+                        data[4].queue_robotall[i].creat,
+                        data[4].queue_robotall[i].end
+                    ];
+
+                    tablequeueall.row.add(rowData_queueall).draw();
                 }
+
             };
             $('#table_queue_robot_all').DataTable({
                 "pageLength": 10
