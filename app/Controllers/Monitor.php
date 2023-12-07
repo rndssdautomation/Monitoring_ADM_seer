@@ -88,30 +88,25 @@ class Monitor extends BaseController
             $response_data_ongoing_robotall = [];
             $response_data_finished_robotall = [];
             $response_data_waiting_robotall = [];
+            $allowed_tasks_robotall = [
+                "ProductBV1",
+                "ProductBV2",
+                "ProductRUV",
+                "ProductCTCB2",
+                "ProductBLV",
+                "ProductT5",
+                "ProductCTCB1",
+                "ProductBUV",
+                "ScrapBV1A",
+                "ScrapBV2A",
+                "ScrapCTM2",
+                "ScrapCTCA"
+            ];
 
             foreach ($rawData as $data) {
                 switch ($data["status"]) {
                     case 1000:
-                        $status = "running";
-                        $robot = $data["agvId"];
-                        if (empty($robot)) {
-                            $status = "waiting";
-                            $response_data_waiting_robotall[] = [
-                                "task" => $data["defLabel"],
-                                "status" => $status,
-                                "robot" => $data["agvId"],
-                                "creat" => $data["createdOn"],
-                                "end" => $data["endedOn"],
-                            ];
-                        } else {
-                            $response_data_ongoing_robotall[] = [
-                                "task" => $data["defLabel"],
-                                "status" => $status,
-                                "robot" => $robot,
-                                "end" => $data["endedOn"],
-                                "creat" => $data["createdOn"],
-                        ];
-                    }
+                        $status = "running";                        
                         break;
                     case 1001:
                         $status = "terminated";
@@ -119,15 +114,7 @@ class Monitor extends BaseController
                     case 1002:
                         $status = "suspended";
                         break;
-                    case 1003:
-                        $status = "finished";  
-                        $response_data_finished_robotall[] = [
-                            "task" => $data["defLabel"],
-                            "status" => $status,
-                            "robot" => $data["agvId"],
-                            "creat" => $data["createdOn"],
-                            "end" => $data["endedOn"],
-                        ];                      
+                    case 1003:                              
                         break;
                     case 1004:
                         $status = "exception";                        
@@ -169,6 +156,45 @@ class Monitor extends BaseController
                         "creat_success"  => $data["createdOn"],
                         "end_success"    => $data["endedOn"],
                     ];
+                }
+                if (in_array($data["defLabel"], $allowed_tasks_robotall)) {
+                    switch ($data["status"]) {
+                        case 1000:
+                            $status_robotall = "running";
+                            $robotall = $data["agvId"];
+                            if (empty($robotall)) {
+                                $status_robotall = "waiting";
+                                $response_data_waiting_robotall[] = [
+                                    "task" => $data["defLabel"],
+                                    "status" => $status_robotall,
+                                    "robot" => $data["agvId"],
+                                    "creat" => $data["createdOn"],
+                                    "end" => $data["endedOn"],
+                                ];
+                            } else {
+                                $response_data_ongoing_robotall[] = [
+                                    "task" => $data["defLabel"],
+                                    "status" => $status_robotall,
+                                    "robot" => $robotall,
+                                    "end" => $data["endedOn"],
+                                    "creat" => $data["createdOn"],
+                            ];
+                        }
+                            break;
+                        case 1003:
+                            $status_robotall = "finished";
+                            $response_data_finished_robotall[] = [
+                                "task" => $data["defLabel"],
+                                "status" => $status_robotall,
+                                "robot" => $data["agvId"],
+                                "creat" => $data["createdOn"],
+                                "end" => $data["endedOn"],
+                            ];
+                            break;
+                        default:
+                            $status_robotall = "unknown";
+                            break;
+                    }
                 }
                 if (in_array($data["defLabel"], $allowed_tasks_robot1)) {
                     switch ($data["status"]) {
