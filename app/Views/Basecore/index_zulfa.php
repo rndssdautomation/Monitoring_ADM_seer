@@ -845,70 +845,103 @@
                 var failed_total = data.failed.length;
                 var filed = document.getElementById('count_task_failed');
                 filed.textContent = failed_total;
-                var failed = data.failed;
-                datafiled('table_failed', failed);
+
+                // Tabel Failed
+                var tableFailedBody = document.getElementById('table_failed').getElementsByTagName(
+                    'tbody')[
+                    0];
+                tableFailedBody.innerHTML = '';
+                for (var i = 0; i < failed_total; i++) {
+                    var row = tableFailedBody.insertRow(i);
+                    var failedNo = row.insertCell(0);
+                    var failedTask = row.insertCell(1);
+                    var failedRobot = row.insertCell(2);
+                    var failedStatus = row.insertCell(3);
+                    var failedCreatedOn = row.insertCell(4);
+                    var failedEndedOn = row.insertCell(5);
+
+                    failedNo.innerHTML = i + 1;
+                    failedTask.innerHTML = data.failed[i].task_failed;
+                    failedRobot.innerHTML = data.failed[i].robot_failed;
+                    failedStatus.innerHTML = data.failed[i].status_failed;
+                    failedCreatedOn.innerHTML = data.failed[i].creat_failed;
+                    failedEndedOn.innerHTML = data.failed[i].end_failed;
+                }
+                if ($.fn.DataTable.isDataTable('#table_failed')) {
+                    $('#table_failed').DataTable().destroy();
+                }
+
+                $('#table_failed').DataTable({
+                    "pageLength": 100
+                });
+
 
                 //SUCCESS
                 var success_total = data.success.length;
                 var success = document.getElementById('count_task_success');
                 success.textContent = success_total;
-                var success = data.success;
-                datasuccess('table_success', success);
+
+                // Tabel Success
+                var tablesuccessBody = document.getElementById('table_success').getElementsByTagName(
+                    'tbody')[
+                    0];
+                tablesuccessBody.innerHTML = '';
+                for (var i = 0; i < success_total; i++) {
+                    var row = tablesuccessBody.insertRow(i);
+                    var successNo = row.insertCell(0);
+                    var successTask = row.insertCell(1);
+                    var successRobot = row.insertCell(2);
+                    var successStatus = row.insertCell(3);
+                    var successCreatedOn = row.insertCell(4);
+                    var successEndedOn = row.insertCell(5);
+
+                    successNo.innerHTML = i + 1;
+                    successTask.innerHTML = data.success[i].task_success;
+                    successRobot.innerHTML = data.success[i].robot_success;
+                    successStatus.innerHTML = data.success[i].status_success;
+                    successCreatedOn.innerHTML = data.success[i].creat_success;
+                    successEndedOn.innerHTML = data.success[i].end_success;
+                }
+                if ($.fn.DataTable.isDataTable('#table_success')) {
+                    $('#table_success').DataTable().destroy();
+                }
+
+                $('#table_success').DataTable({
+                    "pageLength": 100
+                });
 
                 //HISTORY
                 var history_total = data.history.length;
                 var history = document.getElementById('count_task_history');
                 history.textContent = history_total;
-                var history = data.history;
-                datahistory('table_history', history);
+                // Tabel History
+                var tablehistoryBody = document.getElementById('table_history').getElementsByTagName(
+                    'tbody')[
+                    0];
+                tablehistoryBody.innerHTML = '';
+                for (var i = 0; i < history_total; i++) {
+                    var row = tablehistoryBody.insertRow(i);
+                    var historyNo = row.insertCell(0);
+                    var historyTask = row.insertCell(1);
+                    var historyRobot = row.insertCell(2);
+                    var historyStatus = row.insertCell(3);
+                    var historyCreatedOn = row.insertCell(4);
+                    var historyEndedOn = row.insertCell(5);
 
+                    historyNo.innerHTML = i + 1;
+                    historyTask.innerHTML = data.history[i].task;
+                    historyRobot.innerHTML = data.history[i].robot;
+                    historyStatus.innerHTML = data.history[i].status;
+                    historyCreatedOn.innerHTML = data.history[i].creat;
+                    historyEndedOn.innerHTML = data.history[i].end;
+                }
+                if ($.fn.DataTable.isDataTable('#table_history')) {
+                    $('#table_history').DataTable().destroy();
+                }
 
-                var destinationA = data.datarobotA[0].destination_a;
-                var setdestinationA = document.getElementById('robot2_destination');
-                setdestinationA.textContent = destinationA;
-
-                var next_taskA = data.datarobotA[0].next_task_a;
-                var setnext_taskA = document.getElementById('robot2_next');
-                setnext_taskA.textContent = next_taskA;
-
-                var queue_A = data.datarobotA[0].queue_a;
-                var setqueue_A = document.getElementById('robot2_remaining');
-                setqueue_A.textContent = queue_A;
-
-                // var robot_A = data.datarobotA[0].data_a[0].robot;
-                // var setrobot_A = document.getElementById('robot2_name');
-                // setrobot_A.textContent = robot_A;
-
-                var statusnya_A = data.datarobotA[0].statusnya_a;
-                var setstatusnya_A = document.getElementById('robot2_status');
-                setstatusnya_A.textContent = statusnya_A;
-
-                var queue_A = data.datarobotA[0].data_a;
-                updateTablerobota('table_queue_robot1', queue_A);
-
-                var queue_B = data.datarobotB[0].data_b;
-                updateTablerobotb('table_queue_robot2', queue_B);
-
-                var destinationB = data.datarobotB[0].destination_b;
-                var setdestinationB = document.getElementById('robot1_destination');
-                setdestinationB.textContent = destinationB;
-
-                var next_taskB = data.datarobotB[0].next_task_b;
-                var setnext_taskB = document.getElementById('robot1_next');
-                setnext_taskB.textContent = next_taskB;
-
-                var queue_B = data.datarobotB[0].queue_b;
-                var setqueue_B = document.getElementById('robot1_remaining');
-                setqueue_B.textContent = queue_B;
-
-                var statusnya_B = data.datarobotB[0].statusnya_b;
-                var setstatusnya_B = document.getElementById('robot1_status');
-                setstatusnya_B.textContent = statusnya_B;
-
-                // var robot_B = data.datarobotB[0].data_b[0].robot;
-                // var setrobot_B = document.getElementById('robot1_name');
-                // setrobot_B.textContent = robot_B;
-
+                $('#table_history').DataTable({
+                    "pageLength": 100
+                });
             };
 
             //STATUS
@@ -929,127 +962,7 @@
                     document.getElementById('robot2_charging').textContent = data[1].status_charging;
                 }
             };
-
-
         });
-
-        function updateTablerobota(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task + "</td>" +
-                    "<td class='text-center'>" + item.status + "</td>" +
-                    "<td class='text-center'>" + item.creat + "</td>" +
-                    "<td class='text-center'>" + item.end + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        }
-
-        function updateTablerobotb(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task + "</td>" +
-                    "<td class='text-center'>" + item.status + "</td>" +
-                    "<td class='text-center'>" + item.creat + "</td>" +
-                    "<td class='text-center'>" + item.end + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        }
-
-        function datafiled(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task_failed + "</td>" +
-                    "<td class='text-center'>" + item.robot_failed + "</td>" +
-                    "<td class='text-center'>" + item.status_failed + "</td>" +
-                    "<td class='text-center'>" + item.creat_failed + "</td>" +
-                    "<td class='text-center'>" + item.end_failed + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        };
-
-        function datasuccess(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task_success + "</td>" +
-                    "<td class='text-center'>" + item.robot_success + "</td>" +
-                    "<td class='text-center'>" + item.status_success + "</td>" +
-                    "<td class='text-center'>" + item.creat_success + "</td>" +
-                    "<td class='text-center'>" + item.end_success + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        };
-
-        function datahistory(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task + "</td>" +
-                    "<td class='text-center'>" + item.robot + "</td>" +
-                    "<td class='text-center'>" + item.status + "</td>" +
-                    "<td class='text-center'>" + item.creat + "</td>" +
-                    "<td class='text-center'>" + item.end + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        };
         </script>
 
 

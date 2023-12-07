@@ -105,10 +105,7 @@
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                            <<<<<<< HEAD data-bs-target="#infodeliveryfailed" onclick="datafiled();">
-                                            =======
                                             data-bs-target="#infodeliveryfailed" id="buttonfailed">
-                                            >>>>>>> 371d9957e45c0ab5c7efeff09e7abf002abfc530
                                             Details
                                         </button>
                                     </div>
@@ -838,233 +835,213 @@
         <script type="text/javascript" src="<?= base_url();?>/assets/js/jquery.dataTables.min.js"></script>
         <script src="<?= base_url();?>/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
         <script src="<?= base_url();?>/assets/js/bootstrap.bundle.min.js"></script>
-
         <script>
         $(document).ready(function() {
             var raw_data = new EventSource('<?php echo base_url('get_api_data_delivery'); ?>');
             raw_data.onmessage = function(event) {
                 var data = JSON.parse(event.data);
-
+                //FAILED
                 var failed_total = data.failed.length;
                 var filed = document.getElementById('count_task_failed');
                 filed.textContent = failed_total;
-                var failed = data.failed;
-                datafiled('table_failed', failed);
 
+                // Tabel Failed
+                var tableFailedBody = document.getElementById('table_failed').getElementsByTagName(
+                    'tbody')[
+                    0];
+                tableFailedBody.innerHTML = '';
+                for (var i = 0; i < failed_total; i++) {
+                    var row = tableFailedBody.insertRow(i);
+                    var failedNo = row.insertCell(0);
+                    var failedTask = row.insertCell(1);
+                    var failedRobot = row.insertCell(2);
+                    var failedStatus = row.insertCell(3);
+                    var failedCreatedOn = row.insertCell(4);
+                    var failedEndedOn = row.insertCell(5);
+
+                    failedNo.innerHTML = i + 1;
+                    failedTask.innerHTML = data.failed[i].task_failed;
+                    failedRobot.innerHTML = data.failed[i].robot_failed;
+                    failedStatus.innerHTML = data.failed[i].status_failed;
+                    failedCreatedOn.innerHTML = data.failed[i].creat_failed;
+                    failedEndedOn.innerHTML = data.failed[i].end_failed;
+                }
+
+                //SUCCESS
                 var success_total = data.success.length;
                 var success = document.getElementById('count_task_success');
                 success.textContent = success_total;
-                var success = data.success;
-                datasuccess('table_success', success);
 
+                // Tabel Success
+                var tablesuccessBody = document.getElementById('table_success').getElementsByTagName(
+                    'tbody')[
+                    0];
+                tablesuccessBody.innerHTML = '';
+                for (var i = 0; i < success_total; i++) {
+                    var row = tablesuccessBody.insertRow(i);
+                    var successNo = row.insertCell(0);
+                    var successTask = row.insertCell(1);
+                    var successRobot = row.insertCell(2);
+                    var successStatus = row.insertCell(3);
+                    var successCreatedOn = row.insertCell(4);
+                    var successEndedOn = row.insertCell(5);
 
+                    successNo.innerHTML = i + 1;
+                    successTask.innerHTML = data.success[i].task_success;
+                    successRobot.innerHTML = data.success[i].robot_success;
+                    successStatus.innerHTML = data.success[i].status_success;
+                    successCreatedOn.innerHTML = data.success[i].creat_success;
+                    successEndedOn.innerHTML = data.success[i].end_success;
+                }
+
+                //HISTORY
                 var history_total = data.history.length;
                 var history = document.getElementById('count_task_history');
                 history.textContent = history_total;
-                var history = data.history;
-                datahistory('table_history', history);
+                // Tabel History
+                var tablehistoryBody = document.getElementById('table_history').getElementsByTagName(
+                    'tbody')[
+                    0];
+                tablehistoryBody.innerHTML = '';
+                for (var i = 0; i < history_total; i++) {
+                    var row = tablehistoryBody.insertRow(i);
+                    var historyNo = row.insertCell(0);
+                    var historyTask = row.insertCell(1);
+                    var historyRobot = row.insertCell(2);
+                    var historyStatus = row.insertCell(3);
+                    var historyCreatedOn = row.insertCell(4);
+                    var historyEndedOn = row.insertCell(5);
 
+                    historyNo.innerHTML = i + 1;
+                    historyTask.innerHTML = data.history[i].task;
+                    historyRobot.innerHTML = data.history[i].robot;
+                    historyStatus.innerHTML = data.history[i].status;
+                    historyCreatedOn.innerHTML = data.history[i].creat;
+                    historyEndedOn.innerHTML = data.history[i].end;
+                }
+                console.log(data);
 
-                var destinationA = data.datarobotA[0].destination_a;
-                var setdestinationA = document.getElementById('robot2_destination');
-                setdestinationA.textContent = destinationA;
+                //STATUS QUEUE ROBOT 1
+                document.getElementById('robot1_destination').textContent = data[1].destination;
+                document.getElementById('robot1_next').textContent = data[1].next_task;
+                document.getElementById('robot1_remaining').textContent = data[1].queue;
+                document.getElementById('robot1_status').textContent = data[1].statusnya;
 
-                var next_taskA = data.datarobotA[0].next_task_a;
-                var setnext_taskA = document.getElementById('robot2_next');
-                setnext_taskA.textContent = next_taskA;
+                //TABEL QUEUE ROBOT 1
+                var queue1_total = data[0]?.queue_robot1?.length || 0;
+                var tablequeue1Body = document.getElementById('table_queue_robot1').getElementsByTagName(
+                    'tbody')[
+                    0];
+                tablequeue1Body.innerHTML = '';
+                for (var i = 0; i < queue1_total; i++) {
+                    var row = tablequeue1Body.insertRow(i);
+                    var queue1No = row.insertCell(0);
+                    var queue1Task = row.insertCell(1);
+                    var queue1Status = row.insertCell(2);
+                    var queue1CreatedOn = row.insertCell(3);
+                    var queue1EndedOn = row.insertCell(4);
 
-                var queue_A = data.datarobotA[0].queue_a;
-                var setqueue_A = document.getElementById('robot2_remaining');
-                setqueue_A.textContent = queue_A;
+                    queue1No.innerHTML = i + 1;
+                    queue1Task.innerHTML = data[0].queue_robot1[i].task;
+                    queue1Status.innerHTML = data[0].queue_robot1[i].status;
+                    queue1CreatedOn.innerHTML = data[0].queue_robot1[i].creat;
+                    queue1EndedOn.innerHTML = data[0].queue_robot1[i].end;
+                }
 
-                var robot_A = data.datarobotA[0].data_a[0].robot;
-                var setrobot_A = document.getElementById('robot2_name');
-                setrobot_A.textContent = robot_A;
+                //STATUS QUEUE ROBOT 2
+                document.getElementById('robot2_destination').textContent = data[3].destination;
+                document.getElementById('robot2_next').textContent = data[3].next_task;
+                document.getElementById('robot2_remaining').textContent = data[3].queue;
+                document.getElementById('robot2_status').textContent = data[3].statusnya;
 
-                var statusnya_A = data.datarobotA[0].statusnya_a;
-                var setstatusnya_A = document.getElementById('robot2_status');
-                setstatusnya_A.textContent = statusnya_A;
+                //TABEL QUEUE ROBOT 2
+                var queue2_total = data[2]?.queue_robot2?.length || 0;
+                var tablequeue2Body = document.getElementById('table_queue_robot2').getElementsByTagName(
+                    'tbody')[
+                    0];
+                tablequeue2Body.innerHTML = '';
+                for (var i = 0; i < queue2_total; i++) {
+                    var row = tablequeue2Body.insertRow(i);
+                    var queue2No = row.insertCell(0);
+                    var queue2Task = row.insertCell(1);
+                    var queue2Status = row.insertCell(2);
+                    var queue2CreatedOn = row.insertCell(3);
+                    var queue2EndedOn = row.insertCell(4);
 
-                var queue_A = data.datarobotA[0].data_a;
-                updateTablerobota('table_queue_robot1', queue_A);
+                    queue2No.innerHTML = i + 1;
+                    queue2Task.innerHTML = data[2].queue_robot2[i].task;
+                    queue2Status.innerHTML = data[2].queue_robot2[i].status;
+                    queue2CreatedOn.innerHTML = data[2].queue_robot2[i].creat;
+                    queue2EndedOn.innerHTML = data[2].queue_robot2[i].end;
+                }
 
-                var queue_B = data.datarobotB[0].data_b;
-                updateTablerobotb('table_queue_robot2', queue_B);
+                //TABEL QUEUE ROBOT ALL
+                var queueall_total = data[4]?.queue_robotall?.length || 0;
+                var tablequeueallBody = document.getElementById('table_queue_robot_all')
+                    .getElementsByTagName(
+                        'tbody')[
+                        0];
+                tablequeueallBody.innerHTML = '';
+                for (var i = 0; i < queueall_total; i++) {
+                    var row = tablequeueallBody.insertRow(i);
+                    var queueallNo = row.insertCell(0);
+                    var queueallRobot = row.insertCell(1);
+                    var queueallTask = row.insertCell(2);
+                    var queueallStatus = row.insertCell(3);
+                    var queueallCreatedOn = row.insertCell(4);
+                    var queueallEndedOn = row.insertCell(5);
 
-                var mergedData = queue_A.concat(queue_B);
-                console.log(mergedData);
-                updateTablerobotall('table_queue_robot_all', mergedData);
-
-                var destinationB = data.datarobotB[0].destination_b;
-                var setdestinationB = document.getElementById('robot1_destination');
-                setdestinationB.textContent = destinationB;
-
-                var next_taskB = data.datarobotB[0].next_task_b;
-                var setnext_taskB = document.getElementById('robot1_next');
-                setnext_taskB.textContent = next_taskB;
-
-                var queue_B = data.datarobotB[0].queue_b;
-                var setqueue_B = document.getElementById('robot1_remaining');
-                setqueue_B.textContent = queue_B;
-
-                var statusnya_B = data.datarobotB[0].statusnya_b;
-                var setstatusnya_B = document.getElementById('robot1_status');
-                setstatusnya_B.textContent = statusnya_B;
-
-                var robot_B = data.datarobotB[0].data_b[0].robot;
-                var setrobot_B = document.getElementById('robot1_name');
-                setrobot_B.textContent = robot_B;
-
+                    queueallNo.innerHTML = i + 1;
+                    queueallRobot.innerHTML = data[4].queue_robotall[i].robot;
+                    queueallTask.innerHTML = data[4].queue_robotall[i].task;
+                    queueallStatus.innerHTML = data[4].queue_robotall[i].status;
+                    queueallCreatedOn.innerHTML = data[4].queue_robotall[i].creat;
+                    queueallEndedOn.innerHTML = data[4].queue_robotall[i].end;
+                }
             };
+            $('#table_queue_robot_all').DataTable({
+                "pageLength": 10
+            });
 
+            $('#table_queue_robot1').DataTable({
+                "pageLength": 10
+            });
+
+            $('#table_queue_robot2').DataTable({
+                "pageLength": 10
+            });
+
+            $('#table_history').DataTable({
+                "pageLength": 100
+            });
+
+            $('#table_success').DataTable({
+                "pageLength": 100
+            });
+
+            $('#table_failed').DataTable({
+                "pageLength": 100
+            });
+
+            //STATUS
+            var robotData = new EventSource('<?php echo base_url('get_api_data_status_robot'); ?>');
+
+            robotData.onmessage = function(event) {
+                var data = JSON.parse(event.data);
+                if (data.length > 0) {
+                    //robot 1
+                    document.getElementById('robot1_name').textContent = data[0].info_robot;
+                    document.getElementById('robot1_current').textContent = data[0].location_curent;
+                    document.getElementById('robot1_battery').textContent = data[0].status_batterylevel;
+                    document.getElementById('robot1_charging').textContent = data[0].status_charging;
+                    //robot 2
+                    document.getElementById('robot2_name').textContent = data[1].info_robot;
+                    document.getElementById('robot2_current').textContent = data[1].location_curent;
+                    document.getElementById('robot2_battery').textContent = data[1].status_batterylevel;
+                    document.getElementById('robot2_charging').textContent = data[1].status_charging;
+                }
+            };
         });
-
-        function updateTablerobotall(tableName, tableData) {
-            // Clear the existing tbody content
-            $('#' + tableName + ' tbody').empty();
-
-            // Iterate over the tableData and append rows to the tbody
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task + "</td>" +
-                    "<td class='text-center'>" + item.status + "</td>" +
-                    "<td class='text-center'>" + item.creat + "</td>" +
-                    "<td class='text-center'>" + item.end + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            // Destroy the existing DataTable (if any)
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            // Initialize the DataTable with a pageLength of 10
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        }
-
-
-        function updateTablerobota(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task + "</td>" +
-                    "<td class='text-center'>" + item.status + "</td>" +
-                    "<td class='text-center'>" + item.creat + "</td>" +
-                    "<td class='text-center'>" + item.end + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        }
-
-        function updateTablerobotb(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task + "</td>" +
-                    "<td class='text-center'>" + item.status + "</td>" +
-                    "<td class='text-center'>" + item.creat + "</td>" +
-                    "<td class='text-center'>" + item.end + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        }
-
-        function datafiled(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task_failed + "</td>" +
-                    "<td class='text-center'>" + item.robot_failed + "</td>" +
-                    "<td class='text-center'>" + item.status_failed + "</td>" +
-                    "<td class='text-center'>" + item.creat_failed + "</td>" +
-                    "<td class='text-center'>" + item.end_failed + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        };
-
-        function datasuccess(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task_success + "</td>" +
-                    "<td class='text-center'>" + item.robot_success + "</td>" +
-                    "<td class='text-center'>" + item.status_success + "</td>" +
-                    "<td class='text-center'>" + item.creat_success + "</td>" +
-                    "<td class='text-center'>" + item.end_success + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        };
-
-        function datahistory(tableName, tableData) {
-            $('#' + tableName + ' tbody').empty();
-            $.each(tableData, function(index, item) {
-                var row = "<tr>" +
-                    "<td class='text-center'>" + (index + 1) + "</td>" +
-                    "<td class='text-center'>" + item.task + "</td>" +
-                    "<td class='text-center'>" + item.robot + "</td>" +
-                    "<td class='text-center'>" + item.status + "</td>" +
-                    "<td class='text-center'>" + item.creat + "</td>" +
-                    "<td class='text-center'>" + item.end + "</td>" +
-                    "</tr>";
-
-                $('#' + tableName + ' tbody').append(row);
-            });
-
-            if ($.fn.DataTable.isDataTable('#' + tableName)) {
-                $('#' + tableName).DataTable().destroy();
-            }
-
-            $('#' + tableName).DataTable({
-                "pageLength": 10
-            });
-        };
         </script>
 
 
