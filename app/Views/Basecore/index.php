@@ -1174,7 +1174,7 @@
                     $('#table_queue_robot2_filter').show();
                     $('#table_queue_robot2_paginate').hide();
                     $('#table_queue_robot2_info').show();
-                    $('#search').attr('style', 'background-color: blue;');
+                    $('#search').attr('style', 'background-color: #435ebe');
                 } else { // Genap (tombol ditekan kedua kali)
                     $('#table_queue_robot_all_length').hide();
                     $('#table_queue_robot_all_filter').hide();
@@ -1209,7 +1209,7 @@
                     $('#table_queue_robot2_filter').hide();
                     $('#table_queue_robot2_paginate').show();
                     $('#table_queue_robot2_info').hide();
-                    $('#page').attr('style', 'background-color: blue;');
+                    $('#page').toggleClass('active');
 
                 } else { // Genap (tombol ditekan kedua kali)
                     $('#table_queue_robot_all_length').hide();
@@ -1224,7 +1224,7 @@
                     $('#table_queue_robot2_filter').hide();
                     $('#table_queue_robot2_paginate').hide();
                     $('#table_queue_robot2_info').show();
-                    $('#page').attr('style', '');
+                    $('#page').toggleClass('active');
 
                 }
             });
