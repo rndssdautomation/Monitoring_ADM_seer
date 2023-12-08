@@ -1174,7 +1174,8 @@
                     $('#table_queue_robot2_filter').show();
                     $('#table_queue_robot2_paginate').hide();
                     $('#table_queue_robot2_info').show();
-                    $('#search').attr('style', 'background-color: #435ebe');
+                    $('#search').toggleClass('active');
+
                 } else { // Genap (tombol ditekan kedua kali)
                     $('#table_queue_robot_all_length').hide();
                     $('#table_queue_robot_all_filter').hide();
@@ -1188,7 +1189,8 @@
                     $('#table_queue_robot2_filter').hide();
                     $('#table_queue_robot2_paginate').hide();
                     $('#table_queue_robot2_info').show();
-                    $('#search').attr('style', '');
+                    $('#search').toggleClass('active');
+
                 }
             });
 
