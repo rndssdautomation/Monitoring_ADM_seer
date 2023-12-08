@@ -169,16 +169,22 @@ class Monitor extends BaseController
                                     "task" => $data["defLabel"],
                                     "status" => $status_robotall,
                                     "robot" => $data["agvId"],
-                                    "creat" => $data["createdOn"],
-                                    "end" => $data["endedOn"],
+                                    "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                                    "end"    => date("H:i:s", strtotime($data["endedOn"])),
+        
+                                    // "creat" => $data["createdOn"],
+                                    // "end" => $data["endedOn"],
                                 ];
                             } else {
                                 $response_data_ongoing_robotall[] = [
                                     "task" => $data["defLabel"],
                                     "status" => $status_robotall,
                                     "robot" => $robotall,
-                                    "end" => $data["endedOn"],
-                                    "creat" => $data["createdOn"],
+                                    "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                                    "end"    => date("H:i:s", strtotime($data["endedOn"])),
+        
+                                    // "end" => $data["endedOn"],
+                                    // "creat" => $data["createdOn"],
                             ];
                         }
                             break;
@@ -188,8 +194,11 @@ class Monitor extends BaseController
                                 "task" => $data["defLabel"],
                                 "status" => $status_robotall,
                                 "robot" => $data["agvId"],
-                                "creat" => $data["createdOn"],
-                                "end" => $data["endedOn"],
+                                "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                                "end"    => date("H:i:s", strtotime($data["endedOn"])),
+        
+                                // "creat" => $data["createdOn"],
+                                // "end" => $data["endedOn"],
                             ];
                             break;
                         default:
@@ -208,16 +217,20 @@ class Monitor extends BaseController
                                     "task" => $data["defLabel"],
                                     "status" => $status_robot1,
                                     "robot" => $data["agvId"],
-                                    "creat" => $data["createdOn"],
-                                    "end" => $data["endedOn"],
+                                    "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                                    "end"    => date("H:i:s", strtotime($data["endedOn"])),
+                                    // "creat" => $data["createdOn"],
+                                    // "end" => $data["endedOn"],
                                 ];
                             } else {
                                 $response_data_ongoing_robot1[] = [
                                     "task" => $data["defLabel"],
                                     "status" => $status_robot1,
                                     "robot" => $robot,
-                                    "end" => $data["endedOn"],
-                                    "creat" => $data["createdOn"],
+                                    "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                                    "end"    => date("H:i:s", strtotime($data["endedOn"])),
+                                    // "end" => $data["endedOn"],
+                                    // "creat" => $data["createdOn"],
                             ];
                         }
                             break;
@@ -227,8 +240,10 @@ class Monitor extends BaseController
                                 "task" => $data["defLabel"],
                                 "status" => $status_robot1,
                                 "robot" => $data["agvId"],
-                                "creat" => $data["createdOn"],
-                                "end" => $data["endedOn"],
+                                "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                                "end"    => date("H:i:s", strtotime($data["endedOn"])),
+                                // "creat" => $data["createdOn"],
+                                // "end" => $data["endedOn"],
                             ];
                             break;
                         default:
@@ -247,16 +262,20 @@ class Monitor extends BaseController
                                     "task" => $data["defLabel"],
                                     "status" => $status_robot2,
                                     "robot" => $data["agvId"],
-                                    "creat" => $data["createdOn"],
-                                    "end" => $data["endedOn"],
+                                    "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                                    "end"    => date("H:i:s", strtotime($data["endedOn"])),
+                                    // "creat" => $data["createdOn"],
+                                    // "end" => $data["endedOn"],
                                 ];
                             } else {
                                 $response_data_ongoing_robot2[] = [
                                     "task" => $data["defLabel"],
                                     "status" => $status_robot2,
                                     "robot" => $robot2,
-                                    "end" => $data["endedOn"],
-                                    "creat" => $data["createdOn"],
+                                    "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                                    "end"    => date("H:i:s", strtotime($data["endedOn"])),
+                                    // "end" => $data["endedOn"],
+                                    // "creat" => $data["createdOn"],
                             ];
                         }
                             break;
@@ -266,8 +285,10 @@ class Monitor extends BaseController
                                 "task" => $data["defLabel"],
                                 "status" => $status_robot2,
                                 "robot" => $data["agvId"],
-                                "creat" => $data["createdOn"],
-                                "end" => $data["endedOn"],
+                                "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                                "end"    => date("H:i:s", strtotime($data["endedOn"])),
+                                // "creat" => $data["createdOn"],
+                                // "end" => $data["endedOn"],
                             ];                          
                             break;
                         default:
