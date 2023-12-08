@@ -171,7 +171,7 @@
             </div>
         </div>
         <div class="row" style="margin-left: 1%; margin-right: 1%;">
-            <div class="col" style="width: 50%">
+            <div class="col" style="width: 45%">
                 <div class="col">
                     <div class="row">
                         <div class="col-12">
@@ -591,7 +591,7 @@
                     </div>
                 </div>
             </div>
-            <div calss="col" style="width: 50%">
+            <div calss="col" style="width: 55%">
                 <div>
                     <div class="card">
                         <div class="card-header">
@@ -1065,24 +1065,24 @@
 
                 }]
             });
-            // Sembunyikan menu
-            $('#table_queue_robot_all_length').show();
-            $('#table_queue_robot_all_filter').hide();
-            $('#table_queue_robot_all_paginate').hide();
-            $('#table_queue_robot_all_info').show();
+            // // Sembunyikan menu
+            // $('#table_queue_robot_all_length').show();
+            // $('#table_queue_robot_all_filter').hide();
+            // $('#table_queue_robot_all_paginate').hide();
+            // $('#table_queue_robot_all_info').show();
 
-            // Tampilkan menu ketika tombol ditekan
-            $('#search').on('click', function() {
-                $('#table_queue_robot_all_length').toggle();
-                $('#table_queue_robot_all_filter').toggle();
-            });
-            $('#page').on('click', function() {
-                $('#table_queue_robot_all_paginate').toggle();
-                $('#table_queue_robot_all_filter').toggle();
-                $('#table_queue_robot_all_length').toggle();
-                $('#table_queue_robot_all_info').toggle();
+            // // Tampilkan menu ketika tombol ditekan
+            // $('#search').on('click', function() {
+            //     $('#table_queue_robot_all_length').toggle();
+            //     $('#table_queue_robot_all_filter').toggle();
+            // });
+            // $('#page').on('click', function() {
+            //     $('#table_queue_robot_all_paginate').toggle();
+            //     $('#table_queue_robot_all_filter').toggle();
+            //     $('#table_queue_robot_all_length').toggle();
+            //     $('#table_queue_robot_all_info').toggle();
 
-            });
+            // });
 
             $('#table_queue_robot1').DataTable({
                 "pageLength": 10,
@@ -1093,24 +1093,24 @@
 
                 }]
             });
-            // Sembunyikan menu
-            $('#table_queue_robot1_length').show();
-            $('#table_queue_robot1_filter').hide();
-            $('#table_queue_robot1_paginate').hide();
-            $('#table_queue_robot1_info').show();
+            // // Sembunyikan menu
+            // $('#table_queue_robot1_length').show();
+            // $('#table_queue_robot1_filter').hide();
+            // $('#table_queue_robot1_paginate').hide();
+            // $('#table_queue_robot1_info').show();
 
 
-            // Tampilkan menu ketika tombol ditekan
-            $('#search').on('click', function() {
-                $('#table_queue_robot1_length').toggle();
-                $('#table_queue_robot1_filter').toggle();
-            });
-            $('#page').on('click', function() {
-                $('#table_queue_robot1_info').toggle();
-                $('#table_queue_robot1_length').toggle();
-                $('#table_queue_robot1_filter').toggle();
-                $('#table_queue_robot1_paginate').toggle();
-            });
+            // // Tampilkan menu ketika tombol ditekan
+            // $('#search').on('click', function() {
+            //     $('#table_queue_robot1_length').toggle();
+            //     $('#table_queue_robot1_filter').toggle();
+            // });
+            // $('#page').on('click', function() {
+            //     $('#table_queue_robot1_info').toggle();
+            //     $('#table_queue_robot1_length').toggle();
+            //     $('#table_queue_robot1_filter').toggle();
+            //     $('#table_queue_robot1_paginate').toggle();
+            // });
 
 
             $('#table_queue_robot2').DataTable({
@@ -1122,23 +1122,111 @@
 
                 }]
             });
-            // Sembunyikan menu
-            $('#table_queue_robot2_length').show();
+            // // Sembunyikan menu
+
+            // $('#table_queue_robot2_length').show();
+            // $('#table_queue_robot2_filter').hide();
+            // $('#table_queue_robot2_paginate').hide();
+            // $('#table_queue_robot2_info').show();
+
+            // // Tampilkan menu ketika tombol ditekan
+            // $('#search').on('click', function() {
+            //     $('#table_queue_robot2_length').toggle();
+            //     $('#table_queue_robot2_filter').toggle();
+            // });
+            // $('#page').on('click', function() {
+            //     $('#table_queue_robot2_paginate').toggle();
+            //     $('#table_queue_robot2_filter').toggle();
+            //     $('#table_queue_robot2_length').toggle();
+            //     $('#table_queue_robot2_info').toggle();
+
+            // });
+
+            $('#table_queue_robot_all_length').hide();
+            $('#table_queue_robot1_length').hide();
+            $('#table_queue_robot2_length').hide();
+            $('#table_queue_robot_all_filter').hide();
+            $('#table_queue_robot1_filter').hide();
             $('#table_queue_robot2_filter').hide();
+            $('#table_queue_robot_all_paginate').hide();
+            $('#table_queue_robot1_paginate').hide();
             $('#table_queue_robot2_paginate').hide();
+            $('#table_queue_robot_all_info').show();
+            $('#table_queue_robot1_info').show();
             $('#table_queue_robot2_info').show();
+            var searchClickCount = 0;
+            var pageClickCount = 0;
 
-            // Tampilkan menu ketika tombol ditekan
+            // Saat tombol search ditekan
             $('#search').on('click', function() {
-                $('#table_queue_robot2_length').toggle();
-                $('#table_queue_robot2_filter').toggle();
-            });
-            $('#page').on('click', function() {
-                $('#table_queue_robot2_paginate').toggle();
-                $('#table_queue_robot2_filter').hide();
-                $('#table_queue_robot2_length').toggle();
-                $('#table_queue_robot2_info').toggle();
+                searchClickCount++;
 
+                if (searchClickCount % 2 === 1) { // Ganjil (tombol ditekan pertama kali)
+                    $('#table_queue_robot_all_length').hide();
+                    $('#table_queue_robot_all_filter').show();
+                    $('#table_queue_robot_all_paginate').hide();
+                    $('#table_queue_robot_all_info').show();
+                    $('#table_queue_robot1_length').hide();
+                    $('#table_queue_robot1_filter').show();
+                    $('#table_queue_robot1_paginate').hide();
+                    $('#table_queue_robot1_info').show();
+                    $('#table_queue_robot2_length').hide();
+                    $('#table_queue_robot2_filter').show();
+                    $('#table_queue_robot2_paginate').hide();
+                    $('#table_queue_robot2_info').show();
+                    $('#search').attr('style', 'background-color: blue;');
+                } else { // Genap (tombol ditekan kedua kali)
+                    $('#table_queue_robot_all_length').hide();
+                    $('#table_queue_robot_all_filter').hide();
+                    $('#table_queue_robot_all_paginate').hide();
+                    $('#table_queue_robot_all_info').show();
+                    $('#table_queue_robot1_length').hide();
+                    $('#table_queue_robot1_filter').hide();
+                    $('#table_queue_robot1_paginate').hide();
+                    $('#table_queue_robot1_info').show();
+                    $('#table_queue_robot2_length').hide();
+                    $('#table_queue_robot2_filter').hide();
+                    $('#table_queue_robot2_paginate').hide();
+                    $('#table_queue_robot2_info').show();
+                    $('#search').attr('style', '');
+                }
+            });
+
+            // Saat tombol page ditekan
+            $('#page').on('click', function() {
+                pageClickCount++;
+
+                if (pageClickCount % 2 === 1) { // Ganjil (tombol ditekan pertama kali)
+                    $('#table_queue_robot_all_length').show();
+                    $('#table_queue_robot_all_filter').hide();
+                    $('#table_queue_robot_all_paginate').show();
+                    $('#table_queue_robot_all_info').hide();
+                    $('#table_queue_robot1_length').show();
+                    $('#table_queue_robot1_filter').hide();
+                    $('#table_queue_robot1_paginate').show();
+                    $('#table_queue_robot1_info').hide();
+                    $('#table_queue_robot2_length').show();
+                    $('#table_queue_robot2_filter').hide();
+                    $('#table_queue_robot2_paginate').show();
+                    $('#table_queue_robot2_info').hide();
+                    $('#page').attr('style', 'background-color: blue;');
+
+                } else { // Genap (tombol ditekan kedua kali)
+                    $('#table_queue_robot_all_length').hide();
+                    $('#table_queue_robot_all_filter').hide();
+                    $('#table_queue_robot_all_paginate').hide();
+                    $('#table_queue_robot_all_info').show();
+                    $('#table_queue_robot1_length').hide();
+                    $('#table_queue_robot1_filter').hide();
+                    $('#table_queue_robot1_paginate').hide();
+                    $('#table_queue_robot1_info').show();
+                    $('#table_queue_robot2_length').hide();
+                    $('#table_queue_robot2_filter').hide();
+                    $('#table_queue_robot2_paginate').hide();
+                    $('#table_queue_robot2_info').show();
+                    $('#page').attr('style', '');
+
+                }
             });
 
             $('#table_history').DataTable({
