@@ -56,7 +56,7 @@ class Monitor extends BaseController
             $responseData = ["failed" => [], "success" => [], "history" => []];
             //QUEUE ROBOT 1
             $response_data_ongoing_robot1 = [];
-            $response_data_finished_robot1 = [];
+            // $response_data_finished_robot1 = [];
             $response_data_waiting_robot1 = [];
             $statusall_robot1 = [];
 
@@ -73,7 +73,7 @@ class Monitor extends BaseController
 
             //QUEUE ROBOT 2
             $response_data_ongoing_robot2 = [];
-            $response_data_finished_robot2 = [];
+            // $response_data_finished_robot2 = [];
             $response_data_waiting_robot2 = [];
             $statusall_robot2 = [];
 
@@ -86,7 +86,7 @@ class Monitor extends BaseController
 
             //QUEUE ROBOT ALL
             $response_data_ongoing_robotall = [];
-            $response_data_finished_robotall = [];
+            // $response_data_finished_robotall = [];
             $response_data_waiting_robotall = [];
             $allowed_tasks_robotall = [
                 "ProductBV1",
@@ -188,19 +188,19 @@ class Monitor extends BaseController
                             ];
                         }
                             break;
-                        case 1003:
-                            $status_robotall = "finished";
-                            $response_data_finished_robotall[] = [
-                                "task" => $data["defLabel"],
-                                "status" => $status_robotall,
-                                "robot" => $data["agvId"],
-                                "creat"  => date("H:i:s", strtotime($data["createdOn"])),
-                                "end"    => date("H:i:s", strtotime($data["endedOn"])),
+                        // case 1003:
+                        //     $status_robotall = "finished";
+                        //     $response_data_finished_robotall[] = [
+                        //         "task" => $data["defLabel"],
+                        //         "status" => $status_robotall,
+                        //         "robot" => $data["agvId"],
+                        //         "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                        //         "end"    => date("H:i:s", strtotime($data["endedOn"])),
         
-                                // "creat" => $data["createdOn"],
-                                // "end" => $data["endedOn"],
-                            ];
-                            break;
+                        //         // "creat" => $data["createdOn"],
+                        //         // "end" => $data["endedOn"],
+                        //     ];
+                        //     break;
                         default:
                             $status_robotall = "unknown";
                             break;
@@ -234,18 +234,18 @@ class Monitor extends BaseController
                             ];
                         }
                             break;
-                        case 1003:
-                            $status_robot1 = "finished";
-                            $response_data_finished_robot1[] = [
-                                "task" => $data["defLabel"],
-                                "status" => $status_robot1,
-                                "robot" => $data["agvId"],
-                                "creat"  => date("H:i:s", strtotime($data["createdOn"])),
-                                "end"    => date("H:i:s", strtotime($data["endedOn"])),
-                                // "creat" => $data["createdOn"],
-                                // "end" => $data["endedOn"],
-                            ];
-                            break;
+                        // case 1003:
+                        //     $status_robot1 = "finished";
+                        //     $response_data_finished_robot1[] = [
+                        //         "task" => $data["defLabel"],
+                        //         "status" => $status_robot1,
+                        //         "robot" => $data["agvId"],
+                        //         "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                        //         "end"    => date("H:i:s", strtotime($data["endedOn"])),
+                        //         // "creat" => $data["createdOn"],
+                        //         // "end" => $data["endedOn"],
+                        //     ];
+                        //     break;
                         default:
                             $status_robot1 = "unknown";
                             break;
@@ -279,32 +279,35 @@ class Monitor extends BaseController
                             ];
                         }
                             break;
-                        case 1003:
-                            $status_robot2 = "finished";
-                            $response_data_finished_robot2[] = [
-                                "task" => $data["defLabel"],
-                                "status" => $status_robot2,
-                                "robot" => $data["agvId"],
-                                "creat"  => date("H:i:s", strtotime($data["createdOn"])),
-                                "end"    => date("H:i:s", strtotime($data["endedOn"])),
-                                // "creat" => $data["createdOn"],
-                                // "end" => $data["endedOn"],
-                            ];                          
-                            break;
+                        // case 1003:
+                        //     $status_robot2 = "finished";
+                        //     $response_data_finished_robot2[] = [
+                        //         "task" => $data["defLabel"],
+                        //         "status" => $status_robot2,
+                        //         "robot" => $data["agvId"],
+                        //             "creat"  => date("H:i:s", strtotime($data["createdOn"])),
+                        //             "end"    => date("H:i:s", strtotime($data["endedOn"])),
+                        //         // "creat" => $data["createdOn"],
+                        //         // "end" => $data["endedOn"],
+                        //     ];                          
+                        //     break;
                         default:
                             $status_robot2 = "unknown";
                             break;
                     }
                 }
             }
-            $response_data_last_finished_robotall = array_slice($response_data_finished_robotall, 0, 3);
-            $combined_data_robotall = array_merge($response_data_ongoing_robotall, $response_data_waiting_robotall, $response_data_last_finished_robotall);
+            // $response_data_last_finished_robotall = array_slice($response_data_finished_robotall, 0, 3);
+            // $combined_data_robotall = array_merge($response_data_ongoing_robotall, $response_data_waiting_robotall, $response_data_last_finished_robotall);
+            $combined_data_robotall = array_merge($response_data_ongoing_robotall, $response_data_waiting_robotall);
             $response_data_robotall[] = ["queue_robotall" => $combined_data_robotall ];
               
-            $response_data_last_finished_robot1 = array_slice($response_data_finished_robot1, 0, 3);
-            $response_data_last_finished_robot2 = array_slice($response_data_finished_robot2, 0, 3);
-            $combined_data_robot1 = array_merge($response_data_ongoing_robot1, $response_data_waiting_robot1, $response_data_last_finished_robot1);
-            $combined_data_robot2 = array_merge($response_data_ongoing_robot2, $response_data_waiting_robot2, $response_data_last_finished_robot2);
+            // $response_data_last_finished_robot1 = array_slice($response_data_finished_robot1, 0, 3);
+            // $response_data_last_finished_robot2 = array_slice($response_data_finished_robot2, 0, 3);
+            $combined_data_robot1 = array_merge($response_data_ongoing_robot1, $response_data_waiting_robot1);
+            // $combined_data_robot1 = array_merge($response_data_ongoing_robot1, $response_data_waiting_robot1, $response_data_last_finished_robot1);
+            $combined_data_robot2 = array_merge($response_data_ongoing_robot2, $response_data_waiting_robot2);
+            // $combined_data_robot2 = array_merge($response_data_ongoing_robot2, $response_data_waiting_robot2, $response_data_last_finished_robot2);
             $response_data_robot1[] = ["queue_robot1" => $combined_data_robot1];
             $response_data_robot2[] = ["queue_robot2" => $combined_data_robot2];
             $destination_robot1 = "";
