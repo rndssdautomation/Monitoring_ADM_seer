@@ -171,7 +171,7 @@
             </div>
         </div>
         <div class="row" style="margin-left: 1%; margin-right: 1%;">
-            <div class="col" style="width: 45%">
+            <div class="col" style="width: 40%">
                 <div class="col">
                     <div class="row">
                         <div class="col-12">
@@ -591,7 +591,7 @@
                     </div>
                 </div>
             </div>
-            <div calss="col" style="width: 55%">
+            <div calss="col" style="width: 60%">
                 <div>
                     <div class="card">
                         <div class="card-header">
@@ -648,7 +648,7 @@
                                                 <h4>Robot 1</h4>
                                             </div>
                                             <div
-                                                style="overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                style="overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 10px; padding-right: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                                 <p></p>
                                                 <table class="table my-2" id="table_queue_robot1">
                                                     <thead>
@@ -672,7 +672,7 @@
                                                 <h4>Robot 2</h4>
                                             </div>
                                             <div
-                                                style="overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                style="overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 10px; padding-right: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                                 <p></p>
                                                 <table class="table my-2" id="table_queue_robot2">
                                                     <thead>
@@ -701,7 +701,7 @@
                                                 <h4>Robot 1</h4>
                                             </div>
                                             <div
-                                                style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 10px; padding-right: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                                 <p></p>
                                                 <table class="table my-2" id="table_queue_robot1">
                                                     <thead>
@@ -725,7 +725,7 @@
                                                 <h4>Robot 2</h4>
                                             </div>
                                             <div
-                                                style="overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                                style="overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 10px; padding-right: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                                 <p></p>
                                                 <table class="table my-2" id="table_queue_robot2">
                                                     <thead>
@@ -751,7 +751,7 @@
                                         <h4>All robot</h4>
                                     </div>
                                     <div
-                                        style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 50px; padding-right: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                        style="  overflow-x: auto; border: 1px solid; border-color: #435ebe; border-radius: 25px; padding-bottom: 25px; padding-left: 10px; padding-right: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                                         <p></p>
                                         <table class="table my-2" id="table_queue_robot_all">
                                             <thead>
